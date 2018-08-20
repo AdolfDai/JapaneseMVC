@@ -1,0 +1,123 @@
+﻿@using Model.EF
+@model 会話_Table
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "会話", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.会話ID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.会話ID, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.会話ID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課ID, "　第?課 ", new { @class = "control-label" })
+
+                    @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-10">
+                    @Html.LabelFor(model => model.会話, "　会話", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.会話, new { @class = "form-control", id = "txt会話" })
+                    @Html.ValidationMessageFor(model => model.会話, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-10">
+                    @Html.LabelFor(model => model.会話Vietnamese, "　ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.会話Vietnamese, new { @class = "form-control", id = "txt会話Vietnamese" })
+                    @Html.ValidationMessageFor(model => model.会話Vietnamese)
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.会話Image, "　写真", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.会話Image, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up会話Img" />
+                    @Html.HiddenFor(model => model.会話Image)
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.会話Audio, "　Audio", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.会話Audio, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up会話Audio" />
+                    @Html.HiddenFor(model => model.会話Audio)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+        <br />
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                @Html.DropDownList("ddl第課List", (SelectList)ViewBag.第課List, "Select 第課(Daika): ", new { @class = "form-control formatFont12px" })
+                <br />
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="divPartialView" class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var editor = CKEDITOR.replace('txt会話', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor1 = CKEDITOR.replace('txt会話Vietnamese', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            //
+            $("#ddl__List").change(function () {
+                var 第課ID = $(this).val();
+
+                $.ajax({
+                    url: '/Admin/会話/Get/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { 第課ID: 第課ID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+
+        });
+    </script>
+}

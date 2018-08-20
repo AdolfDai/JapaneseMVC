@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MinnaNoNihngoModelStoreContainer" CdmEntityContainer="MinnaNoNihngoEntities">
+    <EntitySetMapping Name="GrammarNihongoes">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.GrammarNihongo">
+        <MappingFragment StoreEntitySet="GrammarNihongo">
+          <ScalarProperty Name="GrammarID" ColumnName="GrammarID" />
+          <ScalarProperty Name="Grammar" ColumnName="Grammar" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+          <ScalarProperty Name="GrammarTitle" ColumnName="GrammarTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="N5動詞_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.N5動詞_Table">
+        <MappingFragment StoreEntitySet="N5動詞-Table">
+          <ScalarProperty Name="N5動詞ID" ColumnName="N5動詞ID" />
+          <ScalarProperty Name="MASU形" ColumnName="MASU形" />
+          <ScalarProperty Name="ベトナム語" ColumnName="ベトナム語" />
+          <ScalarProperty Name="辞書形" ColumnName="辞書形" />
+          <ScalarProperty Name="MASEN形" ColumnName="MASEN形" />
+          <ScalarProperty Name="MASEN辞書形" ColumnName="MASEN辞書形" />
+          <ScalarProperty Name="TA形" ColumnName="TA形" />
+          <ScalarProperty Name="TA辞書形" ColumnName="TA辞書形" />
+          <ScalarProperty Name="MASENDESHITA形" ColumnName="MASENDESHITA形" />
+          <ScalarProperty Name="MASENDESHITA辞書形" ColumnName="MASENDESHITA辞書形" />
+          <ScalarProperty Name="TE形" ColumnName="TE形" />
+          <ScalarProperty Name="グループID" ColumnName="グループID" />
+          <ScalarProperty Name="漢字" ColumnName="漢字" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="グループ_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.グループ_Table">
+        <MappingFragment StoreEntitySet="グループ-Table">
+          <ScalarProperty Name="グループID" ColumnName="グループID" />
+          <ScalarProperty Name="グループ" ColumnName="グループ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="会話_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.会話_Table">
+        <MappingFragment StoreEntitySet="会話-Table">
+          <ScalarProperty Name="会話ID" ColumnName="会話ID" />
+          <ScalarProperty Name="会話" ColumnName="会話" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+          <ScalarProperty Name="会話Image" ColumnName="会話Image" />
+          <ScalarProperty Name="会話Video" ColumnName="会話Video" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="例文_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.例文_Table">
+        <MappingFragment StoreEntitySet="例文-Table">
+          <ScalarProperty Name="例文ID" ColumnName="例文ID" />
+          <ScalarProperty Name="例文" ColumnName="例文" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="問題_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.問題_Table">
+        <MappingFragment StoreEntitySet="問題-Table">
+          <ScalarProperty Name="問題ID" ColumnName="問題ID" />
+          <ScalarProperty Name="問題" ColumnName="問題" />
+          <ScalarProperty Name="問題Img" ColumnName="問題Img" />
+          <ScalarProperty Name="問題Audio" ColumnName="問題Audio" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="文型_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.文型_Table">
+        <MappingFragment StoreEntitySet="文型-Table">
+          <ScalarProperty Name="文型ID" ColumnName="文型ID" />
+          <ScalarProperty Name="文型" ColumnName="文型" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="第課_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.第課_Table">
+        <MappingFragment StoreEntitySet="第課-Table">
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+          <ScalarProperty Name="第課Name" ColumnName="第課Name" />
+          <ScalarProperty Name="第課Subject" ColumnName="第課Subject" />
+          <ScalarProperty Name="言葉audio" ColumnName="言葉audio" />
+          <ScalarProperty Name="会話audio" ColumnName="会話audio" />
+          <ScalarProperty Name="例文audio" ColumnName="例文audio" />
+          <ScalarProperty Name="文型audio" ColumnName="文型audio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="練習A_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.練習A_Table">
+        <MappingFragment StoreEntitySet="練習A-Table">
+          <ScalarProperty Name="練習AID" ColumnName="練習AID" />
+          <ScalarProperty Name="練習A" ColumnName="練習A" />
+          <ScalarProperty Name="練習Answer1" ColumnName="練習Answer1" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+          <ScalarProperty Name="練習AImage" ColumnName="練習AImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="練習BImg">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.練習BImg">
+        <MappingFragment StoreEntitySet="練習BImg">
+          <ScalarProperty Name="練習ImgID" ColumnName="練習ImgID" />
+          <ScalarProperty Name="練習Img" ColumnName="練習Img" />
+          <ScalarProperty Name="練習ImgFlag" ColumnName="練習ImgFlag" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="練習Ｂ_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.練習Ｂ_Table">
+        <MappingFragment StoreEntitySet="練習Ｂ-Table">
+          <ScalarProperty Name="練習ＢID" ColumnName="練習ＢID" />
+          <ScalarProperty Name="練習Ｂ" ColumnName="練習Ｂ" />
+          <ScalarProperty Name="練習ＢAnswer" ColumnName="練習ＢAnswer" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+          <ScalarProperty Name="練習ImgFlag" ColumnName="練習ImgFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="練習C_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.練習C_Table">
+        <MappingFragment StoreEntitySet="練習C-Table">
+          <ScalarProperty Name="練習CID" ColumnName="練習CID" />
+          <ScalarProperty Name="練習C" ColumnName="練習C" />
+          <ScalarProperty Name="練習CAudio" ColumnName="練習CAudio" />
+          <ScalarProperty Name="練習CImg" ColumnName="練習CImg" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="言葉Plus_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.言葉Plus_Table">
+        <MappingFragment StoreEntitySet="言葉Plus-Table">
+          <ScalarProperty Name="言葉PlusID" ColumnName="言葉PlusID" />
+          <ScalarProperty Name="ひらがな" ColumnName="ひらがな" />
+          <ScalarProperty Name="漢字" ColumnName="漢字" />
+          <ScalarProperty Name="音漢字" ColumnName="音漢字" />
+          <ScalarProperty Name="ベトナム語" ColumnName="ベトナム語" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="言葉_Table">
+      <EntityTypeMapping TypeName="MinnaNoNihngoModel.言葉_Table">
+        <MappingFragment StoreEntitySet="言葉-Table">
+          <ScalarProperty Name="言葉ID" ColumnName="言葉ID" />
+          <ScalarProperty Name="ひらがな" ColumnName="ひらがな" />
+          <ScalarProperty Name="漢字" ColumnName="漢字" />
+          <ScalarProperty Name="音漢字" ColumnName="音漢字" />
+          <ScalarProperty Name="ベトナム語" ColumnName="ベトナム語" />
+          <ScalarProperty Name="第課ID" ColumnName="第課ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

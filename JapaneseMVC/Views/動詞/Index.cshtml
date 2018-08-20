@@ -1,0 +1,96 @@
+﻿@using Model.EF
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Home/_HomeLayout.cshtml";
+
+}
+
+<div id="動詞div" class="formatFont12px">
+    <div class="row">
+        <div class="col-md-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><b>動詞</b></li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-2">
+            <label style=" margin-top:5px;" class="text-danger">グループ 動詞:</label>
+            <br />
+        </div>
+        <div class="col-md-4">
+            @Html.DropDownList("ddlグループList", (SelectList)ViewBag.グループList, new { @class = "form-control ddlFormat" })
+            <br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <label class="text-danger">Filter: </label>
+        </div>
+        <div class="col-md-11">
+            <ul class="ul-checkbox">
+                @foreach (Group動詞 item in ViewBag.Group動詞)
+                {
+                    <li class="col-sm-2">
+                        <label>
+                            <input type="checkbox" value="@item.GroupNameID" /> @item.GroupName
+                        </label>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div id="divPartialView"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var グループID = $("#ddl____List").val();
+            //
+            $.ajax({
+                url: "/動詞/Get動詞/",
+                type: "Get",
+                dataType: "html",
+                data: { グループID: グループID },
+                success: function (model) {
+                    $("#divPartialView").html(model);
+                }
+            });
+            //
+            $("#ddl____List").change(function () {
+                var グループID = $(this).val();
+                $.ajax({
+                    url: "/動詞/Get動詞/",
+                    type: "Get",
+                    dataType: "html",
+                    data: { グループID: グループID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                        $(":checkbox").removeAttr('checked');
+                    }
+                });
+            });
+            //
+            $(":checkbox").click(function () {
+                $(':checkbox').not(this).prop('checked', false);
+                var groupId = $(this).val();
+                var グループID = $("#ddl____List").val();
+                $.ajax({
+                    url: "@Url.Action("GetByGroupName")",
+                    data: { groupId: groupId, グループID: グループID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+
+                    }
+                });
+            });
+        });
+    </script>
+}

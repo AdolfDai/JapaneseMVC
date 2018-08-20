@@ -1,0 +1,92 @@
+﻿@using Model.EF
+@model Group動詞
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "Group動詞", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.GroupNameID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.GroupNameID, new { @class = "form-control", @readonly = true })
+                @Html.ValidationMessageFor(model => model.GroupNameID, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.GroupName, "　Group Name", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.GroupName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.Description, "　Description", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "error" })
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <br />
+        <table class="table table-bordered table-hover table-responsive display">
+            <thead>
+                <tr>
+                    <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+                    <th><span class="glyphicon glyphicon-star"></span> グループ</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Group動詞 Item in ViewBag.Group動詞)
+                {
+
+                    <tr>
+                        <td>
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.GroupNameID })">
+                                <span class="glyphicon glyphicon-edit"></span>@Item.GroupNameID
+                            </a>
+                        </td>
+                        <td>@Item.GroupName</td>
+                        <td>@Item.Description</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('table.display').DataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "ordering": false
+            });
+        });
+    </script>
+}

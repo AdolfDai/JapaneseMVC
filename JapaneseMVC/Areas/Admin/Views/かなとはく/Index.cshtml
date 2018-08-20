@@ -1,0 +1,118 @@
+﻿@using Model.EF
+@model かなとはく
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "かなとはく", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Id, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Id, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.Id, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Hiragana, "　ひらがな", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Hiragana, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Hiragana, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Katakana, "　カタカナ", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Katakana, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Katakana, null, new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ColumnWord, "　Colum", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.ColumnWord, new { @class = "form-control", @type = "number", @min = "1" })
+                    @Html.ValidationMessageFor(model => model.ColumnWord, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ImageHiragana, "　ひらがなの　写真", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.ImageHiragana, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="UpImageHiragana" />
+                    @Html.HiddenFor(model => model.ImageHiragana)
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ImageKatakana, "　カタカナの　写真", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.ImageKatakana, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="UpImageKatakana" />
+                    @Html.HiddenFor(model => model.ImageKatakana)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <br />
+        <table class="table table-bordered table-hover table-responsive display">
+            <thead>
+                <tr>
+                    <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+                    <th>ひらがな</th>
+                    <th>ひらがなの　写真</th>
+                    <th>カタカナ</th>
+                    <th>カタカナの　写真</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (かなとはく Item in ViewBag.Items)
+                {
+
+                    <tr>
+
+                        <td>
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.Id })">
+                                <span class="glyphicon glyphicon-edit"></span> @Item.Id
+                            </a>
+                        </td>
+                        <td>@Item.Hiragana</td>
+                        <td><img class="img-circle" src="/img/かなとはく/hiragana/@Item.ImageHiragana" width="50" /></td>
+                        <td>@Item.Katakana</td>
+                        <td><img class="img-circle" src="/img/かなとはく/hiragana/@Item.ImageKatakana" width="50" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            $('table.display').dataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "ordering": false,
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "iDisplayLength": 5,
+            });
+        });
+    </script>}

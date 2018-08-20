@@ -1,0 +1,152 @@
+﻿@using Model.EF
+@model 第課_Table
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "DaiKa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課ID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.第課ID, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課Name, "　第課 Name - Số thứ tự bài học", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.第課Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課Name, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-10">
+                    @Html.LabelFor(model => model.第課Subject, "　第課 Title - Tên chủ đề bài học", new { @class = "control-label" })
+
+                    @Html.Raw(Html.TextAreaFor(model => Model.第課Subject, new { @class = "form-control", id = "txt第課Subject" }))
+                    @Html.ValidationMessageFor(model => model.第課Subject, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.言葉audio, "　Phần nghe 言葉", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.言葉audio, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up言葉" />
+                    @Html.HiddenFor(model => model.言葉audio)
+                </div>
+                <div class="form-group col-md-3">
+
+                    @Html.LabelFor(model => model.例文audio, "　Phần nghe 例文", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.例文audio, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up例文" />
+                    @Html.HiddenFor(model => model.例文audio)
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.文型audio, "　Phần nghe 文型", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.文型audio, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up文型" />
+                    @Html.HiddenFor(model => model.文型audio)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <br />
+        <table class="table table-bordered table-hover table-responsive display">
+            <thead>
+                <tr style="color:black; font-weight:bold">
+                    <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+                    <th><span class="glyphicon glyphicon-headphones"></span></th>
+                    <th><span class="glyphicon glyphicon-list"></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (第課_Table Item in ViewBag.Items)
+                {
+
+                    <tr>
+
+                        <td>
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.第課ID })">
+                                <span class="glyphicon glyphicon-edit"></span>@Item.第課ID
+                            </a>
+                        </td>
+                        <td>
+                            <span style="color:#ff0000;">言葉：@Item.言葉audio</span>
+                            <br />
+                            <audio controls id="myTune">
+                                <source src='/audio/言葉/@Item.言葉audio' type="audio/mpeg" />
+                            </audio>
+                            <br />
+                            <span style="color:#ff0000;">
+                                例文：@Item.例文audio
+                            </span>
+                            <br />
+                            <audio controls id="myTune例文">
+                                <source src='/audio/例文/@Item.例文audio' type="audio/mpeg" />
+                            </audio>
+                            <br />
+                            <span style="color:#ff0000;">
+                                文型：@Item.文型audio
+                            </span>
+                            <br />
+                            <audio controls id="myTune文型">
+                                <source src='/audio/文型/@Item.文型audio' type="audio/mpeg" />
+                            </audio>
+                        </td>
+                        <td>
+                            @Item.第課Name
+                            @Html.Raw(Item.第課Subject)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('table.display').DataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
+                "iDisplayLength": 1,
+                "ordering": false
+            });
+            var editor = CKEDITOR.replace('txt第課Subject', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+        });
+    </script>
+}

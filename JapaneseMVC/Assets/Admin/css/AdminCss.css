@@ -1,0 +1,50 @@
+﻿.formatFont12px {
+    font-family: Calibri;
+    font-size: 12px;
+    font-weight: bold;
+    width: auto;
+}
+/*validation*/
+.error {
+    color: #ff0000;
+}
+span.error {
+    display: block;
+    visibility: hidden;
+    color: red;
+}
+.errorTableList {
+    color: red;
+    padding: 5px;
+    margin-left: 40px;
+}
+/*table*/
+.display thead tr th {
+    color: #0094ff;
+    width: auto;
+}
+.display tbody tr td {
+    width: auto;
+}
+/*table address List*/
+.trHeader td {
+    color: #0094ff;
+}
+/*background*/
+.bg-info {
+    padding: 10px;
+    border-radius: 5px;
+    width: auto;
+}
+
+.bg-danger {
+    padding: 10px;
+    border-radius: 5px;
+    width: auto;
+}
+
+.bg-success {
+    padding: 10px;
+    border-radius: 5px;
+    width:auto;
+}

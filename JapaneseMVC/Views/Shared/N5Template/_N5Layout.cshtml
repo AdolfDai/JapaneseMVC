@@ -1,0 +1,83 @@
+﻿@using Model.EF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>日本語</title>
+    @Styles.Render("~/Core/css")
+    @Styles.Render("~/Client/css")
+    @Scripts.Render("~/Core/modernizr")
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand text-center" href="/Home/Index">
+                    <img src="~/img/bg/jpbg.png" height="40" style="margin-top:-10px; margin-left:50px" />
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right formatFont12px">
+                <li><a href="/動詞/Index">動詞</a></li>
+                <li><a href="/漢字/Index">漢字</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <span class="fa fa-caret-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a id="練習A" href="#"> Login</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav formatFont12px" id="side-menu">
+                        <li>
+                            @Html.Action("_N5第課Category", "Home")
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            @RenderBody()
+            <!-- /.row -->
+            <br />
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <div id="footer" class="container-fluid formatFont12px">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-11">© Copyright 2017 日本語 Site Developed by Dai Nguyen - Hello 日本 </div>
+
+                <div class=" col-lg-1">
+                    <a href="#" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/Core/js")
+    @Scripts.Render("~/Core/jquery")
+    @Scripts.Render("~/Client/js")
+    @RenderSection("N5scripts", false)
+</body>
+</html>

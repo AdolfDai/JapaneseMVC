@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese</title>
+    @Styles.Render("~/Core/css")
+    @Styles.Render("~/Admin/css")
+    @Scripts.Render("~/Core/modernizr")
+</head>
+<body id="bodyLogin">
+    <div class="container">
+        <div class="row">
+            <div id="login-form" class="col-md-12">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3"><hr /></div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-lg-11" style="color:white; margin-left:50px; font-weight:bold; font-variant:small-caps">
+                © Copyright 2017 日本語 Site Developed by Dai Nguyen - Hello 日本
+            </div>
+            <div class=" col-lg-1">
+                <a href="#" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+            </div>
+        </div>
+        <br />
+    </div>
+    @Scripts.Render("~/Core/js")
+    @Scripts.Render("~/Core/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

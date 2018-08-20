@@ -1,0 +1,15 @@
+{
+  "name": "JapaneseMVC",
+  "authors": [
+    "AdolfDai <adolfdai88@gmail.com>"
+  ],
+  "description": "Japanese Website",
+  "main": "bower",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "angularjs#^1.7.3",
+    "react": "^16.1.0",
+    "bootstrap-calendar": "calendar#^0.2.4"
+  }
+}

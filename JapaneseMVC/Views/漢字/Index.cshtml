@@ -1,0 +1,62 @@
+﻿@using Model.EF;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Home/_HomeLayout.cshtml";
+}
+
+<div id="漢字div" class="formatFont12px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><b>漢字</b></li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-2">
+                <label style=" margin-top:5px;" class="text-danger ">Chọn 第？課</label>
+            </div>
+            <div class="col-md-6">
+                @Html.DropDownList("ddl第課List", (SelectList)ViewBag.第課List, new { @class = "form-control ddlFormat" })
+            </div>
+        </div>
+        <div class="row">
+            <div id="divPartialView">
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var 第課ID = $("#ddl__List").val();
+            //
+            $.ajax({
+                url: '/漢字/Get漢字/',
+                type: "Get",
+                dataType: "html",
+                data: { 第課ID: 第課ID },
+                success: function (model) {
+                    $("#divPartialView").html(model);
+                }
+            });
+            $("#ddl__List").change(function () {
+                var 第課ID = $(this).val();
+                $.ajax({
+                    url: '/漢字/Get漢字/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { 第課ID: 第課ID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+        });
+    </script>
+}

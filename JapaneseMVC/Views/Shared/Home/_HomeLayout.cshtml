@@ -1,0 +1,74 @@
+﻿@using Model.EF
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese</title>
+
+    @Styles.Render("~/Core/css")
+    @Styles.Render("~/Client/css")
+    @Scripts.Render("~/Core/modernizr")
+</head>
+<body>
+
+    <nav id="navHome" class="navbar navbar-inverse container-fluid formatFont14px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand text-center" href="/Home/Index">
+                    <img src="~/img/bg/jpbg.png" height="40" style="margin-top:-10px; margin-left:50px" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <!--Menu-->
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/Home/Index"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="/Music/Index"><span class="glyphicon glyphicon-music"></span>  Music</a></li>
+                    <li><a href="/Blog/Index"><span class="glyphicon glyphicon-new-window"></span>  Blog</a></li>
+                    <li><a href="/News/Index"><span class="glyphicon glyphicon-paperclip"></span>  News</a></li>
+                    <li><a href="/Home/Contact"><span class="glyphicon glyphicon-send"></span>  Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-globe "></span> <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="languages">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="vi">Tiếng Việt</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!--Menu-->
+            </div>
+        </div>
+    </nav>
+
+    <div id="mainContent" class="container">
+        @RenderBody()
+        <br />
+    </div>
+
+    <div id="footer" class="container-fluid formatFont12px">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-11">© Copyright 2017 日本語 Site Developed by Dai Nguyen - Hello 日本 </div>
+
+                <div class=" col-lg-1">
+                    <a href="#" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/Core/js")
+    @Scripts.Render("~/Core/jquery")
+    @Scripts.Render("~/Client/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

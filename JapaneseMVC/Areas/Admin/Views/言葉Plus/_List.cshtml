@@ -1,0 +1,44 @@
+﻿@using Model.EF
+
+<table class="table table-bordered table-hover table-responsive display">
+    <thead>
+        <tr>
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+            <th>ひらがな</th>
+            <th>漢字</th>
+            <th>音漢字</th>
+            <th>ベトナム語</th>
+            <th>第課</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (言葉Plus_Table Item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.言葉PlusID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.言葉PlusID
+                    </a>
+                </td>
+                <td>@Item.ひらがな</td>
+                <td>@Item.漢字</td>
+                <td>@Item.音漢字</td>
+                <td>@Item.ベトナム語</td>
+                <td>@Item.第課ID</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            "ordering": false
+        });
+    });
+</script>

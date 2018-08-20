@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin Site</title>
+    <!-- Bootstrap Core CSS -->
+    @Styles.Render("~/Core/css")
+    @Styles.Render("~/Admin/css")
+    @Scripts.Render("~/Core/modernizr")
+</head>
+<body>
+    <div id="wrapperAdmin">
+        @RenderPage("_Navigation.cshtml")
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @RenderBody()
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    @Scripts.Render("~/Core/js")
+    @Scripts.Render("~/Core/jquery")
+    @Scripts.Render("~/Admin/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

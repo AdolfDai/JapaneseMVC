@@ -1,0 +1,378 @@
+﻿@using Model.EF
+@model N5動詞_Table
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#addlist" data-toggle="tab">リストに　追加する</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "動詞", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.N5動詞ID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.N5動詞ID, new { @class = "form-control", @readonly = true })
+                @Html.ValidationMessageFor(model => model.N5動詞ID, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.グループID, "　グループ", new { @class = "control-label" })
+
+                @Html.DropDownListFor(model => model.グループID, (SelectList)ViewBag.グループList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.グループID, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.GroupNameID, "　Group", new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.GroupNameID, (SelectList)ViewBag.GroupName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GroupNameID, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.ベトナム語, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.辞書形, "　辞書形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.辞書形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.辞書形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ます形, "　ます形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ます形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ます形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ません形, "　ません形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ません形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ません形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ない形, "　ない形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ない形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ない形, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ました形, "　ました形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ました形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ました形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.た形, "　た形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.た形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.た形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ませんでした形, "　ませんでした形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ませんでした形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ませんでした形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.なかった形, "　なかった形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.なかった形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.なかった形, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.て形, "　て形", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.て形, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.て形, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.漢字, "　漢字", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.漢字, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.漢字, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div id="addlist" class="tab-pane fade formatFont12px">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <table class="table table-bordered table-striped table-responsive display">
+                    <thead>
+                        <tr class="trHeader">
+                            <th>ます形</th>
+                            <th>ません形</th>
+                            <th>た形</th>
+                            <th>ませんでした形</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="input-sm" id="MASU形" /><span class="error">Không được để trống</span></td>
+                            <td><input type="text" class="input-sm" id="MASEN形" /><span class="error">Không được để trống</span></td>
+                            <td><input type="text" class="input-sm" id="TA形" /><span class="error">Không được để trống</span></td>
+                            <td><input type="text" class="input-sm" id="MASENDESHITA形" /><span class="error">Không được để trống</span></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+
+                        <tr class="trHeader">
+                            <th>辞書形</th>
+                            <th>ない形</th>
+                            <th>た辞書形</th>
+                            <th>ませんでした辞書形</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" class="input-sm" id="辞書形" /><span class="error">Không được để trống</span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-sm" id="MASEN辞書形" /><span class="error">Không được để trống</span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-sm" id="TA辞書形" /><span class="error">Không được để trống</span>
+                            </td>
+                            <td>
+                                <input type="text" class="input-sm" id="MASENDESHITA辞書形" /><span class="error">Không được để trống</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr class="trHeader">
+                            <th>漢字</th>
+                            <th>て形</th>
+                            <th>ベトナム語</th>
+                            <th>グループID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" class="input-sm" id="漢字" /><span class="error">Không được để trống</span></td>
+                            <td><input type="text" class="input-sm" id="TE形" /><span class="error">Không được để trống</span></td>
+                            <td><input type="text" class="input-sm" id="ベトナム語" /><span class="error">Không được để trống</span></td>
+                            <td><input type="number" class="input-sm" id="グループID" min="1" max="3" /><span class="error">Không được để trống</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-sm btn-primary" id="add" type="submit">Add into table.</button>
+            </div>
+        </div>
+        <h4 class="page-header">Table list ...</h4>
+        <div class="row">
+            <div class="col-md-12" id="divList">
+
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <button type="submit" id="save" class="btn btn-primary">Save into database.</button>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                @Html.DropDownList("ddlグループList", (SelectList)ViewBag.グループList, "Select グループ: ", new { @class = "form-control" })
+                <br />
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="divPartialView" class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#ddl____List").change(function () {
+                var グループID = $(this).val();
+
+                $.ajax({
+                    url: '/Admin/動詞/Get/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { グループID: グループID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+        });
+
+        //add List
+        $(function () {
+            var listItems = [];
+            $('#divList').html('<span class="errorTableList bg-danger">No items here!!</span>');
+            //3. function save button
+            $('#save').click(function () {
+                var isAllValid = true;
+
+                if (listItems.length == 0) {
+                    isAllValid = false;
+                    $('#divList').html('<span class="errorTableList bg-danger">Please add an item!!</span>');
+                }
+                if (isAllValid) {
+                    var data = listItems;
+                    $.ajax({
+                        url: '/Admin/動詞/SaveItem/',
+                        data: JSON.stringify(data),
+                        type: 'POST',
+                        dataType: 'JSON',
+                        contentType: 'application/json',
+                        success: function (d) {
+                            if (d.status == true) {
+                                alert('Save successful!!');
+                                listItems = [];
+                                $('#divList').empty();
+                            } else {
+                                alert('Save failed!!');
+                            }
+                        },
+                        error: function () {
+                            alert('Please try again!!');
+                        }
+                    });
+                }
+            });
+            //2. function add button
+            $('#add').click(function () {
+                var isValidItem = true;
+                if ($('#漢字').val().trim() == '') { isValidItem = false; $('#漢字').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#漢字').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ベトナム語').val().trim() == '') { isValidItem = false; $('#ベトナム語').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ベトナム語').siblings('span.error').css('visibility', 'hidden'); }
+
+                if (!($('#グループID').val().trim() != '' && !isNaN($('#グループID').val().trim()))) { isValidItem = false; $('#グループID').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#グループID').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#て形').val().trim() == '') { isValidItem = false; $('#て形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#て形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ます形').val().trim() == '') { isValidItem = false; $('#ます形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ます形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#辞書形').val().trim() == '') { isValidItem = false; $('#辞書形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#辞書形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ません形').val().trim() == '') { isValidItem = false; $('#ません形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ません形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ない形').val().trim() == '') { isValidItem = false; $('#Mない形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ない形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ました形').val().trim() == '') { isValidItem = false; $('#ました形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ました形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#た形').val().trim() == '') { isValidItem = false; $('#た形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#た形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#ませんでした形').val().trim() == '') { isValidItem = false; $('#ませんでした形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#ませんでした形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if ($('#なかった形').val().trim() == '') { isValidItem = false; $('#なかった形').siblings('span.error').css('visibility', 'visible'); }
+                else { $('#なかった形').siblings('span.error').css('visibility', 'hidden'); }
+
+                if (isValidItem) {
+                    listItems.push({
+                        漢字: $('#漢字').val().trim(),
+                        ベトナム語: $('#ベトナム語').val().trim(),
+                        グループID: parseInt($('#グループID').val().trim()),
+                        TE形: $('#て形').val().trim(),
+                        MASU形: $('#ます形').val().trim(),
+                        辞書形: $('#辞書形').val().trim(),
+                        MASEN形: $('#ません形').val().trim(),
+                        MASEN辞書形: $('#ない形').val().trim(),
+                        TA形: $('#ました形').val().trim(),
+                        TA辞書形: $('#た形').val().trim(),
+                        MASENDESHITA形: $('#ませんでした形').val().trim(),
+                        MASENDESHITA辞書形: $('#なかった形').val().trim(),
+                    });
+                    $('#漢字').val('').focus();
+                    $('#ベトナム語,#TE形,#ます形,#辞書形,#ません形,#ない形,#ました形,#た形,#ませんでした形,#なかった形').val('');
+                }
+                GenerateTable();
+            });
+            //1. Generate TAble
+            function GenerateTable() {
+                if (listItems.length > 0) {
+                    var $table = $('<table />');
+                    var c1 = '<th>ます形</th><th>ません形</th><th>ました形</th><th>ませんでした形</th>';
+                    var c2 = '<th>辞書形</th><th>ない形</th><th>た形</th><th>なかった形</th>';
+                    var c3 = '<th>漢字</th><th>て形</th><th>ベトナム語</th><th>グループID</th>';
+                    $table.append('<thead><tr>' + c1 + c2 + c3 + '</tr></thead>');
+                    var $tbody = $('<tbody />');
+                    $.each(listItems, function (i, val) {
+                        var $row = $('<tr />');
+                        $row.append($('<td />').html(val.MASU形));
+                        $row.append($('<td />').html(val.辞書形));
+                        $row.append($('<td />').html(val.MASEN形));
+                        $row.append($('<td />').html(val.MASEN辞書形));
+
+                        $row.append($('<td />').html(val.TA形));
+                        $row.append($('<td />').html(val.TA辞書形));
+                        $row.append($('<td />').html(val.MASENDESHITA形));
+                        $row.append($('<td />').html(val.MASENDESHITA辞書形));
+
+                        $row.append($('<td />').html(val.漢字));
+                        $row.append($('<td />').html(val.TE形));
+                        $row.append($('<td />').html(val.ベトナム語));
+                        $row.append($('<td />').html(val.グループID));
+
+                        $row.css("border", "1px solid black");
+                        $tbody.append($row);
+                    });
+                    $table.append($tbody);
+                    $table.addClass("table table-bordered table-responsive display");
+
+                    $table.css("border", "2px solid black");
+                    $('#divList').html($table);
+                }
+            };
+
+        });
+    </script>
+}

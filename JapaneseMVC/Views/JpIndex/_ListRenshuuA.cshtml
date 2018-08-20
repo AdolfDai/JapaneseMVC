@@ -1,0 +1,58 @@
+﻿@using Model.EF
+@foreach (練習A_Table Item in Model)
+{
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+            <button class="btn btn-sm btn-primary" disabled id="btn12px">12px</button>
+            <button class="btn btn-sm btn-primary" id="btn14px">14px</button>
+            <button class="btn btn-sm btn-primary" id="btn16px">16px</button>
+            <button class="btn btn-sm btn-primary" id="showHint">ベトナム語</button>
+            <br />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-8 formatFont12px changePx">
+            @Html.Raw(@Item.練習Answer1)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1 bg-info showHint formatFont12px">
+            @Html.Raw(Item.練習AVietnamese)
+        </div>
+    </div>
+}
+<script>
+    $('div.showHint').hide();
+    //Change pixel
+    $(function () {
+        $('button#btn12px').click(function () {
+            $('.changePx').removeClass("formatFont14px");
+            $('.changePx').removeClass("formatFont16px");
+            $('.changePx').addClass("formatFont12px");
+            $(this).prop('disabled', true);
+            $('button#btn14px').prop('disabled', false);
+            $('button#btn16px').prop('disabled', false);
+        });
+        $('button#btn14px').click(function () {
+            $('.changePx').removeClass("formatFont12px");
+            $('.changePx').removeClass("formatFont16px");
+            $('.changePx').addClass("formatFont14px");
+            $(this).prop('disabled', true);
+            $('button#btn12px').prop('disabled', false);
+            $('button#btn16px').prop('disabled', false);
+        });
+        $('button#btn16px').click(function () {
+            $('.changePx').removeClass("formatFont12px");
+            $('.changePx').removeClass("formatFont14px");
+            $('.changePx').addClass("formatFont16px");
+            $(this).prop('disabled', true);
+            $('button#btn12px').prop('disabled', false);
+            $('button#btn14px').prop('disabled', false);
+        });
+        //showHint
+        $('button#showHint').click(function () {
+            $('div.showHint').toggle();
+        });
+    });
+</script>

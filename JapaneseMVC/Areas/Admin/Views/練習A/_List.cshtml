@@ -1,0 +1,59 @@
+﻿@using Model.EF
+
+<style>
+    .tooltip-inner {
+        max-width: 800px !important;
+        text-align: left !important;
+    }
+</style>
+
+<table class="table table-hover table-responsive display">
+    <thead>
+        <tr style="color:black; font-weight:bold;">
+            <td><span class="glyphicon glyphicon-sort-by-attributes"></span> ID</td>
+            <td><span class="glyphicon glyphicon-font"></span> 練習Ａ</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (練習A_Table Item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習AID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.練習AID Edit
+                    </a>
+                </td>
+                <td>
+                    @Item.第課_Table.第課Name
+                    @Html.Raw(Item.第課_Table.第課Subject)
+                    <br />
+                    @Html.Raw(Item.練習A)
+                    <hr />
+                    <div data-toggle="tooltip" data-placement="top" data-html="true" title="@Item.練習AVietnamese">
+                        @Html.Raw(Item.練習Answer1)
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            'bProcessing': true,
+            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
+            "iDisplayLength": 1,
+            "ordering": false
+        });
+
+    });
+    //tooltip
+    $('[data-toggle="tooltip"]').tooltip({
+        container: "body"
+    })
+</script>

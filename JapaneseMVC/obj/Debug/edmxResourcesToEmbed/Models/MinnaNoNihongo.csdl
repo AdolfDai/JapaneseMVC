@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinnaNoNihngoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GrammarNihongo">
+    <Key>
+      <PropertyRef Name="GrammarID" />
+    </Key>
+    <Property Name="GrammarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grammar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <Property Name="GrammarTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_GrammarNihongo_第課_Table" FromRole="GrammarNihongo" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="N5動詞_Table">
+    <Key>
+      <PropertyRef Name="N5動詞ID" />
+    </Key>
+    <Property Name="N5動詞ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASU形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ベトナム語" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="辞書形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MASEN形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MASEN辞書形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TA形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TA辞書形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MASENDESHITA形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MASENDESHITA辞書形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TE形" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="グループID" Type="Int32" />
+    <Property Name="漢字" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="グループ_Table" Relationship="Self.FK_N5動詞_Table_グループ_Table" FromRole="N5動詞_Table" ToRole="グループ_Table" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserRoleID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="グループ_Table">
+    <Key>
+      <PropertyRef Name="グループID" />
+    </Key>
+    <Property Name="グループID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="グループ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="N5動詞_Table" Relationship="Self.FK_N5動詞_Table_グループ_Table" FromRole="グループ_Table" ToRole="N5動詞_Table" />
+  </EntityType>
+  <EntityType Name="会話_Table">
+    <Key>
+      <PropertyRef Name="会話ID" />
+    </Key>
+    <Property Name="会話ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="会話" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <Property Name="会話Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="会話Video" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_会話_Table_第課_Table" FromRole="会話_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="例文_Table">
+    <Key>
+      <PropertyRef Name="例文ID" />
+    </Key>
+    <Property Name="例文ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="例文" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_例文_Table_第課_Table" FromRole="例文_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="問題_Table">
+    <Key>
+      <PropertyRef Name="問題ID" />
+    </Key>
+    <Property Name="問題ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="問題" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="問題Img" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="問題Audio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_問題_Table_第課_Table" FromRole="問題_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="文型_Table">
+    <Key>
+      <PropertyRef Name="文型ID" />
+    </Key>
+    <Property Name="文型ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="文型" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_文型_Table_第課_Table" FromRole="文型_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="第課_Table">
+    <Key>
+      <PropertyRef Name="第課ID" />
+    </Key>
+    <Property Name="第課ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="第課Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課Subject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="言葉audio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="会話audio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="例文audio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="文型audio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GrammarNihongoes" Relationship="Self.FK_GrammarNihongo_第課_Table" FromRole="第課_Table" ToRole="GrammarNihongo" />
+    <NavigationProperty Name="会話_Table" Relationship="Self.FK_会話_Table_第課_Table" FromRole="第課_Table" ToRole="会話_Table" />
+    <NavigationProperty Name="例文_Table" Relationship="Self.FK_例文_Table_第課_Table" FromRole="第課_Table" ToRole="例文_Table" />
+    <NavigationProperty Name="問題_Table" Relationship="Self.FK_問題_Table_第課_Table" FromRole="第課_Table" ToRole="問題_Table" />
+    <NavigationProperty Name="文型_Table" Relationship="Self.FK_文型_Table_第課_Table" FromRole="第課_Table" ToRole="文型_Table" />
+    <NavigationProperty Name="練習A_Table" Relationship="Self.FK_練習A_Table_第課_Table" FromRole="第課_Table" ToRole="練習A_Table" />
+    <NavigationProperty Name="練習BImg" Relationship="Self.FK_練習BImg_第課_Table" FromRole="第課_Table" ToRole="練習BImg" />
+    <NavigationProperty Name="練習Ｂ_Table" Relationship="Self.FK_練習Ｂ_Table_第課_Table" FromRole="第課_Table" ToRole="練習Ｂ_Table" />
+    <NavigationProperty Name="練習C_Table" Relationship="Self.FK_練習C_第課_Table" FromRole="第課_Table" ToRole="練習C_Table" />
+    <NavigationProperty Name="言葉Plus_Table" Relationship="Self.FK_言葉Plus_Table_第課_Table" FromRole="第課_Table" ToRole="言葉Plus_Table" />
+    <NavigationProperty Name="言葉_Table" Relationship="Self.FK_言葉_Table_第課_Table" FromRole="第課_Table" ToRole="言葉_Table" />
+  </EntityType>
+  <EntityType Name="練習A_Table">
+    <Key>
+      <PropertyRef Name="練習AID" />
+    </Key>
+    <Property Name="練習AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="練習A" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="練習Answer1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <Property Name="練習AImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_練習A_Table_第課_Table" FromRole="練習A_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="練習BImg">
+    <Key>
+      <PropertyRef Name="練習ImgID" />
+    </Key>
+    <Property Name="練習ImgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="練習Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="練習ImgFlag" Type="Int32" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_練習BImg_第課_Table" FromRole="練習BImg" ToRole="第課_Table" />
+    <NavigationProperty Name="練習Ｂ_Table" Relationship="Self.FK_練習BImg_練習Ｂ_Table" FromRole="練習BImg" ToRole="練習Ｂ_Table" />
+  </EntityType>
+  <EntityType Name="練習Ｂ_Table">
+    <Key>
+      <PropertyRef Name="練習ＢID" />
+    </Key>
+    <Property Name="練習ＢID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="練習Ｂ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="練習ＢAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" Nullable="false" />
+    <Property Name="練習ImgFlag" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_練習Ｂ_Table_第課_Table" FromRole="練習Ｂ_Table" ToRole="第課_Table" />
+    <NavigationProperty Name="練習BImg" Relationship="Self.FK_練習BImg_練習Ｂ_Table" FromRole="練習Ｂ_Table" ToRole="練習BImg" />
+  </EntityType>
+  <EntityType Name="練習C_Table">
+    <Key>
+      <PropertyRef Name="練習CID" />
+    </Key>
+    <Property Name="練習CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="練習C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="練習CAudio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="練習CImg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_練習C_第課_Table" FromRole="練習C_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="言葉Plus_Table">
+    <Key>
+      <PropertyRef Name="言葉PlusID" />
+    </Key>
+    <Property Name="言葉PlusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ひらがな" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="漢字" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="音漢字" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ベトナム語" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_言葉Plus_Table_第課_Table" FromRole="言葉Plus_Table" ToRole="第課_Table" />
+  </EntityType>
+  <EntityType Name="言葉_Table">
+    <Key>
+      <PropertyRef Name="言葉ID" />
+    </Key>
+    <Property Name="言葉ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ひらがな" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="漢字" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="音漢字" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ベトナム語" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="第課ID" Type="Int32" />
+    <NavigationProperty Name="第課_Table" Relationship="Self.FK_言葉_Table_第課_Table" FromRole="言葉_Table" ToRole="第課_Table" />
+  </EntityType>
+  <Association Name="FK_GrammarNihongo_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="GrammarNihongo" Type="Self.GrammarNihongo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="GrammarNihongo">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_N5動詞_Table_グループ_Table">
+    <End Role="グループ_Table" Type="Self.グループ_Table" Multiplicity="0..1" />
+    <End Role="N5動詞_Table" Type="Self.N5動詞_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="グループ_Table">
+        <PropertyRef Name="グループID" />
+      </Principal>
+      <Dependent Role="N5動詞_Table">
+        <PropertyRef Name="グループID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_会話_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="会話_Table" Type="Self.会話_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="会話_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_例文_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="例文_Table" Type="Self.例文_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="例文_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_問題_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="問題_Table" Type="Self.問題_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="問題_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_文型_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="1" />
+    <End Role="文型_Table" Type="Self.文型_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="文型_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_練習A_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="練習A_Table" Type="Self.練習A_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="練習A_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_練習BImg_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="練習BImg" Type="Self.練習BImg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="練習BImg">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_練習Ｂ_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="1" />
+    <End Role="練習Ｂ_Table" Type="Self.練習Ｂ_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="練習Ｂ_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_練習C_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="練習C_Table" Type="Self.練習C_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="練習C_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_言葉Plus_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="言葉Plus_Table" Type="Self.言葉Plus_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="言葉Plus_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_言葉_Table_第課_Table">
+    <End Role="第課_Table" Type="Self.第課_Table" Multiplicity="0..1" />
+    <End Role="言葉_Table" Type="Self.言葉_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="第課_Table">
+        <PropertyRef Name="第課ID" />
+      </Principal>
+      <Dependent Role="言葉_Table">
+        <PropertyRef Name="第課ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_練習BImg_練習Ｂ_Table">
+    <End Role="練習Ｂ_Table" Type="Self.練習Ｂ_Table" Multiplicity="0..1" />
+    <End Role="練習BImg" Type="Self.練習BImg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="練習Ｂ_Table">
+        <PropertyRef Name="練習ＢID" />
+      </Principal>
+      <Dependent Role="練習BImg">
+        <PropertyRef Name="練習ImgFlag" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinnaNoNihngoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GrammarNihongoes" EntityType="Self.GrammarNihongo" />
+    <EntitySet Name="N5動詞_Table" EntityType="Self.N5動詞_Table" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="グループ_Table" EntityType="Self.グループ_Table" />
+    <EntitySet Name="会話_Table" EntityType="Self.会話_Table" />
+    <EntitySet Name="例文_Table" EntityType="Self.例文_Table" />
+    <EntitySet Name="問題_Table" EntityType="Self.問題_Table" />
+    <EntitySet Name="文型_Table" EntityType="Self.文型_Table" />
+    <EntitySet Name="第課_Table" EntityType="Self.第課_Table" />
+    <EntitySet Name="練習A_Table" EntityType="Self.練習A_Table" />
+    <EntitySet Name="練習BImg" EntityType="Self.練習BImg" />
+    <EntitySet Name="練習Ｂ_Table" EntityType="Self.練習Ｂ_Table" />
+    <EntitySet Name="練習C_Table" EntityType="Self.練習C_Table" />
+    <EntitySet Name="言葉Plus_Table" EntityType="Self.言葉Plus_Table" />
+    <EntitySet Name="言葉_Table" EntityType="Self.言葉_Table" />
+    <AssociationSet Name="FK_GrammarNihongo_第課_Table" Association="Self.FK_GrammarNihongo_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="GrammarNihongo" EntitySet="GrammarNihongoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_N5動詞_Table_グループ_Table" Association="Self.FK_N5動詞_Table_グループ_Table">
+      <End Role="グループ_Table" EntitySet="グループ_Table" />
+      <End Role="N5動詞_Table" EntitySet="N5動詞_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_会話_Table_第課_Table" Association="Self.FK_会話_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="会話_Table" EntitySet="会話_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_例文_Table_第課_Table" Association="Self.FK_例文_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="例文_Table" EntitySet="例文_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_問題_Table_第課_Table" Association="Self.FK_問題_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="問題_Table" EntitySet="問題_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_文型_Table_第課_Table" Association="Self.FK_文型_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="文型_Table" EntitySet="文型_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_練習A_Table_第課_Table" Association="Self.FK_練習A_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="練習A_Table" EntitySet="練習A_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_練習BImg_第課_Table" Association="Self.FK_練習BImg_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="練習BImg" EntitySet="練習BImg" />
+    </AssociationSet>
+    <AssociationSet Name="FK_練習Ｂ_Table_第課_Table" Association="Self.FK_練習Ｂ_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="練習Ｂ_Table" EntitySet="練習Ｂ_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_練習C_第課_Table" Association="Self.FK_練習C_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="練習C_Table" EntitySet="練習C_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_言葉Plus_Table_第課_Table" Association="Self.FK_言葉Plus_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="言葉Plus_Table" EntitySet="言葉Plus_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_言葉_Table_第課_Table" Association="Self.FK_言葉_Table_第課_Table">
+      <End Role="第課_Table" EntitySet="第課_Table" />
+      <End Role="言葉_Table" EntitySet="言葉_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_練習BImg_練習Ｂ_Table" Association="Self.FK_練習BImg_練習Ｂ_Table">
+      <End Role="練習Ｂ_Table" EntitySet="練習Ｂ_Table" />
+      <End Role="練習BImg" EntitySet="練習BImg" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
