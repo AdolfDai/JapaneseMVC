@@ -1,0 +1,69 @@
+﻿@using Model.EF
+
+<table class="table table-bordered table-hover table-responsive display">
+    <thead>
+        <tr>
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+            <th>漢字</th>
+            <th>ます形ー辞書形</th>
+            <th>ません形ーない形</th>
+            <th>ました形ーた形</th>
+            <th>ませんでした形ーなかった形</th>
+            <th>て形</th>
+            <th>Group</th>
+            <th>ベトナム語</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (N5動詞_Table Item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.N5動詞ID })">
+                        <span class="glyphicon glyphicon-edit"></span>@Item.N5動詞ID
+                    </a>
+                </td>
+                <td>@Item.漢字</td>
+                <td>
+                    @Item.ます形
+                    <br />
+                    <span class="text-danger">@Item.辞書形</span>
+                </td>
+                <td>
+                    @Item.ません形
+                    <br />
+                    <span class="text-danger">@Item.ない形</span>
+                </td>
+                <td>
+                    @Item.ました形
+                    <br />
+                    <span class="text-danger">@Item.た形</span>
+                </td>
+                <td>
+                    @Item.ませんでした形
+                    <br />
+                    <span class="text-danger">@Item.なかった形</span>
+                </td>
+                <td>
+                    @Item.て形
+                </td>
+                <td>@Item.Group動詞.GroupName</td>
+                <td>@Item.ベトナム語</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            "ordering": false
+        });
+    });
+</script>

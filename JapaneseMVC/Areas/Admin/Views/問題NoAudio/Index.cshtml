@@ -1,0 +1,254 @@
+﻿@using Model.EF
+@model 問題_Table
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "問題NoAudio", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.問題ID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.問題ID, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.問題ID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課ID, "　第?課", new { @class = "control-label" })
+
+                    @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題, "　問題", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題, new { @class = "form-control", id = "txt問題" })
+                    @Html.ValidationMessageFor(model => model.問題, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題Text, "　Text", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題Text, new { @class = "form-control", id = "txt問題Text" })
+                    @Html.ValidationMessageFor(model => model.問題Text, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題Rei, "　例", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題Rei, new { @class = "form-control", id = "txt問題Rei" })
+                    @Html.ValidationMessageFor(model => model.問題Rei, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNIRei, "　例ーベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNIRei, new { @class = "form-control", id = "txt問題VNIRei" })
+                    @Html.ValidationMessageFor(model => model.問題VNIRei, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題1, "　問題１", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題1, new { @class = "form-control", id = "txt問題1" })
+                    @Html.ValidationMessageFor(model => model.問題1, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNI1, "　問題１ーベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNI1, new { @class = "form-control", id = "txt問題VNI1" })
+                    @Html.ValidationMessageFor(model => model.問題VNI1, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題2, "　問題２", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題2, new { @class = "form-control", id = "txt問題2" })
+                    @Html.ValidationMessageFor(model => model.問題2, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNI2, "　問題２－ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNI2, new { @class = "form-control", id = "txt問題VNI2" })
+                    @Html.ValidationMessageFor(model => model.問題VNI2, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題3, "　問題３", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題3, new { @class = "form-control", id = "txt問題3" })
+                    @Html.ValidationMessageFor(model => model.問題3)
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNI3, "　問題３－ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNI3, new { @class = "form-control", id = "txt問題VNI3" })
+                    @Html.ValidationMessageFor(model => model.問題VNI3, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題4, "　問題４", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題4, new { @class = "form-control", id = "txt問題4" })
+                    @Html.ValidationMessageFor(model => model.問題4)
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNI4, "　問題４－ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNI4, new { @class = "form-control", id = "txt問題VNI4" })
+                    @Html.ValidationMessageFor(model => model.問題VNI4, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題5, "　問題５", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題5, new { @class = "form-control", id = "txt問題5" })
+                    @Html.ValidationMessageFor(model => model.問題5, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.問題VNI5, "　問題５－ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.問題VNI5, new { @class = "form-control", id = "txt問題VNI5" })
+                    @Html.ValidationMessageFor(model => model.問題VNI5, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.問題Img, "　写真", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.問題Img, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up問題Image" />
+                    @Html.HiddenFor(model => model.問題Img)
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.問題Audio, "　AUDIO", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.問題Audio, new { @class = "form-control", @readonly = true })
+                    <br />
+                    <input type="file" name="Up問題Audio" />
+                    @Html.HiddenFor(model => model.問題Audio)
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                @Html.DropDownList("ddl第課List", (SelectList)ViewBag.第課List, "Select 第課(Daika): ", new { @class = "form-control" })
+                <br />
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="divPartialView" class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(function () {
+
+            var editor1 = CKEDITOR.replace('txt問題', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor2 = CKEDITOR.replace('txt問題1', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor3 = CKEDITOR.replace('txt問題VNI1', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor4 = CKEDITOR.replace('txt問題2', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor5 = CKEDITOR.replace('txt問題VNI2', {
+                customConfig: '/Assets/Project/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor6 = CKEDITOR.replace('txt問題3', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor7 = CKEDITOR.replace('txt問題VNI3', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            }); var editor2 = CKEDITOR.replace('txt問題4', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor8 = CKEDITOR.replace('txt問題VNI4', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor9 = CKEDITOR.replace('txt問題5', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor10 = CKEDITOR.replace('txt問題VNI5', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor11 = CKEDITOR.replace('txt問題Rei', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor12 = CKEDITOR.replace('txt問題VNIRei', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+            var editor13 = CKEDITOR.replace('txt問題Text', {
+                customConfig: '/Assets/Admin/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+
+            $("#ddl__List").change(function () {
+                var 第課ID = $(this).val();
+
+                $.ajax({
+                    url: '/Admin/問題NoAudio/Get問題NoAudio/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { 第課ID: 第課ID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+        });
+    </script>
+}

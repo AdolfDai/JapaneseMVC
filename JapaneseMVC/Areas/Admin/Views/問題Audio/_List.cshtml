@@ -1,0 +1,107 @@
+﻿@using Model.EF
+<link href="~/Assets/video-js/video-js.css" rel="stylesheet" />
+
+<table class="table table-bordered table-hover table-responsive display">
+    <thead>
+        <tr style="color:black; font-weight:bold;">
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+            <th>問題</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (問題_Table Item in ViewBag.問題)
+        {
+
+            <tr>
+
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.問題ID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.問題ID Edit
+                    </a>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="text-danger">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 bg-danger">
+                            @Html.Raw(Item.問題)
+                        </div>
+                        <div class="col-md-5">
+                            <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin"
+                                   poster='/img/問題Img/@Item.問題Img' data-setup="{}" controls="controls" height="150">
+                                <source src='/audio/問題/@Item.問題Audio' type="audio/mp3" />
+                                Your browser does not support HTML5 video.
+                            </video>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題Rei)
+                        </div>
+                        <div class="col-md-5">
+                            @Html.Raw(Item.問題VNIRei)
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題1)
+                        </div>
+                        <div class="col-md-5">
+                            @Html.Raw(Item.問題VNI1)
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題2)
+                        </div>
+                        <div class="col-md-5">
+                            @Html.Raw(Item.問題VNI2)
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題3)
+                        </div>
+                        <div class="col-md-4">
+                            @Html.Raw(Item.問題VNI3)
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題4)
+                        </div>
+                        <div class="col-md-5">
+                            @Html.Raw(Item.問題VNI4)
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-7 bg-success">
+                            @Html.Raw(Item.問題5)
+                        </div>
+                        <div class="col-md-5">
+                            @Html.Raw(Item.問題VNI5)
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Assets/video-js/video.js"></script>
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            'bProcessing': true,
+            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
+            "iDisplayLength": 1,
+            "ordering": false
+        });
+    });
+</script>

@@ -1,0 +1,98 @@
+﻿@using Model.EF
+@model GrammarNihongo
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "Grammar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.GrammarID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.GrammarID, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.GrammarID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課ID, "　第?課 ", new { @class = "control-label" })
+
+                    @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.GrammarTitle, "　Title", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.GrammarTitle, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GrammarTitle, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-10">
+                    @Html.LabelFor(model => model.Grammar, "　Content", new { @class = "control-label" })
+
+                    @Html.TextAreaFor(model => model.Grammar, new { @class = "form-control", id = "txtGrammar" })
+                    @Html.ValidationMessageFor(model => model.Grammar, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                @Html.DropDownList("ddl第課List", (SelectList)ViewBag.第課List, "Select 第課(Daika): ", new { @class = "form-control" })
+                <br />
+            </div>
+        </div>
+        <div class="row">
+
+            <div id="divPartialView" class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var editor1 = CKEDITOR.replace('txtGrammar', {
+                customConfig: '/Assets/plug-in/ckeditor/config.js',
+                allowedContent: true
+            });
+
+            $("#ddl__List").change(function () {
+                var 第課ID = $(this).val();
+
+                $.ajax({
+                    url: '/Admin/Grammar/Get/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { 第課ID: 第課ID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+        });
+    </script>
+}

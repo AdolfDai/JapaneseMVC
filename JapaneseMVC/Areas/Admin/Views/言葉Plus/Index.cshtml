@@ -1,0 +1,232 @@
+﻿@using Model.EF
+@model 言葉Plus_Table
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">編集</a>
+    </li>
+    <li>
+        <a href="#addlist" data-toggle="tab">リストに　追加する</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">リストを　見る</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade active in formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "言葉Plus", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.言葉PlusID, "　ID (Auto Increase)", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.言葉PlusID, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.言葉PlusID, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ひらがな, "　ひらがな", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ひらがな, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ひらがな, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.漢字, "　漢字", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.漢字, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.漢字, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.音漢字, "　音漢字", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.音漢字, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.音漢字, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ベトナム語, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.第課ID, "　第?課", new { @class = "control-label" })
+
+                    @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div id="addList" class="tab-pane fade formatFont12px">
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <table class="table table-bordered table-bordered table-responsive display">
+                    <thead>
+                        <tr>
+                            <th>ひらがな</th>
+                            <th>漢字</th>
+                            <th>音漢字</th>
+                            <th>ベトナム語</th>
+                            <th>第課ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="input-sm" type="text" id="ひらがな" /><span class="error">Không được để trống</span></td>
+                            <td><input class="input-sm" type="text" id="漢字" /><span class="error">Không được để trống</span></td>
+                            <td><input class="input-sm" type="text" id="音漢字" /><span class="error">Không được để trống</span></td>
+                            <td><input class="input-sm" type="text" id="ベトナム語" /><span class="error">Không được để trống</span></td>
+                            <td><input class="input-sm" type="number" min="1" max="50" id="第課ID" /><span class="error">Không được để trống</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-sm btn-primary" type="submit" id="add">Add into table list.</button>
+            </div>
+        </div>
+        <div class="row">
+            <div id="divList" class="col-md-12">
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <br />
+            <div class="col-md-12"><button class="btn btn-default" id="save">Save into database.</button></div>
+        </div>
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                @Html.DropDownList("ddl第課List", (SelectList)ViewBag.第課List, "Select 第課(Daika): ", new { @class = "form-control" })
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div id="divPartialView" class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        $(function () {
+            var listItems = [];
+            $('#divList').html('<span class="errorTableList bg-danger">No items here!!</span>')
+            //2. funtion add button
+            $('#add').click(function () {
+                //kiem tra tinh hop le nhap vao
+                var isValidItem = true;
+                if ($('#ひらがな').val().trim() == '') {
+                    isValidItem = false;
+                    $('#ひらがな').siblings('span.error').css('visibility', 'visible');
+                } else { $('#ひらがな').siblings('span.error').css('visibility', 'hidden'); }
+                if ($('#ベトナム語').val().trim() == '') {
+                    isValidItem = false;
+                    $('#ベトナム語').siblings('span.error').css('visibility', 'visible');
+                } else { $('#ベトナム語').siblings('span.error').css('visibility', 'hidden'); }
+                if (!($('#第課ID').val().trim() != '' && !isNaN($('#第課ID').val().trim()))) {
+                    isValidItem = false;
+                    $('#第課ID').siblings('span.error').css('visibility', 'visible');
+                } else { $('#第課ID').siblings('span.error').css('visibility', 'hidden'); }
+                if (isValidItem) {
+                    listItems.push({
+                        ひらがな: $('#ひらがな').val().trim(),
+                        漢字: $('#漢字').val().trim(),
+                        音漢字: $('#音漢字').val().trim(),
+                        ベトナム語: $('#ベトナム語').val().trim(),
+                        第課ID: parseInt($('#第課ID').val().trim())
+                    });
+                    $('#ひらがな').val('').focus();
+                    $('#漢字,#音漢字,#ベトナム語').val('');
+                }
+                GenerateTable();
+            });
+            //3. function save button
+            $('#save').click(function () {
+                var isAllValid = true;
+                if (listItems.length == 0) {
+                    isAllValid = false;
+                    $('#divList').html('<span class="errorTableList bg-danger">Please add an item!!</span>')
+                }
+                if (isAllValid) {
+                    var data = listItems;
+                    $.ajax({
+                        url: '/Admin/言葉Plus/SaveItem/',
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        dataType: 'JSON',
+                        contentType: 'application/json',
+                        success: function (d) {
+                            if (d.status == true) {
+                                alert('Save Successful!!');
+                                listItems = [];
+                                $('#divList').empty();
+                            } else {
+                                alert('Save Failed!!');
+                            }
+                        },
+                        error: function () {
+                            alert('Please try again!!');
+                        }
+                    });
+                }
+            });
+            //1. Generate table list
+            function GenerateTable() {
+                if (listItems.length > 0) {
+                    var $table = $('<table />');
+                    $table.append('<thead><tr><td>ひらがな</td><td>漢字</td><td>音漢字</td><td>ベトナム語</td><td>第課ID</td></tr></thead>');
+                    var $tbody = $('<tbody />');
+                    $.each(listItems, function (i, val) {
+                        var $row = $('<tr />');
+                        $row.append($('<td />').html(val.ひらがな));
+                        $row.append($('<td />').html(val.漢字));
+                        $row.append($('<td />').html(val.音漢字));
+                        $row.append($('<td />').html(val.ベトナム語));
+                        $row.append($('<td />').html(val.第課ID));
+                        $tbody.append($row);
+                    });
+                    $table.append($tbody);
+                    $table.addClass("table table-bordered table-responsive display");
+                    $('#divList').html($table);
+                }
+            };
+
+        });
+
+        $(function () {
+            $("#ddl__List").change(function () {
+                var 第課ID = $(this).val();
+
+                $.ajax({
+                    url: '/Admin/言葉Plus/Get/',
+                    type: "Get",
+                    dataType: "html",
+                    data: { 第課ID: 第課ID },
+                    success: function (model) {
+                        $("#divPartialView").html(model);
+                    }
+                });
+
+            });
+        });
+    </script>
+}

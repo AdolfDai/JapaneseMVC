@@ -1,0 +1,78 @@
+﻿body {
+    background-color: #ffffff;
+}
+/*navbar*/
+.navbar {
+    border-radius: 0px;
+}
+#navHome {
+    background-color: #0094ff !important;
+}
+.navbar-brand img {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.navbar-collapse ul li a {
+    width: auto;
+    margin: auto;
+}
+
+ul.navbar-left li a {
+    color: #ffffff !important;
+    text-shadow:1px 1px 3px #000000;
+}
+
+    ul.navbar-left li a:hover {
+        color: #000000 !important;
+        text-shadow: 1px 1px 3px #ffffff;
+    }
+
+ul.navbar-right .dropdown-menu li a {
+    height: auto;
+    margin: 5px;
+    color: #000000 !important;
+    font-weight: bold;
+}
+
+    ul.navbar-right .dropdown-menu li a:hover {
+        color: #ff0000 !important;
+        font-weight: bold;
+    }
+
+#mainContent {
+    padding: 10px;
+}
+
+#homePage {
+    height: auto;
+}
+/*かなとはく*/
+.kanatoku tr td {
+    font-size: 20px;
+}
+
+/*動詞*/
+#動詞div {
+    height: auto;
+}
+
+label.text-danger {
+    padding: 5px;
+    margin-left: 10px;
+    border: 1px solid #820606;
+    border-radius: 5px;
+}
+
+.ul-checkbox {
+    list-style: none;
+}
+
+    .ul-checkbox li {
+        display: block;
+        margin: 2px;
+    }
+
+#漢字div {
+    height: auto;
+}

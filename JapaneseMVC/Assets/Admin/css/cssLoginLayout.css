@@ -1,0 +1,17 @@
+﻿
+#bodyLogin {
+    background-image: url('../../../img/bg/adminbg.jpg');
+    height: 100%;
+    /* Full height */
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#login-form {
+    margin-top: 50px;
+}
+
+

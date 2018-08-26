@@ -1,0 +1,173 @@
+﻿@using Model.EF
+@model Administrator
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<ul class="nav nav-tabs formatFont12px">
+    <li class="active">
+        <a href="#edit" data-toggle="tab">Operations</a>
+    </li>
+    <li>
+        <a href="#list" data-toggle="tab">View List</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane fade in active formatFont12px" id="edit">
+        <br />
+        @using (Html.BeginForm("Index", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "error" })
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Id, "　Username", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Id, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Password, "　Password", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Name, "　Full Name", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Phone, "　Phone", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Address, "　Address", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Email, "　Email", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.CreadtedBy, "　Created By", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.CreadtedBy, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CreadtedBy, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ModifiedBy, "　Modified By", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.ModifiedBy, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "error" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.RoleName, "　Role", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.RoleName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.DateCreated, "　Date Created", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.DateCreated, new { @class = "form-control",@id ="createDate" })
+                    @Html.ValidationMessageFor(model => model.DateCreated, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.DateModified, "　Date Modified", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.DateModified, new { @class = "form-control", @readonly = true })
+                    @Html.ValidationMessageFor(model => model.DateModified, "", new { @class = "error" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Status, "　Status", new { @class = "control-label" })
+
+                    @Html.TextBoxFor(model => model.Status, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "error" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Partial("_ListButton")
+                </div>
+            </div>
+        }
+    </div>
+    <div class="tab-pane fade formatFont12px" id="list">
+        <br />
+        <table class="table table-hover table-responsive display">
+            <thead>
+                <tr style="color:black; font-weight:bold;">
+                    <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+                    <th>Password</th>
+                    <th>Name</th>
+                    <th><span class="glyphicon glyphicon-phone"></span></th>
+                    <th><span class="glyphicon glyphicon-user"></span></th>
+                    <th><span class="glyphicon glyphicon-calendar"></span></th>
+                    <th>Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Administrator Item in ViewBag.Items)
+                {
+
+                    <tr>
+
+                        <td>
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.Id })">
+                                @Item.Id
+                            </a>
+                        </td>
+                        <td>@Item.Password</td>
+                        <td>@Item.Name</td>
+                        <td>@Item.Phone </td>
+                        <td>
+                            @Item.CreadtedBy
+                            <br />
+                            @Item.ModifiedBy
+                        </td>
+                        <td>
+                            @Html.Encode(string.Format("{0:d/M/yyyy}", Item.DateCreated))
+                            <br />
+                            @Html.Encode(string.Format("{0:d/M/yyyy}", Item.DateModified))
+
+                        </td>
+                        <td>@Item.RoleName </td>
+                        <td>@Item.Status </td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('table.display').dataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "ordering": false
+            });
+            //
+            $('#createDate').datepicker();
+        });
+    </script>
+}

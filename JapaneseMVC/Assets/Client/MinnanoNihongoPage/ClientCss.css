@@ -1,0 +1,64 @@
+﻿.formatFont12px {
+    font-family: Calibri;
+    font-size: 12px;
+    font-weight: bold;
+    width: auto;
+}
+
+.formatFont14px {
+    font-family: Calibri;
+    font-size: 14px;
+    font-weight: bold;
+    width: auto;
+}
+
+.formatFont16px {
+    font-family: Calibri;
+    font-size: 16px;
+    font-weight: bold;
+    width: auto;
+}
+/*background*/
+.bg-info {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bg-danger {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bg-success {
+    padding: 10px;
+    border-radius: 5px;
+}
+/*table*/
+.display thead tr th {
+    color: #0094ff;
+}
+
+.modal-header h4 {
+    color: #ff0000 !important;
+}
+/*popover*/
+.popover-content {
+    width: 500px !important;
+}
+/*navbar*/
+.navbar-static-top {
+    border-bottom: 3px solid #0094ff;
+}
+
+.navbar-right li a {
+    width: auto;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px #000000;
+}
+    .navbar-right li a:hover{
+        background-color:none !important;
+    }
+
+    #side-menu .active {
+        border-right: 3px solid #0094ff;
+    }

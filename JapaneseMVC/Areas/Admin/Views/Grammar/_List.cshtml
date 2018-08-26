@@ -1,0 +1,50 @@
+﻿@using Model.EF
+
+<table class="table table-bordered table-hover table-responsive display">
+    <thead>
+        <tr>
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span> </th>
+            <th>文法</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (GrammarNihongo Item in Model)
+        {
+
+            <tr style="font-weight:bold;">
+                <td class="text-center">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.GrammarID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.GrammarID
+                    </a>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 col-md-offset-1">@Item.GrammarTitle</div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">@Html.Raw(Item.Grammar)</div>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            'bProcessing': true,
+            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
+            "iDisplayLength": 1,
+            "ordering": false
+        });
+    });
+</script>

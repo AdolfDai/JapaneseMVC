@@ -1,0 +1,67 @@
+﻿@using Model.EF
+
+<table class="table table-bordered table-hover table-responsive display">
+    <thead>
+        <tr>
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+            <th>漢字</th>
+            <th>写真</th>
+            <th>例</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (漢字___Table Item in Model)
+        {
+
+            <tr>
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.ID })">
+                        <span class="glyphicon glyphicon-edit"></span>@Item.ID
+                    </a>
+                </td>
+                <td>
+                    <span style="font-size:40px;" class="img-thumbnail">@Item.漢字</span>
+                    <br /><br />
+                    <span style="color:#ff0000;">@Item.音漢字</span>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <img class="img-thumbnail img-responsive" src="~/img/漢字/@Item.漢字Image" height="100" width="200" />
+                            <br />
+                            <br />
+                            @Html.Raw(Item.Description)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <br />
+                            Onyomi: @Item.おんよみ
+                            <br />
+                            Kunyomi: @Item.くんよみ
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.Raw(Item.例1)
+                            <br />
+                            @Html.Raw(Item.例2)
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            "ordering": false
+        });
+    });
+</script>

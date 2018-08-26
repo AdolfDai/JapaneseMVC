@@ -1,0 +1,604 @@
+﻿@using Model.EF
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/N5Template/_N5Layout.cshtml";
+}
+
+
+<br />
+@*言葉*@
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#kotoba" data-toggle="tab"> 言葉</a>
+            </li>
+            <li>
+                <a href="#kotobaPlus" data-toggle="tab"> 言葉 Plus</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in formatFont12px" id="kotoba">
+                <br />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-responsive table-hover display">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ひらがな</th>
+                                    <th>漢字</th>
+                                    <th>ベトナム語</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int a = 1;}
+                                @foreach (言葉_Table p in ViewBag.list言葉)
+                                {
+                                    <tr>
+                                        <td><span class="badge">@(a++)</span></td>
+                                        <td><div class="hvr-bounce-in">@p.ひらがな</div></td>
+                                        <td><div class="hvr-bounce-in">@p.漢字 <br /> <span style="color:#ff0000">@p.音漢字</span></div></td>
+                                        <td>@p.ベトナム語</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        @foreach (第課_Table p in ViewBag.list第課)
+                        {
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label class="fa fa-headphones fa-2x">
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <audio controls="controls">
+                                            <source src='/audio/言葉/@p.言葉audio' type="video/mp4" />
+                                        </audio>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade formatFont12px" id="kotobaPlus">
+                <br />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover table-responsive display">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>ひらがな</th>
+                                    <th>漢字</th>
+                                    <th>ベトナム語</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int b = 1;}
+                                @foreach (Model.EF.言葉Plus_Table p in ViewBag.list言葉Plus)
+                                {
+                                    <tr>
+                                        <td><span class="badge">@(b++)</span></td>
+                                        <td><div class="hvr-bounce-in">@p.ひらがな</div></td>
+                                        <td><div class="hvr-bounce-in">@p.漢字 <br /> <span style="color:#ff0000">@p.音漢字 </span></div></td>
+                                        <td>@p.ベトナム語</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+@*会話,文型,例文*@
+<div id="会話div" class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#kaiwa" data-toggle="tab"> 会話</a>
+            </li>
+            <li>
+                <a href="#bunkei" data-toggle="tab"> 文型</a>
+            </li>
+            <li>
+                <a href="#reibun" data-toggle="tab"> 例文</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="kaiwa">
+                <br />
+                <div class="row">
+
+                    @foreach (会話_Table p in ViewBag.list会話)
+                    {
+                        <div class="col-md-4 text-center">
+                            <video style="border: 2px solid #0094ff;" id="example_video_1" class="video-js vjs-default-skin"
+                                   poster="~/img/会話/@p.会話Image" data-setup="{}"
+                                   controls preload="none">
+                                <source src="~/audio/会話/@p.会話Audio" type="audio/mp3" />
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <br />
+                            <ul id="Kw" class="list-inline">
+                                <li><button id="btn12px" disabled class="btn btn-sm btn-primary">12px</button></li>
+                                <li><button id="btn14px" class="btn btn-sm btn-primary">14px</button></li>
+                                <li><button id="btn16px" class="btn btn-sm btn-primary">16px</button></li>
+                                <li><button id="showHint" class="btn btn-sm btn-primary">ベトナム語</button></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="changeKwPx formatFont12px bg-danger">
+                                @Html.Raw(p.会話)
+                            </div>
+                            <br />
+                            <div class="hintKw formatFont12px bg-success">
+                                @Html.Raw(p.会話Vietnamese)
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="tab-pane fade" id="bunkei">
+                <br />
+                <div class="row">
+                    @foreach (第課_Table p in ViewBag.list第課)
+                    {
+                        <div class="col-md-3">
+                            <audio controls="controls">
+                                <source src='/audio/文型/@p.文型audio' type="video/mp4" />
+                            </audio>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <ul id="Bk" class="list-inline">
+                                <li><button id="btn12px" disabled class="btn btn-sm btn-primary">12px</button></li>
+                                <li><button id="btn14px" class="btn btn-sm btn-primary">14px</button></li>
+                                <li><button id="btn16px" class="btn btn-sm btn-primary">16px</button></li>
+                                <li><button id="showHint" class="btn btn-sm btn-primary">ベトナム語</button></li>
+                            </ul>
+                        </div>
+                    }
+                </div>
+
+                <br />
+                @foreach (文型_Table p in ViewBag.list文型)
+                {
+                    <div class="row">
+                        <div class="changeBkPx col-md-6 col-md-offset-1 formatFont12px">
+                            @Html.Raw(@p.文型)
+                            <br />
+                        </div>
+                        <div class="hintBk col-md-6 formatFont12px bg-success">
+                            @Html.Raw(p.文型Vietnamese)
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="reibun">
+                <br />
+                @foreach (第課_Table p in ViewBag.list第課)
+                {
+                    <div class="row">
+                        <div class="col-md-3">
+                            <audio controls="controls">
+                                <source src='/audio/例文/@p.例文audio' type="video/mp4" />
+                            </audio>
+                        </div>
+                        <div class="col-md-6 col-md-offset-1">
+                            <ul id="Rb" class="list-inline">
+                                <li><button id="btn12px" disabled class="btn btn-sm btn-primary">12px</button></li>
+                                <li><button id="btn14px" class="btn btn-sm btn-primary">14px</button></li>
+                                <li><button id="btn16px" class="btn btn-sm btn-primary">16px</button></li>
+                                <li><button id="showHint" class="btn btn-sm btn-primary">ベトナム語</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                <br />
+
+                @foreach (例文_Table p in ViewBag.list例文)
+                {
+                    <div class="row">
+                        <div class="changeRbPx col-md-6 col-md-offset-1 formatFont12px">
+                            @Html.Raw(@p.例文)
+                            <br />
+                        </div>
+                        <div class="hintRb col-md-6 formatFont12px bg-success">
+                            @Html.Raw(p.例文Vietnamese)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+@*練習A*@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#renshuuA" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 練習A</b></a>
+            </li>
+            <li>
+                <a href="#renshuuB" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 練習B</b></a>
+            </li>
+            <li>
+                <a href="#renshuuC" data-toggle="tab"><b><span class="glyphicon glyphicon-headphones"></span> 練習C</b></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="renshuuA">
+                <br />
+                @foreach (練習A_Table p in ViewBag.list練習A)
+                {
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-1 well well-sm formatFont12px">
+                            @Html.Raw(@p.練習A)
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalA" data-id-a="@p.練習AID">
+                                <span class="glyphicon glyphicon-open"></span>
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModalA" tabindex="-1" role="dialog" aria-labelledby="myModalLabelA" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id='myModalContentA'></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="renshuuB">
+                <br />
+                @foreach (練習Ｂ_Table item in ViewBag.練習B)
+                {
+                    <div id="練習Bdiv" class="well">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img class="img-thumbnail img-responsive" src='/img/練習BImg/@item.練習ＢImg' />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 formatFont12px">
+                                @Html.Raw(@item.練習Ｂ)
+                            </div>
+                            <div class="col-md-1 col-md-offset-2">
+
+                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalB" data-id-b="@item.練習ＢID">
+                                    <span class="glyphicon glyphicon-open"></span>
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModalB" tabindex="-1" role="dialog" aria-labelledby="myModalLabelB" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='myModalContentB'></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="renshuuC">
+                <br />
+                @foreach (練習C_Table p in ViewBag.練習C)
+                {
+                    <div id="練習Cdiv" class="well">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <br />
+                                <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/練習CImg/@p.練習CImg' data-setup="{}"
+                                       controls="controls" height="250">
+                                    <source src='/audio/練習/@p.練習CAudio' type="audio/mp3" />
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                <br />
+                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalC" data-id-c="@p.練習CID">
+                                    <span class="glyphicon glyphicon-open"></span>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModalC" tabindex="-1" role="dialog" aria-labelledby="myModalLabelC" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='myModalContentC'></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+                            <div class="col-md-6 formatFont12px">
+                                <br />
+                                <div style="cursor:pointer;" data-toggle="tooltip" data-placement="left" data-html="true" title="@p.練習C例VNI">
+                                    @Html.Raw(@p.練習C例)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+@*問題*@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#mondaiAudio" data-toggle="tab"><b><span class="glyphicon glyphicon-headphones"></span> 問題 - Audio </b></a>
+            </li>
+            <li>
+                <a href="#mondai" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 問題</b></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="mondaiAudio">
+                <br />
+                @foreach (問題_Table p in ViewBag.問題1)
+                {
+                    <div id="問題div" class="well">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/問題Img/@p.問題Img'
+                                       data-setup="{}" controls="controls" height="200">
+                                    <source src='/audio/問題/@p.問題Audio' type="audio/mp3" />
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                <br />
+                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalMD1" data-id-md1="@p.問題ID">
+                                    <span class="glyphicon glyphicon-open"></span>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModalMD1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='myModalContentMD1'></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+                            <div class="col-md-6 formatFont12px">
+                                @Html.Raw(@p.問題)
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="mondai">
+                <br />
+                @foreach (問題_Table p in ViewBag.問題2)
+                {
+                    <div id="問題div1" class="well">
+                        <div class="row">
+                            <div class="col-md-12 formatFont12px">
+                                <img class="img-thumbnail img-responsive" src='/img/問題Img/@p.問題Img' />
+                                <hr />
+                                @Html.Raw(p.問題)
+                                <br />
+                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalMD2" data-id-md2="@p.問題ID">
+                                    <span class="glyphicon glyphicon-open"></span>
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModalMD2" tabindex="-1" role="dialog" aria-labelledby="myModalLabelMD2" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id='myModalContentMD2'></div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Grammar*@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#grammar" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 文法 </b></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in formatFont12px" id="grammar">
+                <br />
+                <div id="Grammardiv" class="row">
+                    <div class="col-md-12">
+                        <div id="accordion">
+                            @foreach (Model.EF.GrammarNihongo p in ViewBag.Grammar)
+                            {
+
+                                <h4 class="formatFont12px">@p.GrammarTitle</h4>
+                                <div class="formatFont12px">@Html.Raw(@p.Grammar)</div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section N5scripts{
+    <script>
+        $(function () {
+            //videojs
+            videojs.options.flash.swf = "video-js.swf";
+
+            //accordion
+            $("#accordion").accordion({ heightStyle: "content", collapsible: true });
+            //dataTAble
+            $('table.display').dataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "ordering": false
+            });
+            //show hint
+            $('.hintKw').hide();
+            $('.hintRb').hide();
+            $('.hintBk').hide();
+            $('ul#Kw #showHint').click(function () {
+                $('.hintKw').toggle();
+            })
+            $('ul#Rb #showHint').click(function () {
+                $('.hintRb').toggle();
+            })
+            $('ul#Bk #showHint').click(function () {
+                $('.hintBk').toggle();
+            })
+            //Change pixel
+            $(function () {
+                //1
+                function divChange12px(divChange) {
+                    divChange.removeClass("formatFont14px");
+                    divChange.removeClass("formatFont16px");
+                    divChange.addClass("formatFont12px");
+                }
+                //2
+                function divChange14px(divChange) {
+                    divChange.removeClass("formatFont12px");
+                    divChange.removeClass("formatFont16px");
+                    divChange.addClass("formatFont14px");
+                }
+                //3
+                function divChange16px(divChange) {
+                    divChange.removeClass("formatFont12px");
+                    divChange.removeClass("formatFont14px");
+                    divChange.addClass("formatFont16px");
+                }
+                //Change when click button Kaiwa
+                $('ul#Kw #btn12px').click(function () {
+                    var divChange = $('.changeKwPx');
+                    divChange12px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Kw #btn14px').prop('disabled', false);
+                    $('ul#Kw #btn16px').prop('disabled', false);
+                });
+                $('ul#Kw #btn14px').click(function () {
+                    var divChange = $('.changeKwPx');
+                    divChange14px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Kw #btn12px').prop('disabled', false);
+                    $('ul#Kw #btn16px').prop('disabled', false);
+                });
+                $('ul#Kw #btn16px').click(function () {
+                    var divChange = $('.changeKwPx');
+                    divChange16px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Kw #btn12px').prop('disabled', false);
+                    $('ul#Kw #btn14px').prop('disabled', false);
+                });
+
+                //Change when click button Reibun
+                $('ul#Rb #btn12px').click(function () {
+                    var divChange = $('.changeRbPx');
+                    divChange12px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Rb #btn14px').prop('disabled', false);
+                    $('ul#Rb #btn16px').prop('disabled', false);
+                });
+                $('ul#Rb #btn14px').click(function () {
+                    var divChange = $('.changeRbPx');
+                    divChange14px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Rb #btn12px').prop('disabled', false);
+                    $('ul#Rb #btn16px').prop('disabled', false);
+                });
+                $('ul#Rb #btn16px').click(function () {
+                    var divChange = $('.changeRbPx');
+                    divChange16px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Rb #btn12px').prop('disabled', false);
+                    $('ul#Rb #btn14px').prop('disabled', false);
+                });
+
+                //Change when click button Bunkei
+                $('ul#Bk #btn12px').click(function () {
+                    var divChange = $('.changeBkPx');
+                    divChange12px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Bk #btn14px').prop('disabled', false);
+                    $('ul#Bk #btn16px').prop('disabled', false);
+                });
+                $('ul#Bk #btn14px').click(function () {
+                    var divChange = $('.changeBkPx');
+                    divChange14px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Bk #btn12px').prop('disabled', false);
+                    $('ul#Bk #btn16px').prop('disabled', false);
+                });
+                $('ul#Bk #btn16px').click(function () {
+                    var divChange = $('.changeBkPx');
+                    divChange16px(divChange);
+                    $(this).prop('disabled', true);
+                    $('ul#Bk #btn12px').prop('disabled', false);
+                    $('ul#Bk #btn14px').prop('disabled', false);
+                });
+            });
+        });
+    </script>
+}

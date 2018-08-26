@@ -1,0 +1,1193 @@
+﻿@using Model.EF
+
+@{
+    ViewBag.Title = "かなとはく";
+    Layout = "~/Views/Shared/Home/_HomeLayout.cshtml";
+}
+
+<link href="~/Assets/Client/childPage.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-4 formatFont12px">
+        <nav aria-span="breadcrumb">.
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><b>かなとはく</b></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs formatFont12px">
+            <li class="active">
+                <a href="#hiragana" data-toggle="tab"><b>ひらがな</b></a>
+            </li>
+            <li>
+                <a href="#katakana" data-toggle="tab"><b>カタカナ</b></a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active in formatFont12px" id="hiragana">
+                <br />
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item1)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item2)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item3)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item4)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item5)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item6)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item7)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item8)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+
+                            }
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item9)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item10)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item11)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item12)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item13)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item14)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item15)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item16)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item17)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item18)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item19)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item20)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item21)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item22)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="popover"
+                                          data-trigger="hover" data-img="/img/かなとはく/hiragana/@p.ImageHiragana">@p.Hiragana</span>
+                                    </td>
+                                }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item23)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item24)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item25)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item26)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item27)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Hiragana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/hiragana/@p.ImageHiragana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade formatFont12px" id="katakana">
+                <br />
+                <div class="col-md-6">
+                    <table class="table table-striped table-bordered text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item1)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item2)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item3)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="popover"
+                                          data-trigger="hover" data-img="/img/かなとはく/katakana/@p.ImageKatakana">@p.Katakana</span>
+                                    </td>
+                                }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item4)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item5)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item6)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item7)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item8)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item9)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="popover"
+                                          data-trigger="hover" data-img="/img/かなとはく/katakana/@p.ImageKatakana">@p.Katakana</span>
+                                    </td>
+                                }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item10)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item11)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item12)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item13)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item14)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item15)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item16)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item17)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item18)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item19)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item20)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item21)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item22)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item23)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                    <table class="table table-bordered table-striped text-center kanatoku">
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item24)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item25)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item26)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                        <tr>
+                            @foreach (かなとはく p in ViewBag.Item27)
+                            {
+                                <td>
+                                    <span class="text-danger" data-toggle="modal" data-target="#@p.Id">@p.Katakana</span>
+                                    <div id="@p.Id" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <img class="img-responsive" src="~/img/かなとはく/katakana/@p.ImageKatakana" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </td>
+                            }
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover({
+                html: true,
+                trigger: 'hover',
+                placement: 'top',
+                content: function () { return '<img class="img-responsive" src="' + $(this).data('img') + '" />' }
+            });
+        });
+    </script>
+}

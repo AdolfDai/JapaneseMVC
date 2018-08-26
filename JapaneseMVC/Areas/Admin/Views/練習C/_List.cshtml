@@ -1,0 +1,83 @@
+﻿@using Model.EF
+<link href="~/Assets/Project/video-js/video-js.css" rel="stylesheet" />
+<table class="table table-bordered table-responsive display">
+    <thead>
+        <tr>
+            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+            <th>練習C</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (練習C_Table Item in Model)
+        {
+
+            <tr>
+                <td>
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習CID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.練習CID
+                    </a>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                            <br />
+                            <video style="border: 2px solid #0094ff;" id="example_video_1" class="video-js vjs-default-skin" poster='/img/練習CImg/@Item.練習CImg' data-setup="{}"
+                                   controls preload="none" height="250">
+                                <source src='~/audio/練習/@Item.練習CAudio' type="audio/mpeg" />
+                                Your browser does not support HTML5 video.
+                            </video>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Raw(Item.練習C例)
+                        </div>
+                        <div class="col-md-6 bg-success">
+                            @Html.Raw(Item.練習C例VNI)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Raw(Item.練習C1Ans)
+                        </div>
+                        <div class="col-md-6 bg-success">
+                            @Html.Raw(Item.練習C1AnsVNI)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Raw(Item.練習C2Ans)
+                        </div>
+                        <div class="col-md-6 bg-success">
+                            @Html.Raw(Item.練習C2AnsVNI)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.Raw(Item.練習C3Ans)
+                        </div>
+                        <div class="col-md-6 bg-success">
+                            @Html.Raw(Item.練習C3AnsVNI)
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Assets/Project/video-js/video.js"></script>
+<script>
+    $(function () {
+        $('table.display').DataTable({
+            responsive: true,
+            "bAutoWidth": false,
+            'bProcessing': true,
+            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
+            "iDisplayLength": 1,
+            "ordering": false
+        });
+    });
+</script>
