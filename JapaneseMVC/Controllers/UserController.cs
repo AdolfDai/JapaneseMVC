@@ -13,7 +13,7 @@ namespace JapaneseMVC.Controllers
     {
         //
         // GET: /User/
-        public ActionResult Login()
+        public ActionResult UserLogin()
         {
             var cookie = Request.Cookies["User"];
             if (cookie != null)
@@ -25,7 +25,7 @@ namespace JapaneseMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(String Id, String Password, Boolean Remember)
+        public ActionResult UserLogin(String Id, String Password, Boolean Remember)
         {
             var user = db.Users.Find(Id);
             if (ModelState.IsValid)

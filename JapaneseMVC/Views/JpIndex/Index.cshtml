@@ -5,18 +5,18 @@
     Layout = "~/Views/Shared/N5Template/_N5Layout.cshtml";
 }
 
-
 <br />
+
 @*言葉*@
 
 <div class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#kotoba" data-toggle="tab"> 言葉</a>
+                <a href="#kotoba" data-toggle="tab"><span class="formatFont12px-textshadow">言葉</span></a>
             </li>
             <li>
-                <a href="#kotobaPlus" data-toggle="tab"> 言葉 Plus</a>
+                <a href="#kotobaPlus" data-toggle="tab"><span class="formatFont12px-textshadow">言葉 Plus</span></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -102,18 +102,19 @@
 </div>
 
 <br />
+
 @*会話,文型,例文*@
 <div id="会話div" class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#kaiwa" data-toggle="tab"> 会話</a>
+                <a href="#kaiwa" data-toggle="tab"><span class="formatFont12px-textshadow">会話</span></a>
             </li>
             <li>
-                <a href="#bunkei" data-toggle="tab"> 文型</a>
+                <a href="#bunkei" data-toggle="tab"><span class="formatFont12px-textshadow">文型</span></a>
             </li>
             <li>
-                <a href="#reibun" data-toggle="tab"> 例文</a>
+                <a href="#reibun" data-toggle="tab"><span class="formatFont12px-textshadow">例文</span></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -230,13 +231,13 @@
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#renshuuA" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 練習A</b></a>
+                <a href="#renshuuA" data-toggle="tab"><span class="glyphicon glyphicon-book font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 練習A</span></a>
             </li>
             <li>
-                <a href="#renshuuB" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 練習B</b></a>
+                <a href="#renshuuB" data-toggle="tab"><span class="glyphicon glyphicon-book font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 練習B</span></a>
             </li>
             <li>
-                <a href="#renshuuC" data-toggle="tab"><b><span class="glyphicon glyphicon-headphones"></span> 練習C</b></a>
+                <a href="#renshuuC" data-toggle="tab"><span class="glyphicon glyphicon-headphones font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 練習C</span></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -368,10 +369,10 @@
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#mondaiAudio" data-toggle="tab"><b><span class="glyphicon glyphicon-headphones"></span> 問題 - Audio </b></a>
+                <a href="#mondaiAudio" data-toggle="tab"><span class="glyphicon glyphicon-headphones font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 問題 - Audio</span></a>
             </li>
             <li>
-                <a href="#mondai" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 問題</b></a>
+                <a href="#mondai" data-toggle="tab"><span class="glyphicon glyphicon-book font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 問題</span></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -454,12 +455,13 @@
     </div>
 </div>
 
+<br />
 @*Grammar*@
 <div class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#grammar" data-toggle="tab"><b><span class="glyphicon glyphicon-book"></span> 文法 </b></a>
+                <a href="#grammar" data-toggle="tab"><span class="glyphicon glyphicon-book font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 文法</span></a>
             </li>
         </ul>
         <div class="tab-content">
@@ -484,6 +486,7 @@
 </div>
 
 @section N5scripts{
+    <script src="~/Assets/Client/MinnanoNihongoPage/changePxOnJpIndex.js"></script>
     <script>
         $(function () {
             //videojs
@@ -496,108 +499,6 @@
                 responsive: true,
                 "bAutoWidth": false,
                 "ordering": false
-            });
-            //show hint
-            $('.hintKw').hide();
-            $('.hintRb').hide();
-            $('.hintBk').hide();
-            $('ul#Kw #showHint').click(function () {
-                $('.hintKw').toggle();
-            })
-            $('ul#Rb #showHint').click(function () {
-                $('.hintRb').toggle();
-            })
-            $('ul#Bk #showHint').click(function () {
-                $('.hintBk').toggle();
-            })
-            //Change pixel
-            $(function () {
-                //1
-                function divChange12px(divChange) {
-                    divChange.removeClass("formatFont14px");
-                    divChange.removeClass("formatFont16px");
-                    divChange.addClass("formatFont12px");
-                }
-                //2
-                function divChange14px(divChange) {
-                    divChange.removeClass("formatFont12px");
-                    divChange.removeClass("formatFont16px");
-                    divChange.addClass("formatFont14px");
-                }
-                //3
-                function divChange16px(divChange) {
-                    divChange.removeClass("formatFont12px");
-                    divChange.removeClass("formatFont14px");
-                    divChange.addClass("formatFont16px");
-                }
-                //Change when click button Kaiwa
-                $('ul#Kw #btn12px').click(function () {
-                    var divChange = $('.changeKwPx');
-                    divChange12px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Kw #btn14px').prop('disabled', false);
-                    $('ul#Kw #btn16px').prop('disabled', false);
-                });
-                $('ul#Kw #btn14px').click(function () {
-                    var divChange = $('.changeKwPx');
-                    divChange14px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Kw #btn12px').prop('disabled', false);
-                    $('ul#Kw #btn16px').prop('disabled', false);
-                });
-                $('ul#Kw #btn16px').click(function () {
-                    var divChange = $('.changeKwPx');
-                    divChange16px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Kw #btn12px').prop('disabled', false);
-                    $('ul#Kw #btn14px').prop('disabled', false);
-                });
-
-                //Change when click button Reibun
-                $('ul#Rb #btn12px').click(function () {
-                    var divChange = $('.changeRbPx');
-                    divChange12px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Rb #btn14px').prop('disabled', false);
-                    $('ul#Rb #btn16px').prop('disabled', false);
-                });
-                $('ul#Rb #btn14px').click(function () {
-                    var divChange = $('.changeRbPx');
-                    divChange14px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Rb #btn12px').prop('disabled', false);
-                    $('ul#Rb #btn16px').prop('disabled', false);
-                });
-                $('ul#Rb #btn16px').click(function () {
-                    var divChange = $('.changeRbPx');
-                    divChange16px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Rb #btn12px').prop('disabled', false);
-                    $('ul#Rb #btn14px').prop('disabled', false);
-                });
-
-                //Change when click button Bunkei
-                $('ul#Bk #btn12px').click(function () {
-                    var divChange = $('.changeBkPx');
-                    divChange12px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Bk #btn14px').prop('disabled', false);
-                    $('ul#Bk #btn16px').prop('disabled', false);
-                });
-                $('ul#Bk #btn14px').click(function () {
-                    var divChange = $('.changeBkPx');
-                    divChange14px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Bk #btn12px').prop('disabled', false);
-                    $('ul#Bk #btn16px').prop('disabled', false);
-                });
-                $('ul#Bk #btn16px').click(function () {
-                    var divChange = $('.changeBkPx');
-                    divChange16px(divChange);
-                    $(this).prop('disabled', true);
-                    $('ul#Bk #btn12px').prop('disabled', false);
-                    $('ul#Bk #btn14px').prop('disabled', false);
-                });
             });
         });
     </script>

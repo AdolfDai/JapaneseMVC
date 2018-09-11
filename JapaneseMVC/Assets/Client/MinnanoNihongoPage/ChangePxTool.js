@@ -1,7 +1,6 @@
-﻿
+﻿$('div.showHint').hide();
 //Change pixel
 $(function () {
-    $('div.showHint').hide();
     $('button#btn12px').click(function () {
         $('.changePx').removeClass("formatFont14px");
         $('.changePx').removeClass("formatFont16px");

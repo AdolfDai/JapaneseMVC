@@ -11,13 +11,13 @@ namespace JapaneseMVC.FilerUrl
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var master = HttpContext.Current.Session["Administrator"] as Administrator;
+            object master = HttpContext.Current.Session["Administrator"] as Administrator;
             if (master == null)
             {
                 //Luu lai url de khi dang nhap xong se quay lai
-                var url = HttpContext.Current.Request.Url.AbsoluteUri;
+                string url = HttpContext.Current.Request.Url.AbsoluteUri;
                 HttpContext.Current.Session["RequestUrl"] = url;
-                HttpContext.Current.Response.Redirect("/Admin/Administrator/Login");
+                HttpContext.Current.Response.Redirect("/Admin/Login/AdmLogin");
             }
             base.OnActionExecuting(filterContext);
         }

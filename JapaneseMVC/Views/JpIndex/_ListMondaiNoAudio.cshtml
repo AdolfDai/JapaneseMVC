@@ -12,7 +12,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-danger formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題Text)
         </div>
     </div><br />
@@ -24,7 +24,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNIRei)
         </div>
     </div><br />
@@ -36,7 +36,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI1)
         </div>
     </div><br />
@@ -48,7 +48,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI2)
         </div>
     </div><br />
@@ -60,7 +60,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI3)
         </div>
     </div><br />
@@ -72,7 +72,7 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI4)
         </div>
     </div><br />
@@ -84,42 +84,9 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint bg-success formatFont12px">
+        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI5)
         </div>
     </div><br />
 }
-<script>
-    $('div.showHint').hide();
-    //Change pixel
-    $(function () {
-        $('button#btn12px').click(function () {
-            $('.changePx').removeClass("formatFont14px");
-            $('.changePx').removeClass("formatFont16px");
-            $('.changePx').addClass("formatFont12px");
-            $(this).prop('disabled', true);
-            $('button#btn14px').prop('disabled', false);
-            $('button#btn16px').prop('disabled', false);
-        });
-        $('button#btn14px').click(function () {
-            $('.changePx').removeClass("formatFont12px");
-            $('.changePx').removeClass("formatFont16px");
-            $('.changePx').addClass("formatFont14px");
-            $(this).prop('disabled', true);
-            $('button#btn12px').prop('disabled', false);
-            $('button#btn16px').prop('disabled', false);
-        });
-        $('button#btn16px').click(function () {
-            $('.changePx').removeClass("formatFont12px");
-            $('.changePx').removeClass("formatFont14px");
-            $('.changePx').addClass("formatFont16px");
-            $(this).prop('disabled', true);
-            $('button#btn12px').prop('disabled', false);
-            $('button#btn14px').prop('disabled', false);
-        });
-        //showHint
-        $('button#showHint').click(function () {
-            $('div.showHint').toggle();
-        });
-    });
-</script>
+<script src="~/Assets/Client/MinnanoNihongoPage/ChangePxTool.js"></script>

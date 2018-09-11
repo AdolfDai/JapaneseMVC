@@ -8,8 +8,8 @@ namespace JapaneseMVC
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/Core/js").Include(
-                        "~/Assets/vendor/jquery/jquery.js"
-                        , "~/Assets/vendor/bootstrap/js/bootstrap.js"
+                        "~/Assets/Admin/layout/vendor/jquery/jquery.js"
+                        , "~/Assets/Admin/layout/vendor/bootstrap/js/bootstrap.js"
                          ));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -21,45 +21,39 @@ namespace JapaneseMVC
 
             bundles.Add(new StyleBundle("~/Core/css").Include(
                      //bootstrap
-                     "~/Assets/vendor/bootstrap/css/bootstrap.css",
+                     "~/Assets/Admin/layout/vendor/bootstrap/css/bootstrap.css",
                      //admin page
-                     "~/Assets/dist/css/sb-admin-2.css",
-                    "~/Assets/vendor/metisMenu/metisMenu.css",
+                     "~/Assets/Admin/layout/dist/css/sb-admin-2.css",
+                    "~/Assets/Admin/layout/vendor/metisMenu/metisMenu.css",
                      //font-awesome
-                     "~/Assets/vendor/font-awesome-4.7.0/css/font-awesome.css",
+                     "~/Assets/Admin/layout/vendor/font-awesome-4.7.0/css/font-awesome.css",
                      //Css dataTable
-                     "~/Assets/vendor/datatables/dataTables.bootstrap.css",
-                     "~/Assets/vendor/datatables-plugins/dataTables.bootstrap.css",
-                     "~/Assets/vendor/datatables-responsive/dataTables.responsive.css",
+                     "~/Assets/Admin/layout/vendor/datatables/dataTables.bootstrap.css",
+                     "~/Assets/Admin/layout/vendor/datatables-plugins/dataTables.bootstrap.css",
+                     "~/Assets/Admin/layout/vendor/datatables-responsive/dataTables.responsive.css",
                      //Css jQuery UI
-                     "~/Assets/jquery-ui-1.11.4.custom/jquery-ui.css",
-                     "~/Assets/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css",
+                     "~/Assets/lib/jquery-ui-1.11.4.custom/jquery-ui.css",
+                     "~/Assets/lib/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css",
                      //Css plug-in
-                     "~/Assets/video-js/video-js.css",
-                     "~/Assets/Hover-master/css/hover.css",
+                     "~/Assets/lib/video-js/video-js.css",
+                     "~/Assets/lib/Hover-master/css/hover.css",
                      "~/Assets/calendar/calendar.css",
                      //css scrollDiv
                      "~/Assets/scrollDiv/cssScrollDivBtn.css"
                      ));
 
             bundles.Add(new ScriptBundle("~/Core/jquery").Include(
-
                       //admin page
-                      "~/Assets/dist/js/sb-admin-2.js",
-                      "~/Assets/vendor/metisMenu/metisMenu.js",
+                      "~/Assets/Admin/layout/dist/js/sb-admin-2.js",
+                      "~/Assets/Admin/layout/vendor/metisMenu/metisMenu.js",
                      //js jQuery UI
-                     "~/Assets/jquery-ui-1.11.4.custom/jquery-ui.js",
-                      //js angularjs
-                      "~/Assets/AngularJS/angular.min.js",
+                     "~/Assets/lib/jquery-ui-1.11.4.custom/jquery-ui.js",
                       //js dataTable
-                      "~/Assets/vendor/datatables/js/jquery.dataTables.min.js",
-                      "~/Assets/vendor/datatables-plugins/dataTables.bootstrap.min.js",
-                      "~/Assets/vendor/datatables-responsive/dataTables.responsive.js",
-
+                      "~/Assets/Admin/layout/vendor/datatables/js/jquery.dataTables.min.js",
+                      "~/Assets/Admin/layout/vendor/datatables-plugins/dataTables.bootstrap.min.js",
+                      "~/Assets/Admin/layout/vendor/datatables-responsive/dataTables.responsive.js",
                       //video
-                      "~/Assets/video-js/video.js",
-                      //calendar
-                      "~/Assets/calendar/calendar.js",
+                      "~/Assets/lib/video-js/video.js",
                       //js scrollDiv
                       "~/Assets/scrollDiv/jsScrollDivBtn.js"
                      ));

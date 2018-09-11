@@ -3,8 +3,16 @@
     font-size: 12px;
     font-weight: bold;
     width: auto;
-}
 
+}
+.formatFont12px-textshadow {
+    font-family: Calibri;
+    font-size: 12px;
+    font-weight: bold;
+    width: auto;
+    color: #0094ff !important;
+    text-shadow: 1px 1px 2px #000000;
+}
 .formatFont14px {
     font-family: Calibri;
     font-size: 14px;
@@ -55,10 +63,16 @@
     color: #ffffff !important;
     text-shadow: 1px 1px 2px #000000;
 }
-    .navbar-right li a:hover{
-        background-color:none !important;
+    .navbar-right li a:hover {
+        background-color: none !important;
     }
 
-    #side-menu .active {
-        border-right: 3px solid #0094ff;
-    }
+marquee {
+    color: #0094ff !important;
+    text-shadow: 1px 1px 2px #000000;
+    height:30px;
+}
+
+#side-menu .active {
+    border-right: 3px solid #0094ff;
+}
