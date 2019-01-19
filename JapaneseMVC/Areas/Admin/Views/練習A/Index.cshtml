@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@model 練習A_Table
+@model 練習A
 
 @{
     ViewBag.Title = "Index";
@@ -21,45 +21,51 @@
         {
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "error" })
-            <div class="row">
-                <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.練習AID, "　ID (Auto Increase)", new { @class = "control-label" })
+        <div class="row">
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.Id, "　ID (Auto Increase)", new { @class = "control-label" })
 
-                    @Html.TextBoxFor(model => model.練習AID, new { @class = "form-control", @readonly = true })
-                    @Html.ValidationMessageFor(model => model.練習AID, "", new { @class = "error" })
-                </div>
-                <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.第課ID, "　第?課", new { @class = "control-label" })
-
-                    @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
-                </div>
+                @Html.TextBoxFor(model => model.Id, new { @class = "form-control", @readonly = true })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "error" })
             </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.第課ID, "　第?課", new { @class = "control-label" })
+
+                @Html.DropDownListFor(model => model.第課ID, (SelectList)ViewBag.第課List, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
+            </div>
+            <div class="form-group col-md-3">
+                @Html.LabelFor(model => model.練習Aの名, "　練習Aの名", new { @class = "control-label" })
+
+                @Html.TextBoxFor(model => model.練習Aの名, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.練習Aの名, "", new { @class = "error" })
+            </div>
+        </div>
 
             <div class="row">
 
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.練習A, "　第?課", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.練習Aの本, "　第?課", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.練習A, new { @class = "form-control", id = "txt練習A" })
-                    @Html.ValidationMessageFor(model => model.練習A, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.練習Aの本, new { @class = "form-control", id = "txt練習A" })
+                    @Html.ValidationMessageFor(model => model.練習Aの本, "", new { @class = "error" })
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.練習Answer1, "　答え", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.練習Aの答え, "　答え", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.練習Answer1, new { @class = "form-control", id = "txt練習Answer1" })
-                    @Html.ValidationMessageFor(model => model.練習Answer1, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.練習Aの答え, new { @class = "form-control", id = "txt練習Answer1" })
+                    @Html.ValidationMessageFor(model => model.練習Aの答え, "", new { @class = "error" })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.練習AVietnamese, "　ベトナム語", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.練習AVietnamese, new { @class = "form-control", id = "txt練習AVietnamese" })
-                    @Html.ValidationMessageFor(model => model.練習AVietnamese, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.ベトナム語, new { @class = "form-control", id = "txt練習AVietnamese" })
+                    @Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
                 </div>
             </div>
             <div class="row">

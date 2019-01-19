@@ -11,28 +11,30 @@
                 <div class="panel-body">
                     <img src="~/img/bg/bgTest1.jpg" class="img-responsive" />
                 </div>
-                <div class="panel-footer"><a href="/Home/かなとはく" class="btn btn-block btn-primary">Go!</a></div>
+                <div class="panel-footer"><a href='@Url.Action("かなとはく", "Home")' class="btn btn-block btn-primary">Go!</a></div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">みんなの　日本語</div>
                 <div class="panel-body"><img src="~/img/bg/bgTest2.jpg" class="img-responsive" /></div>
-                <div class="panel-footer"><a href="/JpIndex/Index" class="btn btn-block btn-primary">Go!</a></div>
+                <div class="panel-footer">
+                    <a href='/N5/みんなの日本語/1' class="btn btn-block btn-primary">Go!</a>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">漢字</div>
                 <div class="panel-body"><img src="~/img/bg/bgTest3.jpg" class="img-responsive" /></div>
-                <div class="panel-footer"><a href="/漢字/Index" class="btn btn-block btn-primary">Go!</a></div>
+                <div class="panel-footer"><a href='@Url.Action("look-and-learn", "漢字")' class="btn btn-block btn-primary">Go!</a></div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-primary">
                 <div class="panel-heading text-center">動詞</div>
                 <div class="panel-body"><img src="~/img/bg/bgTest4.jpg" class="img-responsive" /></div>
-                <div class="panel-footer"><a href="/動詞/Index" class="btn btn-block btn-primary">Go!</a></div>
+                <div class="panel-footer"><a href='@Url.Action("list-動詞", "動詞")' class="btn btn-block btn-primary">Go!</a></div>
             </div>
         </div>
     </div>

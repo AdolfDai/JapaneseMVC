@@ -35,9 +35,12 @@
 
 <script>
     $(function () {
-        $('table.display').DataTable({
+        table = $('.display').DataTable({
+            retrieve: true,
             responsive: true,
             "bAutoWidth": false,
+            "aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+            "iDisplayLength": 10,
             "ordering": false
         });
     });

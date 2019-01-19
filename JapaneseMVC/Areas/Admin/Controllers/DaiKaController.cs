@@ -13,19 +13,19 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/DaiKa/
         public ActionResult Index()
         {
-            ViewBag.Items = db.第課_Table.ToList();
+            ViewBag.Items = db.第課.ToList();
             return View();
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.第課_Table.Find(Id);
-            ViewBag.Items = db.第課_Table.ToList();
+            var model = db.第課.Find(Id);
+            ViewBag.Items = db.第課.ToList();
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(第課_Table model)
+        public ActionResult Insert(第課 model)
         {
             var f言葉 = Request.Files["Up言葉"];
             if (f言葉.ContentLength > 0)
@@ -72,7 +72,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 b = b.Replace("｝", "</rt>");
 
                 model.第課Subject = b;
-                db.第課_Table.Add(model);
+                db.第課.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -81,12 +81,12 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.Items = db.第課_Table.ToList();
+            ViewBag.Items = db.第課.ToList();
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(第課_Table model)
+        public ActionResult Update(第課 model)
         {
             var f言葉 = Request.Files["Up言葉"];
             if (f言葉.ContentLength > 0)
@@ -166,7 +166,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Update thất bại!");
             }
 
-            ViewBag.Items = db.第課_Table.ToList();
+            ViewBag.Items = db.第課.ToList();
             return View("Index");
         }
 
@@ -174,8 +174,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.第課_Table.Find(Id);
-                db.第課_Table.Remove(model);
+                var model = db.第課.Find(Id);
+                db.第課.Remove(model);
                 db.SaveChanges();
 
                 ModelState.Clear();
@@ -185,7 +185,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.Items = db.第課_Table.ToList();
+            ViewBag.Items = db.第課.ToList();
             return View("Index");
         }
     }

@@ -1,7 +1,10 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("言葉Plus-Table")]
     public partial class 言葉Plus_Table
@@ -22,6 +25,6 @@ namespace Model.EF
 
         public int? 第課ID { get; set; }
 
-        public virtual 第課_Table 第課_Table { get; set; }
+        public virtual 第課 第課 { get; set; }
     }
 }

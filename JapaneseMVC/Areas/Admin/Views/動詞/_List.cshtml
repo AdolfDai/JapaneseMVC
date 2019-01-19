@@ -5,10 +5,10 @@
         <tr>
             <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
             <th>漢字</th>
-            <th>ます形ー辞書形</th>
-            <th>ません形ーない形</th>
-            <th>ました形ーた形</th>
-            <th>ませんでした形ーなかった形</th>
+            <th>ます形／辞書形</th>
+            <th>ません形／ない形</th>
+            <th>ました形／た形</th>
+            <th>ませんでした形／なかった形</th>
             <th>て形</th>
             <th>Group</th>
             <th>ベトナム語</th>
@@ -16,43 +16,42 @@
     </thead>
     <tbody>
 
-        @foreach (N5動詞_Table Item in Model)
+        @foreach (N5動詞 Item in Model)
         {
 
-            <tr>
-
-                <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.N5動詞ID })">
-                        <span class="glyphicon glyphicon-edit"></span>@Item.N5動詞ID
-                    </a>
-                </td>
-                <td>@Item.漢字</td>
-                <td>
-                    @Item.ます形
-                    <br />
-                    <span class="text-danger">@Item.辞書形</span>
-                </td>
-                <td>
-                    @Item.ません形
-                    <br />
-                    <span class="text-danger">@Item.ない形</span>
-                </td>
-                <td>
-                    @Item.ました形
-                    <br />
-                    <span class="text-danger">@Item.た形</span>
-                </td>
-                <td>
-                    @Item.ませんでした形
-                    <br />
-                    <span class="text-danger">@Item.なかった形</span>
-                </td>
-                <td>
-                    @Item.て形
-                </td>
-                <td>@Item.Group動詞.GroupName</td>
-                <td>@Item.ベトナム語</td>
-            </tr>
+        <tr>
+            <td>
+                <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.N5動詞ID })">
+                    <span class="glyphicon glyphicon-edit"></span>@Item.N5動詞ID
+                </a>
+            </td>
+            <td>@Item.漢字</td>
+            <td>
+                @Item.ます形
+                <br />
+                <span class="text-danger">@Item.辞書形</span>
+            </td>
+            <td>
+                @Item.ません形
+                <br />
+                <span class="text-danger">@Item.ない形</span>
+            </td>
+            <td>
+                @Item.ました形
+                <br />
+                <span class="text-danger">@Item.た形</span>
+            </td>
+            <td>
+                @Item.ませんでした形
+                <br />
+                <span class="text-danger">@Item.なかった形</span>
+            </td>
+            <td>
+                @Item.て形
+            </td>
+            <td>@Item.Group動詞.GroupName</td>
+            <td>@Item.ベトナム語</td>
+        </tr>
 
         }
     </tbody>
@@ -60,9 +59,12 @@
 
 <script>
     $(function () {
-        $('table.display').DataTable({
+        table = $('.display').DataTable({
+            retrieve: true,
             responsive: true,
             "bAutoWidth": false,
+            "aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+            "iDisplayLength": 10,
             "ordering": false
         });
     });

@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JapaneseMVC", "JapaneseMVC\JapaneseMVC.csproj", "{51BE0283-35D4-418C-89E1-460504C7679F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{6C254638-25C7-4AD6-9227-1D9F1245041D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Japanese.Entities", "Japanese.Entities", "{9DC729DF-99FA-46E9-A34B-173DDE747BCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Japanese.Sites", "Japanese.Sites", "{8501C8AE-94E7-4007-8EA3-4205E325CFA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +28,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51BE0283-35D4-418C-89E1-460504C7679F} = {8501C8AE-94E7-4007-8EA3-4205E325CFA2}
+		{6C254638-25C7-4AD6-9227-1D9F1245041D} = {9DC729DF-99FA-46E9-A34B-173DDE747BCE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F663F205-8208-4C46-87EA-7B3693C19EC7}
 	EndGlobalSection
 EndGlobal

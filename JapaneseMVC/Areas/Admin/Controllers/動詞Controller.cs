@@ -14,34 +14,34 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/動詞/
         public ActionResult Index()
         {
-            ViewBag.グループList = new SelectList(db.グループ_Table, "グループID", "グループ", selectedValue: false);
+            ViewBag.グループList = new SelectList(db.グループ, "グループID", "グループの名", selectedValue: false);
             ViewBag.GroupName = new SelectList(db.Group動詞, "GroupNameID", "GroupName", selectedValue: false);
             return View();
         }
 
         public ActionResult Get(int グループID)
         {
-            var model = db.N5動詞_Table.Where(p => p.グループID == グループID).ToList();
+            var model = db.N5動詞.Where(p => p.グループID == グループID).ToList();
             return PartialView("_List", model);
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.N5動詞_Table.Find(Id);
-            ViewBag.グループList = new SelectList(db.グループ_Table, "グループID", "グループ", model.グループID);
+            var model = db.N5動詞.Find(Id);
+            ViewBag.グループList = new SelectList(db.グループ, "グループID", "グループの名", model.グループID);
             ViewBag.GroupName = new SelectList(db.Group動詞, "GroupNameID", "GroupName", selectedValue: false);
             return View("Index", model);
         }
 
         [HttpPost]
-        public JsonResult SaveItem(List<N5動詞_Table> list)
+        public JsonResult SaveItem(List<N5動詞> list)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
                 foreach (var item in list)
                 {
-                    db.N5動詞_Table.Add(item);
+                    db.N5動詞.Add(item);
                 }
                 db.SaveChanges();
                 status = true;
@@ -54,12 +54,12 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(N5動詞_Table model)
+        public ActionResult Insert(N5動詞 model)
         {
             try
             {
                 //model.第課ID = int.Parse(Request.Form["第課List"]);
-                db.N5動詞_Table.Add(model);
+                db.N5動詞.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -68,13 +68,13 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.グループList = new SelectList(db.グループ_Table, "グループID", "グループ");
+            ViewBag.グループList = new SelectList(db.グループ, "グループID", "グループの名");
             ViewBag.GroupName = new SelectList(db.Group動詞, "GroupNameID", "GroupName", selectedValue: false);
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(N5動詞_Table model)
+        public ActionResult Update(N5動詞 model)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Update thất bại!");
             }
-            ViewBag.グループList = new SelectList(db.グループ_Table, "グループID", "グループ");
+            ViewBag.グループList = new SelectList(db.グループ, "グループID", "グループの名");
             ViewBag.GroupName = new SelectList(db.Group動詞, "GroupNameID", "GroupName", selectedValue: false);
             return View("Index");
         }
@@ -97,8 +97,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.N5動詞_Table.Find(Id);
-                db.N5動詞_Table.Remove(model);
+                var model = db.N5動詞.Find(Id);
+                db.N5動詞.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");
@@ -107,7 +107,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.グループList = new SelectList(db.グループ_Table, "グループID", "グループ");
+            ViewBag.グループList = new SelectList(db.グループ, "グループID", "グループの名");
             ViewBag.GroupName = new SelectList(db.Group動詞, "GroupNameID", "GroupName", selectedValue: false);
             return View("Index");
         }

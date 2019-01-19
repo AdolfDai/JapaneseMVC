@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using Model.EF;
-using JapaneseMVC.FilerUrl;
 
 namespace JapaneseMVC.Controllers
 {
     public class HomeController : EFModelController
     {
+        [ActionName("welcome")]
+        [HandleError(View= "Error.cshtml")]
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("Index");
         }
 
         public ActionResult Contact()
@@ -31,9 +21,10 @@ namespace JapaneseMVC.Controllers
 
         public ActionResult _N5第課Category()
         {
-            var model = db.第課_Table.ToList();
+            var model = db.第課.ToList();
             return PartialView("N5Template/_N5第課Category", model);
         }
+
         public ActionResult かなとはく()
         {
             //table1

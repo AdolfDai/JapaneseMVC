@@ -13,27 +13,27 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/練習C/
         public ActionResult Index()
         {
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", selectedValue: true);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: true);
 
             return View();
         }
 
         public ActionResult Get(int? 第課ID)
         {
-            var model = db.練習C_Table.Where(p => p.第課ID == 第課ID).ToList();
+            var model = db.練習C.Where(p => p.第課ID == 第課ID).ToList();
             return PartialView("_List", model);
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.練習C_Table.Find(Id);
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", model.第課ID);
+            var model = db.練習C.Find(Id);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
 
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(練習C_Table model)
+        public ActionResult Insert(練習C model)
         {
             var file = Request.Files["Up練習CAudio"];
             if (file.ContentLength > 0)
@@ -49,29 +49,29 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             var file1 = Request.Files["Up練習CImg"];
             if (file1.ContentLength > 0)
             {
-                model.練習CImg = file1.FileName;
-                var path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習CImg);
+                model.練習Cの写真 = file1.FileName;
+                var path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習Cの写真);
                 file1.SaveAs(path練習CImg);
             }
             else
             {
-                model.練習CImg = "noimage.jpg";
+                model.練習Cの写真 = "noimage.jpg";
             }
             try
             {
-                var a = model.練習C例;
+                var a = model.練習Cの本;
                 a = a.Replace("＜", "<ruby>");
                 a = a.Replace("＞", "</ruby>");
                 a = a.Replace("｛", "<rt>");
                 a = a.Replace("｝", "</rt>");
-                model.練習C例 = a;
+                model.練習Cの本 = a;
 
-                var b = model.練習C例VNI;
+                var b = model.ベトナム語;
                 b = b.Replace("＜", "<ruby>");
                 b = b.Replace("＞", "</ruby>");
                 b = b.Replace("｛", "<rt>");
                 b = b.Replace("｝", "</rt>");
-                model.練習C例VNI = b;
+                model.ベトナム語 = b;
 
                 var c = model.練習C1Ans;
                 c = c.Replace("＜", "<ruby>");
@@ -115,7 +115,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 h = h.Replace("｝", "</rt>");
                 model.練習C3AnsVNI = h;
 
-                db.練習C_Table.Add(model);
+                db.練習C.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -124,13 +124,13 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
 
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(練習C_Table model)
+        public ActionResult Update(練習C model)
         {
             var file = Request.Files["Up練習CAudio"];
             if (file.ContentLength > 0)
@@ -154,37 +154,37 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             var file1 = Request.Files["Up練習CImg"];
             if (file1.ContentLength > 0)
             {
-                var path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習CImg);
+                var path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習Cの写真);
                 if (System.IO.File.Exists(path練習CImg))
                 {
                     System.IO.File.Delete(path練習CImg);
-                    model.練習CImg = file1.FileName;
-                    path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習CImg);
+                    model.練習Cの写真 = file1.FileName;
+                    path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習Cの写真);
                     file1.SaveAs(path練習CImg);
                 }
                 else
                 {
-                    model.練習CImg = file1.FileName;
-                    path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習CImg);
+                    model.練習Cの写真 = file1.FileName;
+                    path練習CImg = Server.MapPath("~/img/練習CImg/" + model.練習Cの写真);
                     file1.SaveAs(path練習CImg);
                 }
             }
 
             try
             {
-                var a = model.練習C例;
+                var a = model.練習Cの本;
                 a = a.Replace("＜", "<ruby>");
                 a = a.Replace("＞", "</ruby>");
                 a = a.Replace("｛", "<rt>");
                 a = a.Replace("｝", "</rt>");
-                model.練習C例 = a;
+                model.練習Cの本 = a;
 
-                var b = model.練習C例VNI;
+                var b = model.ベトナム語;
                 b = b.Replace("＜", "<ruby>");
                 b = b.Replace("＞", "</ruby>");
                 b = b.Replace("｛", "<rt>");
                 b = b.Replace("｝", "</rt>");
-                model.練習C例VNI = b;
+                model.ベトナム語 = b;
 
                 var c = model.練習C1Ans;
                 c = c.Replace("＜", "<ruby>");
@@ -237,7 +237,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Update thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
 
@@ -245,8 +245,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.練習C_Table.Find(Id);
-                db.練習C_Table.Remove(model);
+                var model = db.練習C.Find(Id);
+                db.練習C.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");
@@ -255,7 +255,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
     }

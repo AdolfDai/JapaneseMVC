@@ -1,33 +1,33 @@
 namespace Model.EF
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    [Table("第課-Table")]
-    public partial class 第課_Table
+    public partial class 第課
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public 第課_Table()
+        public 第課()
         {
             GrammarNihongoes = new HashSet<GrammarNihongo>();
-            会話_Table = new HashSet<会話_Table>();
-            例文_Table = new HashSet<例文_Table>();
-            問題_Table = new HashSet<問題_Table>();
+            会話 = new HashSet<会話>();
+            例文 = new HashSet<例文>();
+            問題 = new HashSet<問題>();
             形容詞 = new HashSet<形容詞>();
-            文型_Table = new HashSet<文型_Table>();
-            漢字___Table = new HashSet<漢字___Table>();
-            練習A_Table = new HashSet<練習A_Table>();
-            練習Ｂ_Table = new HashSet<練習Ｂ_Table>();
-            練習C_Table = new HashSet<練習C_Table>();
+            文型 = new HashSet<文型>();
+            漢字 = new HashSet<漢字>();
+            練習A = new HashSet<練習A>();
+            練習B = new HashSet<練習B>();
+            練習C = new HashSet<練習C>();
             言葉Plus_Table = new HashSet<言葉Plus_Table>();
             言葉_Table = new HashSet<言葉_Table>();
         }
 
-        [Key]
         public int 第課ID { get; set; }
 
-        public string 第課Name { get; set; }
+        public string 第課の名 { get; set; }
 
         public string 第課Subject { get; set; }
 
@@ -44,31 +44,31 @@ namespace Model.EF
         public virtual ICollection<GrammarNihongo> GrammarNihongoes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<会話_Table> 会話_Table { get; set; }
+        public virtual ICollection<会話> 会話 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<例文_Table> 例文_Table { get; set; }
+        public virtual ICollection<例文> 例文 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<問題_Table> 問題_Table { get; set; }
+        public virtual ICollection<問題> 問題 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<形容詞> 形容詞 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<文型_Table> 文型_Table { get; set; }
+        public virtual ICollection<文型> 文型 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<漢字___Table> 漢字___Table { get; set; }
+        public virtual ICollection<漢字> 漢字 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<練習A_Table> 練習A_Table { get; set; }
+        public virtual ICollection<練習A> 練習A { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<練習Ｂ_Table> 練習Ｂ_Table { get; set; }
+        public virtual ICollection<練習B> 練習B { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<練習C_Table> 練習C_Table { get; set; }
+        public virtual ICollection<練習C> 練習C { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<言葉Plus_Table> 言葉Plus_Table { get; set; }

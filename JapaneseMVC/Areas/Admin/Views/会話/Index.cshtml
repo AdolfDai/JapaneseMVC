@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@model 会話_Table
+@model 会話
 @{
     ViewBag.Title = "Index";
 }
@@ -36,28 +36,28 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.会話, "　会話", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.会話の本, "　会話", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.会話, new { @class = "form-control", id = "txt会話" })
-                    @Html.ValidationMessageFor(model => model.会話, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.会話の本, new { @class = "form-control", id = "txt会話" })
+                    @Html.ValidationMessageFor(model => model.会話の本, "", new { @class = "error" })
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.会話Vietnamese, "　ベトナム語", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.会話Vietnamese, new { @class = "form-control", id = "txt会話Vietnamese" })
-                    @Html.ValidationMessageFor(model => model.会話Vietnamese)
+                    @Html.TextAreaFor(model => model.ベトナム語, new { @class = "form-control", id = "txt会話Vietnamese" })
+                    @Html.ValidationMessageFor(model => model.ベトナム語)
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.会話Image, "　写真", new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.会話Image, new { @class = "form-control", @readonly = true })
+                    @Html.LabelFor(model => model.会話の写真, "　写真", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.会話の写真, new { @class = "form-control", @readonly = true })
                     <br />
                     <input type="file" name="Up会話Img" />
-                    @Html.HiddenFor(model => model.会話Image)
+                    @Html.HiddenFor(model => model.会話の写真)
                 </div>
                 <div class="form-group col-md-3">
                     @Html.LabelFor(model => model.会話Audio, "　Audio", new { @class = "control-label" })

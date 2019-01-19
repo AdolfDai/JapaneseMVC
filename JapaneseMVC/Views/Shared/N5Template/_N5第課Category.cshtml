@@ -1,6 +1,6 @@
-﻿@foreach (Model.EF.第課_Table c in Model)
+﻿@foreach (Model.EF.第課 c in Model)
 {
-    <a href="/JpIndex/Index/@c.第課ID">
-        @c.第課Name @Html.Raw(c.第課Subject)
+    <a href="/N5/みんなの日本語/@c.第課ID">
+        @c.第課の名 @Html.Raw(c.第課Subject)
     </a>
 }

@@ -1,27 +1,28 @@
 namespace Model.EF
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    [Table("グループ-Table")]
-    public partial class グループ_Table
+    public partial class グループ
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public グループ_Table()
+        public グループ()
         {
-            N5動詞_Table = new HashSet<N5動詞_Table>();
+            N5動詞 = new HashSet<N5動詞>();
         }
 
-        [Key]
         public int グループID { get; set; }
 
         [StringLength(50)]
-        public string グループ { get; set; }
+        public string グループの名 { get; set; }
 
+        [StringLength(255)]
         public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<N5動詞_Table> N5動詞_Table { get; set; }
+        public virtual ICollection<N5動詞> N5動詞 { get; set; }
     }
 }

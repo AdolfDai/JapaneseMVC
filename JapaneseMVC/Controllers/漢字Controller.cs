@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using JapaneseMVC.Controllers;
-using Model.EF;
 
 namespace JapaneseMVC.Controllers
 {
@@ -12,14 +7,16 @@ namespace JapaneseMVC.Controllers
     {
         //
         // GET: /漢字/
+        [ActionName("look-and-learn")]
         public ActionResult Index()
         {
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", selectedValue: "1");
-            return View();
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: "1");
+            return View("Index");
         }
+
         public ActionResult Get漢字(int 第課ID)
         {
-            var model = db.漢字___Table.Where(p => p.第課ID == 第課ID).ToList();
+            var model = db.漢字.Where(p => p.第課ID == 第課ID).ToList();
             return PartialView("_List漢字", model);
         }
     }

@@ -66,7 +66,7 @@ namespace JapaneseMVC
                 ));
 
             bundles.Add(new ScriptBundle("~/Client/js").Include(
-                "~/Assets/Client/MinnanoNihongoPage/jsList.js"
+                
                  ));
 
             //Admin

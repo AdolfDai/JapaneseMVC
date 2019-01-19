@@ -5,36 +5,39 @@
     <thead>
         <tr>
             <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-            <th>練習Ａ</th></tr>
+            <th>練習Ａ</th>
+            <th><span class="glyphicon glyphicon-list"></span></th>
+        </tr>
     </thead>
     <tbody>
-        @foreach (練習A_Table Item in Model)
+        @foreach (練習A Item in Model)
         {
 
             <tr>
 
                 <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習AID })">
-                        <span class="glyphicon glyphicon-edit"></span> @Item.練習AID
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.Id })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.Id
                     </a>
                 </td>
                 <td>
                     <div class="row">
                         <div class="col-md-6">
-                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                            @Html.Raw(Item.練習Aの本)
                             <br />
+                            @Html.Raw(Item.練習Aの答え)
+                            <br />
+                            <div class="bg-success">@Html.Raw(Item.ベトナム語)</div>
                         </div>
                     </div>
+                </td>
+                <td>
                     <div class="row">
                         <div class="col-md-6">
-                            @Html.Raw(Item.練習A)
-                            <br />
-
-                            @Html.Raw(Item.練習Answer1)
-                            <br />
-                            <div class="bg-success">@Html.Raw(Item.練習AVietnamese)</div>
+                            <span class="text-danger">@Html.Raw(Item.第課.第課Subject) / @Item.練習Aの名</span>
                         </div>
                     </div>
+                    
                 </td>
             </tr>
         }

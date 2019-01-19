@@ -5,6 +5,12 @@
     Layout = "~/Views/Shared/N5Template/_N5Layout.cshtml";
 }
 
+<style>
+    hr {
+        height: 5px;
+        background-color: #0094ff;
+    }
+</style>
 <br />
 
 @*言葉*@
@@ -48,7 +54,7 @@
                         </table>
                     </div>
                     <div class="panel-footer">
-                        @foreach (第課_Table p in ViewBag.list第課)
+                        @foreach (第課 p in ViewBag.list第課)
                         {
                             <table>
                                 <tr>
@@ -101,7 +107,7 @@
     </div>
 </div>
 
-<br />
+<hr />
 
 @*会話,文型,例文*@
 <div id="会話div" class="row">
@@ -122,11 +128,11 @@
                 <br />
                 <div class="row">
 
-                    @foreach (会話_Table p in ViewBag.list会話)
+                    @foreach (会話 p in ViewBag.list会話)
                     {
                         <div class="col-md-4 text-center">
                             <video style="border: 2px solid #0094ff;" id="example_video_1" class="video-js vjs-default-skin"
-                                   poster="~/img/会話/@p.会話Image" data-setup="{}"
+                                   poster="~/img/会話/@p.会話の写真" data-setup="{}"
                                    controls preload="none">
                                 <source src="~/audio/会話/@p.会話Audio" type="audio/mp3" />
                                 Your browser does not support HTML5 video.
@@ -141,11 +147,11 @@
                         </div>
                         <div class="col-md-6">
                             <div class="changeKwPx formatFont12px bg-danger">
-                                @Html.Raw(p.会話)
+                                @Html.Raw(p.会話の本)
                             </div>
                             <br />
                             <div class="hintKw formatFont12px bg-success">
-                                @Html.Raw(p.会話Vietnamese)
+                                @Html.Raw(p.ベトナム語)
                             </div>
                         </div>
                     }
@@ -154,7 +160,7 @@
             <div class="tab-pane fade" id="bunkei">
                 <br />
                 <div class="row">
-                    @foreach (第課_Table p in ViewBag.list第課)
+                    @foreach (第課 p in ViewBag.list第課)
                     {
                         <div class="col-md-3">
                             <audio controls="controls">
@@ -173,22 +179,22 @@
                 </div>
 
                 <br />
-                @foreach (文型_Table p in ViewBag.list文型)
+                @foreach (文型 p in ViewBag.list文型)
                 {
                     <div class="row">
                         <div class="changeBkPx col-md-6 col-md-offset-1 formatFont12px">
-                            @Html.Raw(@p.文型)
+                            @Html.Raw(@p.文型の本)
                             <br />
                         </div>
                         <div class="hintBk col-md-6 formatFont12px bg-success">
-                            @Html.Raw(p.文型Vietnamese)
+                            @Html.Raw(p.ベトナム語)
                         </div>
                     </div>
                 }
             </div>
             <div class="tab-pane fade" id="reibun">
                 <br />
-                @foreach (第課_Table p in ViewBag.list第課)
+                @foreach (第課 p in ViewBag.list第課)
                 {
                     <div class="row">
                         <div class="col-md-3">
@@ -208,15 +214,15 @@
                 }
                 <br />
 
-                @foreach (例文_Table p in ViewBag.list例文)
+                @foreach (例文 p in ViewBag.list例文)
                 {
                     <div class="row">
                         <div class="changeRbPx col-md-6 col-md-offset-1 formatFont12px">
-                            @Html.Raw(@p.例文)
+                            @Html.Raw(@p.例文の本)
                             <br />
                         </div>
                         <div class="hintRb col-md-6 formatFont12px bg-success">
-                            @Html.Raw(p.例文Vietnamese)
+                            @Html.Raw(p.ベトナム語)
                         </div>
                     </div>
                 }
@@ -225,8 +231,8 @@
     </div>
 </div>
 
-<br />
-@*練習A*@
+<hr />
+@*練習A,B,C*@
 <div class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
@@ -243,14 +249,14 @@
         <div class="tab-content">
             <div class="tab-pane fade active in" id="renshuuA">
                 <br />
-                @foreach (練習A_Table p in ViewBag.list練習A)
+                @foreach (練習A p in ViewBag.list練習A)
                 {
                     <div class="row">
                         <div class="col-md-8 col-md-offset-1 well well-sm formatFont12px">
-                            @Html.Raw(@p.練習A)
+                            @Html.Raw(@p.練習Aの本)
                         </div>
                         <div class="col-md-1">
-                            <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalA" data-id-a="@p.練習AID">
+                            <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalA" data-id-a="@p.Id">
                                 <span class="glyphicon glyphicon-open"></span>
                             </button>
                             <!-- Modal -->
@@ -275,22 +281,25 @@
             </div>
             <div class="tab-pane fade" id="renshuuB">
                 <br />
-                @foreach (練習Ｂ_Table item in ViewBag.練習B)
+                @foreach (練習B item in ViewBag.練習B)
                 {
                     <div id="練習Bdiv" class="well">
                         <div class="row">
                             <div class="col-md-12">
-                                <img class="img-thumbnail img-responsive" src='/img/練習BImg/@item.練習ＢImg' />
+                                @if (!(item.練習Bの写真 == "noimage.jpg"))
+                                {
+                                    <img class="img-thumbnail img-responsive" src='/img/練習BImg/@item.練習Bの写真' />
+                                }
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-md-6 col-md-offset-1 formatFont12px">
-                                @Html.Raw(@item.練習Ｂ)
+                                @Html.Raw(@item.練習Bの本)
                             </div>
                             <div class="col-md-1 col-md-offset-2">
 
-                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalB" data-id-b="@item.練習ＢID">
+                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalB" data-id-b="@item.練習BID">
                                     <span class="glyphicon glyphicon-open"></span>
                                 </button>
 
@@ -317,13 +326,13 @@
             </div>
             <div class="tab-pane fade" id="renshuuC">
                 <br />
-                @foreach (練習C_Table p in ViewBag.練習C)
+                @foreach (練習C p in ViewBag.練習C)
                 {
                     <div id="練習Cdiv" class="well">
                         <div class="row">
                             <div class="col-md-5">
                                 <br />
-                                <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/練習CImg/@p.練習CImg' data-setup="{}"
+                                <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/練習CImg/@p.練習Cの写真' data-setup="{}"
                                        controls="controls" height="250">
                                     <source src='/audio/練習/@p.練習CAudio' type="audio/mp3" />
                                     Your browser does not support HTML5 video.
@@ -351,8 +360,8 @@
                             </div>
                             <div class="col-md-6 formatFont12px">
                                 <br />
-                                <div style="cursor:pointer;" data-toggle="tooltip" data-placement="left" data-html="true" title="@p.練習C例VNI">
-                                    @Html.Raw(@p.練習C例)
+                                <div style="cursor:pointer;" data-toggle="tooltip" data-placement="left" data-html="true" title="@p.ベトナム語">
+                                    @Html.Raw(@p.練習Cの本)
                                 </div>
                             </div>
                         </div>
@@ -363,31 +372,49 @@
     </div>
 </div>
 
-<br />
+<hr />
 @*問題*@
 <div class="row">
     <div class="col-md-12">
         <ul class="nav nav-tabs formatFont12px">
             <li class="active">
-                <a href="#mondaiAudio" data-toggle="tab"><span class="glyphicon glyphicon-headphones font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 問題 - Audio</span></a>
-            </li>
-            <li>
-                <a href="#mondai" data-toggle="tab"><span class="glyphicon glyphicon-book font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 問題</span></a>
+                <a href="#mondai" data-toggle="tab"><span class="glyphicon glyphicon-headphones font-weight-bold text-primary"></span><span class="formatFont12px-textshadow"> 問題</span></a>
             </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane fade active in" id="mondaiAudio">
+            <div class="tab-pane fade active in" id="mondai">
                 <br />
-                @foreach (問題_Table p in ViewBag.問題1)
+                @foreach (問題 p in ViewBag.問題)
                 {
                     <div id="問題div" class="well">
                         <div class="row">
-                            <div class="col-md-5">
-                                <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/問題Img/@p.問題Img'
-                                       data-setup="{}" controls="controls" height="200">
-                                    <source src='/audio/問題/@p.問題Audio' type="audio/mp3" />
-                                    Your browser does not support HTML5 video.
-                                </video>
+                            @if (p.問題Audio != "No Audio File")
+                            {<div class="col-md-6">
+                                    <video style="border: 2px solid #0094ff;" class="video-js vjs-default-skin" poster='/img/問題Img/@p.問題の写真'
+                                           data-setup="{}" controls="controls" height="200">
+                                        <source src='/audio/問題/@p.問題Audio' type="audio/mp3" />
+                                        Your browser does not support HTML5 video.
+                                    </video>
+                                    <br />
+                                </div>
+                            }
+                            else
+                            {
+                                if (p.問題の写真 != "noimage.jpg")
+                                {
+                                    <div class="col-md-10">
+                                        <img class="img-thumbnail img-responsive" src='/img/問題Img/@p.問題の写真' />
+                                    </div>
+                                    <br />
+                                }
+                            }
+                        </div>
+                        
+
+                        <div class="row">
+                            <div class="col-md-10 formatFont12px">
+                                <br />
+                                @Html.Raw(@p.問題の本)
                                 <br />
                                 <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalMD1" data-id-md1="@p.問題ID">
                                     <span class="glyphicon glyphicon-open"></span>
@@ -409,44 +436,6 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                             </div>
-                            <div class="col-md-6 formatFont12px">
-                                @Html.Raw(@p.問題)
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-            <div class="tab-pane fade" id="mondai">
-                <br />
-                @foreach (問題_Table p in ViewBag.問題2)
-                {
-                    <div id="問題div1" class="well">
-                        <div class="row">
-                            <div class="col-md-12 formatFont12px">
-                                <img class="img-thumbnail img-responsive" src='/img/問題Img/@p.問題Img' />
-                                <hr />
-                                @Html.Raw(p.問題)
-                                <br />
-                                <button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalMD2" data-id-md2="@p.問題ID">
-                                    <span class="glyphicon glyphicon-open"></span>
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModalMD2" tabindex="-1" role="dialog" aria-labelledby="myModalLabelMD2" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="formatFont12px">Tooltip: Click button to show Vietnamese translation.</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div id='myModalContentMD2'></div>
-                                            </div>
-                                        </div>
-                                        <!-- /.modal-content -->
-                                    </div>
-                                    <!-- /.modal-dialog -->
-                                </div>
-                            </div>
                         </div>
                     </div>
                 }
@@ -455,7 +444,7 @@
     </div>
 </div>
 
-<br />
+<hr />
 @*Grammar*@
 <div class="row">
     <div class="col-md-12">
@@ -473,8 +462,8 @@
                             @foreach (Model.EF.GrammarNihongo p in ViewBag.Grammar)
                             {
 
-                                <h4 class="formatFont12px">@p.GrammarTitle</h4>
-                                <div class="formatFont12px">@Html.Raw(@p.Grammar)</div>
+                                <h4 class="formatFont12px">@Html.Raw(p.GrammarTitle)</h4>
+                                <div class="formatFont12px">@Html.Raw(p.Grammar)</div>
 
                             }
                         </div>
@@ -488,6 +477,7 @@
 @section N5scripts{
     <script src="~/Assets/Client/MinnanoNihongoPage/changePxOnJpIndex.js"></script>
     <script>
+
         $(function () {
             //videojs
             videojs.options.flash.swf = "video-js.swf";
@@ -499,6 +489,56 @@
                 responsive: true,
                 "bAutoWidth": false,
                 "ordering": false
+            });
+        });
+
+
+        $("[data-id-a]").click(function () {
+            var renshuuAId = $(this).attr("data-id-a");
+            $.ajax({
+                url: '/N5/GetRenshuuA/' + renshuuAId,
+                type: "Get",
+                dataType: "html",
+                data: { renshuuAId: renshuuAId},
+                success: function (model) {
+                    $('#myModalContentA').html(model);
+                }
+            });
+        });
+        $("[data-id-b]").click(function () {
+            var renshuuBId = $(this).attr("data-id-b");
+            $.ajax({
+                url: '/N5/GetRenshuuB/' + renshuuBId,
+                type: "Get",
+                dataType: "html",
+                data: { renshuuBId: renshuuBId },
+                success: function (model) {
+                    $('#myModalContentB').html(model);
+                }
+            });
+        });
+        $("[data-id-c]").click(function () {
+            var renshuuCId = $(this).attr("data-id-c");
+            $.ajax({
+                url: '/N5/GetRenshuuC/' + renshuuCId,
+                type: "Get",
+                dataType: "html",
+                data: { renshuuCId: renshuuCId },
+                success: function (model) {
+                    $('#myModalContentC').html(model);
+                }
+            });
+        });
+        $("[data-id-md1]").click(function () {
+            var MondaiId = $(this).attr("data-id-md1");
+            $.ajax({
+                url: '/N5/GetMondai/' + MondaiId,
+                type: "Get",
+                dataType: "html",
+                data: { MondaiId: MondaiId },
+                success: function (model) {
+                    $('#myModalContentMD1').html(model);
+                }
             });
         });
     </script>

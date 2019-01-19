@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@model 練習C_Table
+@model 練習C
 @{
     ViewBag.Title = "Index";
 }
@@ -36,16 +36,16 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(model => model.練習C例, "　例", new { @class = "control-label" })
+                            @Html.LabelFor(model => model.練習Cの本, "　例", new { @class = "control-label" })
 
-                            @Html.TextAreaFor(model => model.練習C例, new { @class = "form-control", id = "txt練習C例" })
-                            @Html.ValidationMessageFor(model => model.練習C例, "", new { @class = "error" })
+                            @Html.TextAreaFor(model => model.練習Cの本, new { @class = "form-control", id = "txt練習C例" })
+                            @Html.ValidationMessageFor(model => model.練習Cの本, "", new { @class = "error" })
                         </div>
                         <div class="form-group col-md-6">
-                            @Html.LabelFor(model => model.練習C例VNI, "　例答え -VNI", new { @class = "control-label" })
+                            @Html.LabelFor(model => model.ベトナム語, "　例答え -VNI", new { @class = "control-label" })
 
-                            @Html.TextAreaFor(model => model.練習C例VNI, new { @class = "form-control", id = "txt練習C例VNI" })
-                            @Html.ValidationMessageFor(model => model.練習C例VNI, "", new { @class = "error" })
+                            @Html.TextAreaFor(model => model.ベトナム語, new { @class = "form-control", id = "txt練習C例VNI" })
+                            @Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
                         </div>
                     </div>
                     <div class="row">
@@ -92,11 +92,11 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-3">
-                            @Html.LabelFor(model => model.練習CImg, "　写真", new { @class = "control-label" })
-                            @Html.TextBoxFor(model => model.練習CImg, new { @class = "form-control", @readonly = true })
+                            @Html.LabelFor(model => model.練習Cの写真, "　写真", new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.練習Cの写真, new { @class = "form-control", @readonly = true })
                             <br />
                             <input type="file" name="Up練習CImg" />
-                            @Html.HiddenFor(model => model.練習CImg)
+                            @Html.HiddenFor(model => model.練習Cの写真)
                         </div>
                         <div class="form-group col-md-3">
                             @Html.LabelFor(model => model.練習CAudio, "　Audio", new { @class = "control-label" })

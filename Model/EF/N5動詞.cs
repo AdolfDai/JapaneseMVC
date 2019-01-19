@@ -1,12 +1,13 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    [Table("N5動詞-Table")]
-    public partial class N5動詞_Table
+    public partial class N5動詞
     {
-        [Key]
         public int N5動詞ID { get; set; }
 
         [StringLength(50)]
@@ -48,6 +49,6 @@ namespace Model.EF
 
         public virtual Group動詞 Group動詞 { get; set; }
 
-        public virtual グループ_Table グループ_Table { get; set; }
+        public virtual グループ グループ { get; set; }
     }
 }

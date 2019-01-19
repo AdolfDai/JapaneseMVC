@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@model 文型_Table
+@model 文型
 
 @{
     ViewBag.Title = "Index";
@@ -38,18 +38,18 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.文型,"　文型", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.文型の本,"　文型", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.文型, new { @class = "form-control", id = "txt文型" })
-                    @Html.ValidationMessageFor(model => model.文型, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.文型の本, new { @class = "form-control", id = "txt文型" })
+                    @Html.ValidationMessageFor(model => model.文型の本, "", new { @class = "error" })
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-10">
-                    @Html.LabelFor(model => model.文型Vietnamese, "　ベトナム語", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
 
-                    @Html.TextAreaFor(model => model.文型Vietnamese, new { @class = "form-control", id = "txt文型Vietnamese" })
-                    @Html.ValidationMessageFor(model => model.文型Vietnamese, "", new { @class = "error" })
+                    @Html.TextAreaFor(model => model.ベトナム語, new { @class = "form-control", id = "txt文型Vietnamese" })
+                    @Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
                 </div>
             </div>
             <div class="row">

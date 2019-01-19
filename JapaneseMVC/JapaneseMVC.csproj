@@ -179,6 +179,7 @@
     <Compile Include="Areas\Admin\Controllers\言葉Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\言葉PlusController.cs" />
     <Compile Include="Common\EncryptorMD5.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\EFModelController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,7 +213,6 @@
     <Content Include="Assets\Client\MinnanoNihongoPage\changePxOnJpIndex.js" />
     <Content Include="Assets\Client\MinnanoNihongoPage\ChangePxTool.js" />
     <Content Include="Assets\Client\MinnanoNihongoPage\ClientCss.css" />
-    <Content Include="Assets\Client\MinnanoNihongoPage\jsList.js" />
     <Content Include="Assets\plug-in\ckeditor\adapters\jquery.js" />
     <Content Include="Assets\plug-in\ckeditor\build-config.js" />
     <Content Include="Assets\plug-in\ckeditor\ckeditor.js" />
@@ -2268,7 +2268,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\N5Template\_N5Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\JpIndex\Index.cshtml" />
@@ -2346,8 +2345,6 @@
     <Content Include="Assets\lib\video-js\font\vjs.woff" />
     <Content Include="Assets\lib\video-js\video-js.less" />
     <Content Include="Areas\Admin\Views\Group動詞\Index.cshtml" />
-    <Content Include="bower.json" />
-    <Content Include=".bowerrc" />
     <Content Include="Areas\Admin\Views\Login\AdmLogin.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\Home\_HomeLayout.cshtml" />
@@ -2360,12 +2357,12 @@
     <Content Include="Views\Music\Index.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\JpIndex\_ListMondaiNoAudio.cshtml" />
     <Content Include="Resources\Bảng Chia Động Từ Sơ cấp.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

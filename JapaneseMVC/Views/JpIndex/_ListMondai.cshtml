@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@foreach (問題_Table Item in Model)
+@foreach (問題 Item in Model)
 {
     <div class="row">
         <div class="col-md-6 col-md-offset-1">
@@ -11,23 +11,36 @@
         </div>
     </div>
     <br />
-    <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
-            @Html.Raw(Item.問題Text)
+    if (Item.ベトナム語 != null)
+    {
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
+                @Html.Raw(Item.ベトナム語)
+            </div>
         </div>
-    </div><br />
+        <br />
+    }
+
     //rei
-    <div class="row">
-        <div class="col-md-6 changePx formatFont12px">
-            @Html.Raw(Item.問題Rei)
+    if (Item.問題Rei != null)
+    {
+        <div class="row">
+            <div class="col-md-6 changePx formatFont12px">
+                @Html.Raw(Item.問題Rei)
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
-            @Html.Raw(Item.問題VNIRei)
+        <br />
+    }
+    if (Item.問題VNIRei != null)
+    {
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
+                @Html.Raw(Item.問題VNIRei)
+            </div>
         </div>
-    </div><br />
+        <br />
+    }
+
     //1
     <div class="row">
         <div class="col-md-6 changePx formatFont12px">
@@ -53,40 +66,59 @@
         </div>
     </div><br />
     //3
+    if (Item.問題3 != null)
+    {
     <div class="row">
         <div class="col-md-6 changePx formatFont12px">
             @Html.Raw(Item.問題3)
         </div>
     </div>
     <br />
+    }
+    if (Item.問題VNI3 != null)
+    {
     <div class="row">
         <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI3)
         </div>
     </div><br />
+    }
     //4
+    if (Item.問題4 != null)
+    {
     <div class="row">
         <div class="col-md-6 changePx formatFont12px">
             @Html.Raw(Item.問題4)
         </div>
     </div>
     <br />
+    }
+    if (Item.問題VNI4 != null)
+    {
     <div class="row">
         <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
             @Html.Raw(Item.問題VNI4)
         </div>
     </div><br />
+    }
     //5
-    <div class="row">
-        <div class="col-md-6 changePx formatFont12px">
-            @Html.Raw(Item.問題5)
+    if (Item.問題5 != null)
+    {
+        <div class="row">
+            <div class="col-md-6 changePx formatFont12px">
+                @Html.Raw(Item.問題5)
+            </div>
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
-            @Html.Raw(Item.問題VNI5)
+        <br />
+    }
+    if (Item.問題VNI5 != null)
+    {
+        <div class="row">
+            <div class="col-md-6 col-md-offset-1 showHint text-danger formatFont12px">
+                @Html.Raw(Item.問題VNI5)
+            </div>
         </div>
-    </div><br />
+        <br />
+    }
 }
 <script src="~/Assets/Client/MinnanoNihongoPage/ChangePxTool.js"></script>

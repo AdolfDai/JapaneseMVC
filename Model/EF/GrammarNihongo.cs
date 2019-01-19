@@ -1,7 +1,10 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("GrammarNihongo")]
     public partial class GrammarNihongo
@@ -13,9 +16,8 @@ namespace Model.EF
 
         public int? 第課ID { get; set; }
 
-        [StringLength(250)]
         public string GrammarTitle { get; set; }
 
-        public virtual 第課_Table 第課_Table { get; set; }
+        public virtual 第課 第課 { get; set; }
     }
 }

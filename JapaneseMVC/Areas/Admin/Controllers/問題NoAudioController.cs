@@ -13,37 +13,37 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/問題NoAudio/
         public ActionResult Index()
         {
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", selectedValue: true);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: true);
             return View();
         }
 
         public ActionResult Get問題NoAudio(int? 第課ID)
         {
-            var model = db.問題_Table.Where(p => p.第課ID == 第課ID).ToList();
-            ViewBag.問題 = db.問題_Table.Where(p => p.問題Audio == "No Audio File" && p.第課ID == 第課ID).ToList();
+            var model = db.問題.Where(p => p.第課ID == 第課ID).ToList();
+            ViewBag.問題 = db.問題.Where(p => p.問題Audio == "No Audio File" && p.第課ID == 第課ID).ToList();
             return PartialView("_ListNoAudio");
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.問題_Table.Find(Id);
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", model.第課ID);
+            var model = db.問題.Find(Id);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(問題_Table model)
+        public ActionResult Insert(問題 model)
         {
             var f = Request.Files["Up問題Image"];
             if (f.ContentLength > 0)
             {
-                model.問題Img = f.FileName;
-                var path問題Img = Server.MapPath("~/img/問題Img/" + model.問題Img);
+                model.問題の写真 = f.FileName;
+                var path問題Img = Server.MapPath("~/img/問題Img/" + model.問題の写真);
                 f.SaveAs(path問題Img);
             }
             else
             {
-                model.問題Img = "noimage.jpg";
+                model.問題の写真 = "noimage.jpg";
             }
             var f1 = Request.Files["Up問題Audio"];
             if (f1.ContentLength > 0)
@@ -58,12 +58,12 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             }
             try
             {
-                var a = model.問題;
+                var a = model.問題の本;
                 a = a.Replace("＜", "<ruby>");
                 a = a.Replace("＞", "</ruby>");
                 a = a.Replace("｛", "<rt>");
                 a = a.Replace("｝", "</rt>");
-                model.問題 = a;
+                model.問題の本 = a;
 
                 var b = model.問題1;
                 if (b != null)
@@ -162,7 +162,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                     model.問題VNIRei = j;
                 }
 
-                db.問題_Table.Add(model);
+                db.問題.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -171,28 +171,28 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(問題_Table model)
+        public ActionResult Update(問題 model)
         {
             var f = Request.Files["Up問題Image"];
             if (f.ContentLength > 0)
             {
-                var path問題Img = Server.MapPath("~/img/問題Img/" + model.問題Img);
+                var path問題Img = Server.MapPath("~/img/問題Img/" + model.問題の写真);
                 if (System.IO.File.Exists(path問題Img))
                 {
                     System.IO.File.Delete(path問題Img);
-                    model.問題Img = f.FileName;
-                    path問題Img = Server.MapPath("~/img/問題Img/" + model.問題Img);
+                    model.問題の写真 = f.FileName;
+                    path問題Img = Server.MapPath("~/img/問題Img/" + model.問題の写真);
                     f.SaveAs(path問題Img);
                 }
                 else
                 {
-                    model.問題Img = f.FileName;
-                    path問題Img = Server.MapPath("~/img/問題Img/" + model.問題Img);
+                    model.問題の写真 = f.FileName;
+                    path問題Img = Server.MapPath("~/img/問題Img/" + model.問題の写真);
                     f.SaveAs(path問題Img);
                 }
             }
@@ -218,12 +218,12 @@ namespace JapaneseMVC.Areas.Admin.Controllers
 
             try
             {
-                var a = model.問題;
+                var a = model.問題の本;
                 a = a.Replace("＜", "<ruby>");
                 a = a.Replace("＞", "</ruby>");
                 a = a.Replace("｛", "<rt>");
                 a = a.Replace("｝", "</rt>");
-                model.問題 = a;
+                model.問題の本 = a;
 
                 var b = model.問題1;
                 if (b != null)
@@ -331,7 +331,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Update thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
 
@@ -339,8 +339,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.問題_Table.Find(Id);
-                db.問題_Table.Remove(model);
+                var model = db.問題.Find(Id);
+                db.問題.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");
@@ -349,7 +349,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
     }

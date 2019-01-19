@@ -15,37 +15,37 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/言葉/Partial1
         public ActionResult Index()
         {
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", selectedValue: false);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: false);
             return View();
         }
 
         public ActionResult Get(int? 第課ID)
         {
-            var model = db.漢字___Table.Where(p => p.第課ID == 第課ID).ToList();
+            var model = db.漢字.Where(p => p.第課ID == 第課ID).ToList();
             return PartialView("_List", model);
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.漢字___Table.Find(Id);
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", model.第課ID);
+            var model = db.漢字.Find(Id);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
 
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(漢字___Table model)
+        public ActionResult Insert(漢字 model)
         {
             var f = Request.Files["Up漢字Image"];
             if (f.ContentLength > 0)
             {
-                model.漢字Image = f.FileName;
-                var path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字Image);
+                model.漢字の写真 = f.FileName;
+                var path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字の写真);
                 f.SaveAs(path漢字Image);
             }
             else
             {
-                model.漢字Image = "noimage.jpg";
+                model.漢字の写真 = "noimage.jpg";
             }
             try
             {
@@ -70,7 +70,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 c = c.Replace("｝", "</rt>");
                 model.Description = c;
 
-                db.漢字___Table.Add(model);
+                db.漢字.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -79,28 +79,28 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(漢字___Table model)
+        public ActionResult Update(漢字 model)
         {
             var f = Request.Files["Up漢字Image"];
             if (f.ContentLength > 0)
             {
-                var path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字Image);
+                var path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字の写真);
                 if (System.IO.File.Exists(path漢字Image))
                 {
                     System.IO.File.Delete(path漢字Image);
-                    model.漢字Image = f.FileName;
-                    path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字Image);
+                    model.漢字の写真 = f.FileName;
+                    path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字の写真);
                     f.SaveAs(path漢字Image);
                 }
                 else
                 {
-                    model.漢字Image = f.FileName;
-                    path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字Image);
+                    model.漢字の写真 = f.FileName;
+                    path漢字Image = Server.MapPath("~/img/漢字/" + model.漢字の写真);
                     f.SaveAs(path漢字Image);
                 }
             }
@@ -136,7 +136,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Update thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
 
@@ -144,8 +144,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.漢字___Table.Find(Id);
-                db.漢字___Table.Remove(model);
+                var model = db.漢字.Find(Id);
+                db.漢字.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");
@@ -154,7 +154,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             return View("Index");
         }
     }

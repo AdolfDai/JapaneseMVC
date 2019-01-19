@@ -11,7 +11,7 @@
     </thead>
     <tbody>
 
-        @foreach (漢字___Table Item in Model)
+        @foreach (漢字 Item in Model)
         {
 
             <tr>
@@ -21,14 +21,14 @@
                     </a>
                 </td>
                 <td>
-                    <span style="font-size:40px;" class="img-thumbnail">@Item.漢字</span>
+                    <span style="font-size:40px;" class="img-thumbnail">@Item.漢字の本</span>
                     <br /><br />
                     <span style="color:#ff0000;">@Item.音漢字</span>
                 </td>
                 <td>
                     <div class="row">
                         <div class="col-md-10">
-                            <img class="img-thumbnail img-responsive" src="~/img/漢字/@Item.漢字Image" height="100" width="200" />
+                            <img class="img-thumbnail img-responsive" src="~/img/漢字/@Item.漢字の写真" height="100" width="200" />
                             <br />
                             <br />
                             @Html.Raw(Item.Description)

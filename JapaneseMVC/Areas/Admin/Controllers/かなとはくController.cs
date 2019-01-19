@@ -11,12 +11,14 @@ namespace JapaneseMVC.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/かなとはく/
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Items = db.かなとはく.ToList();
             return View();
         }
 
+        [HttpPut]
         public ActionResult Edit(int Id)
         {
             var model = db.かなとはく.Find(Id);
@@ -24,6 +26,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             return View("Index", model);
         }
 
+        [HttpPost]
         public ActionResult Insert(かなとはく model)
         {
             var f = Request.Files["UpImageHiragana"];
@@ -63,6 +66,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             return View("Index");
         }
 
+        [HttpPost]
         public ActionResult Update(かなとはく model)
         {
             var f = Request.Files["UpImageHiragana"];
@@ -117,6 +121,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             return View("Index");
         }
 
+        [HttpDelete]
         public ActionResult Delete(int Id)
         {
             try

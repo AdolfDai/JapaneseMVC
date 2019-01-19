@@ -1,15 +1,17 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    [Table("漢字 - Table")]
-    public partial class 漢字___Table
+    public partial class 漢字
     {
         public int ID { get; set; }
 
         [StringLength(50)]
-        public string 漢字 { get; set; }
+        public string 漢字の本 { get; set; }
 
         [StringLength(50)]
         public string 音漢字 { get; set; }
@@ -23,7 +25,7 @@ namespace Model.EF
         public string くんよみ { get; set; }
 
         [StringLength(50)]
-        public string 漢字Image { get; set; }
+        public string 漢字の写真 { get; set; }
 
         [StringLength(50)]
         public string 漢字Audio { get; set; }
@@ -36,6 +38,6 @@ namespace Model.EF
 
         public int? LineOfNumber { get; set; }
 
-        public virtual 第課_Table 第課_Table { get; set; }
+        public virtual 第課 第課 { get; set; }
     }
 }

@@ -1,23 +1,24 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-    [Table("問題-Table")]
-    public partial class 問題_Table
+    public partial class 問題
     {
-        [Key]
         public int 問題ID { get; set; }
 
         [StringLength(50)]
-        public string 問題Img { get; set; }
+        public string 問題の写真 { get; set; }
+
+        public string 問題の本 { get; set; }
 
         [StringLength(50)]
         public string 問題Audio { get; set; }
 
-        public string 問題 { get; set; }
-
-        public string 問題Text { get; set; }
+        public string ベトナム語 { get; set; }
 
         public string 問題Rei { get; set; }
 
@@ -43,8 +44,8 @@ namespace Model.EF
 
         public string 問題VNI5 { get; set; }
 
-        public int? 第課ID { get; set; }
+        public int 第課ID { get; set; }
 
-        public virtual 第課_Table 第課_Table { get; set; }
+        public virtual 第課 第課 { get; set; }
     }
 }

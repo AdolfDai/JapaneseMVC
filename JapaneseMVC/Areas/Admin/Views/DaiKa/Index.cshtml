@@ -1,5 +1,5 @@
 ﻿@using Model.EF
-@model 第課_Table
+@model 第課
 @{
     ViewBag.Title = "Index";
 }
@@ -29,10 +29,10 @@
                     @Html.ValidationMessageFor(model => model.第課ID, "", new { @class = "error" })
                 </div>
                 <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.第課Name, "　第課 Name - Số thứ tự bài học", new { @class = "control-label" })
+                    @Html.LabelFor(model => model.第課の名, "　第課 Name - Số thứ tự bài học", new { @class = "control-label" })
 
-                    @Html.TextBoxFor(model => model.第課Name, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.第課Name, "", new { @class = "error" })
+                    @Html.TextBoxFor(model => model.第課の名, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.第課の名, "", new { @class = "error" })
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (第課_Table Item in ViewBag.Items)
+                @foreach (第課 Item in ViewBag.Items)
                 {
 
                     <tr>
@@ -122,7 +122,7 @@
                             </audio>
                         </td>
                         <td>
-                            @Item.第課Name
+                            @Item.第課の名
                             @Html.Raw(Item.第課Subject)
                         </td>
                     </tr>

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using JapaneseMVC.Common;
+using JapaneseMVC.FilerUrl;
+using System;
 using System.Web;
 using System.Web.Mvc;
-using JapaneseMVC.Controllers;
-using JapaneseMVC.Common;
-using JapaneseMVC.FilerUrl;
 
 namespace JapaneseMVC.Controllers
 {
@@ -20,10 +17,10 @@ namespace JapaneseMVC.Controllers
             {
                 ViewBag.Id = cookie.Values["Id"];
                 ViewBag.Paswword = cookie.Values["Password"];
-
             }
             return View();
         }
+
         [HttpPost]
         public ActionResult UserLogin(String Id, String Password, Boolean Remember)
         {
@@ -61,7 +58,6 @@ namespace JapaneseMVC.Controllers
                         cookie.Expires = DateTime.Now;
                     }
                     Response.Cookies.Add(cookie);
-
                 }
 
                 //
@@ -77,6 +73,7 @@ namespace JapaneseMVC.Controllers
             }
             return View();
         }
+
         [Authenticate]
         public ActionResult Logoff()
         {

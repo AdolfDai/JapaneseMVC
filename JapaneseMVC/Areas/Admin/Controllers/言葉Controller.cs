@@ -15,7 +15,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         public ActionResult Index()
         {
             //var list = db.第課_Table.OrderBy(p => p.第課ID).ToList();
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", selectedValue: false);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: false);
             return View();
         }
 
@@ -28,7 +28,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         public ActionResult Edit(int Id)
         {
             var model = db.言葉_Table.Find(Id);
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name", model.第課ID);
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
 
             return View("Index", model);
         }
@@ -48,7 +48,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             ViewBag.Items = db.言葉_Table.ToList();
 
             return View("Index");
@@ -89,7 +89,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Update thất bại!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             ViewBag.Items = db.言葉_Table.ToList();
 
             return View("Index");
@@ -109,7 +109,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.第課List = new SelectList(db.第課_Table, "第課ID", "第課Name");
+            ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
             ViewBag.Items = db.言葉_Table.ToList();
 
             return View("Index");

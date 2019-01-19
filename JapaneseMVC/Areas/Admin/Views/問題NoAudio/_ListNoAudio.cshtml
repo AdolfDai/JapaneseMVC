@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (問題_Table Item in ViewBag.問題)
+        @foreach (問題 Item in ViewBag.問題)
         {
 
             <tr>
@@ -20,21 +20,21 @@
                 <td>
                     <div class="row">
                         <div class="col-md-6">
-                            <span class="text-danger">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                            <span class="text-danger">Title: @Html.Raw(Item.第課.第課Subject)</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="img-thumbnail img-responsive" src='/img/問題Img/@Item.問題Img' height="250" width="250" />
+                            <img class="img-thumbnail img-responsive" src='/img/問題Img/@Item.問題の写真' height="250" width="250" />
                         </div>
                         <div class="col-md-8">
-                            @Html.Raw(Item.問題Text)
+                            @Html.Raw(Item.ベトナム語)
                         </div>
                     </div>
                     <br />
                     <div class="row">
                         <div class="col-md-6 bg-success">
-                            @Html.Raw(Item.問題)
+                            @Html.Raw(Item.問題の本)
                         </div>
                     </div>
                     <br />

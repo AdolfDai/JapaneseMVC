@@ -8,21 +8,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (練習Ｂ_Table Item in Model)
+        @foreach (練習B Item in Model)
         {
 
             <tr>
                 <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習ＢID })">
-                        <span class="glyphicon glyphicon-edit"></span> @Item.練習ＢID
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習BID })">
+                        <span class="glyphicon glyphicon-edit"></span> @Item.練習BID
                     </a>
                 </td>
                 <td>
                     <div class="row">
                         <div class="col-md-6">
-                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課_Table.第課Subject)</span>
+                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課.第課Subject)</span>
                             <br />
-                            <img class="img-thumbnail img-responsive" src="~/img/練習BImg/@Item.練習ＢImg"
+                            <img class="img-thumbnail img-responsive" src="~/img/練習BImg/@Item.練習Bの写真"
                                  height="150" width="300" />
                             <br />
                         </div>
@@ -30,9 +30,9 @@
                     <div class="row">
                         <div class="col-md-6 formatFont12px">
                             <br />
-                            @Html.Raw(Item.練習Ｂ)
+                            @Html.Raw(Item.練習Bの本)
                             <br />
-                            @Html.Raw(Item.練習ＢAnswer)
+                            @Html.Raw(Item.練習BAnswer)
                             <br />
                             <div class="bg-success">@Html.Raw(Item.練習BVietnamese)</div>
                         </div>

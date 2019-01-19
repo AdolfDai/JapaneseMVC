@@ -13,23 +13,23 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         // GET: /Admin/グループ/
         public ActionResult Index()
         {
-            ViewBag.Items = db.グループ_Table.ToList();
+            ViewBag.Items = db.グループ.ToList();
             return View();
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.グループ_Table.Find(Id);
-            ViewBag.Items = db.グループ_Table.ToList();
+            var model = db.グループ.Find(Id);
+            ViewBag.Items = db.グループ.ToList();
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(グループ_Table model)
+        public ActionResult Insert(グループ model)
         {
             try
             {
-                db.グループ_Table.Add(model);
+                db.グループ.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Inserted successful.");
@@ -38,12 +38,12 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Inserting failed.");
             }
-            ViewBag.Items = db.グループ_Table.ToList();
+            ViewBag.Items = db.グループ.ToList();
             return View("Index");
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(グループ_Table model)
+        public ActionResult Update(グループ model)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Updating failed!");
             }
 
-            ViewBag.Items = db.グループ_Table.ToList();
+            ViewBag.Items = db.グループ.ToList();
             return View("Index");
         }
 
@@ -65,8 +65,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.グループ_Table.Find(Id);
-                db.グループ_Table.Remove(model);
+                var model = db.グループ.Find(Id);
+                db.グループ.Remove(model);
                 db.SaveChanges();
 
                 ModelState.Clear();
@@ -76,7 +76,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("", "Deleting Failed!");
             }
-            ViewBag.Items = db.グループ_Table.ToList();
+            ViewBag.Items = db.グループ.ToList();
             return View("Index");
         }
     }

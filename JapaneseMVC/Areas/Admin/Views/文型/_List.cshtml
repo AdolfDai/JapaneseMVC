@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (文型_Table Item in Model)
+        @foreach (文型 Item in Model)
         {
 
             <tr>
@@ -20,12 +20,12 @@
                     </a>
                 </td>
                 <td>
-                    @Html.Raw(Item.文型)
-                    @Html.Raw(Item.文型Vietnamese)
+                    @Html.Raw(Item.文型の本)
+                    @Html.Raw(Item.ベトナム語)
                 </td>
                 <td>
-                    @Item.第課_Table.第課Name
-                    @Html.Raw(Item.第課_Table.第課Subject)
+                    @Item.第課.第課の名
+                    @Html.Raw(Item.第課.第課Subject)
                 </td>
             </tr>
 

@@ -11,7 +11,8 @@ namespace JapaneseMVC.FilerUrl
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            object master = HttpContext.Current.Session["Administrator"] as Administrator;
+            var  master = HttpContext.Current.Session["Administrator"] as Administrator;
+
             if (master == null)
             {
                 //Luu lai url de khi dang nhap xong se quay lai

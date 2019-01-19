@@ -1,8 +1,8 @@
 ﻿@using Model.EF
-@foreach (練習A_Table Item in Model)
+@foreach (練習A Item in Model)
 {
     <div class="row">
-        <div class="col-md-6 col-md-offset-1">
+        <div class="col-md-6">
             <button class="btn btn-sm btn-primary" disabled id="btn12px">12px</button>
             <button class="btn btn-sm btn-primary" id="btn14px">14px</button>
             <button class="btn btn-sm btn-primary" id="btn16px">16px</button>
@@ -12,13 +12,11 @@
     </div>
     <br />
     <div class="row">
-        <div class="col-md-8 formatFont12px changePx">
-            @Html.Raw(@Item.練習Answer1)
+        <div class="col-md-6 changePx formatFont12px">
+            @Html.Raw(Item.練習Aの答え)
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-1 bg-info showHint formatFont12px">
-            @Html.Raw(Item.練習AVietnamese)
+        <div class="col-md-6 bg-success showHint formatFont12px">
+            @Html.Raw(Item.ベトナム語)
         </div>
     </div>
 }

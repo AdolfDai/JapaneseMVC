@@ -1,7 +1,10 @@
 namespace Model.EF
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     public partial class 形容詞
     {
@@ -17,6 +20,6 @@ namespace Model.EF
 
         public virtual Group形容詞 Group形容詞1 { get; set; }
 
-        public virtual 第課_Table 第課_Table { get; set; }
+        public virtual 第課 第課 { get; set; }
     }
 }
