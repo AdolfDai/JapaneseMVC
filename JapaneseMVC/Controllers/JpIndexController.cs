@@ -14,8 +14,8 @@ namespace JapaneseMVC.Controllers
             ViewBag.list会話 = db.会話.Where(p => p.第課ID == 第課).ToList();
 
             //言葉 --> Lấy ra Kotoba, Kotoba Plus và Audio Kotoba đi kèm ứng với Daika
-            ViewBag.list言葉 = db.言葉_Table.Where(p => p.第課ID == 第課).ToList();
-            ViewBag.list言葉Plus = db.言葉Plus_Table.Where(p => p.第課ID == 第課).ToList();
+            ViewBag.list言葉 = db.言葉Table.Where(p => p.第課ID == 第課).ToList();
+            ViewBag.list言葉Plus = db.言葉PlusTable.Where(p => p.第課ID == 第課).ToList();
 
             //文型 --> Lấy ra bunkei.
             ViewBag.list文型 = db.文型.Where(p => p.第課ID == 第課).ToList();

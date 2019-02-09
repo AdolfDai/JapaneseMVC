@@ -14,7 +14,6 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         public ActionResult Index()
         {
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: true);
-
             return View();
         }
 
@@ -28,7 +27,6 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             var model = db.例文.Find(Id);
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
-
             return View("Index", model);
         }
 

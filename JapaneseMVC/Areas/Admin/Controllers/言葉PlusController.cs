@@ -20,26 +20,26 @@ namespace JapaneseMVC.Areas.Admin.Controllers
 
         public ActionResult Get(int? 第課ID)
         {
-            var model = db.言葉Plus_Table.Where(p => p.第課ID == 第課ID).ToList();
+            var model = db.言葉PlusTable.Where(p => p.第課ID == 第課ID).ToList();
             return PartialView("_List", model);
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.言葉Plus_Table.Find(Id);
+            var model = db.言葉PlusTable.Find(Id);
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
             return View("Index", model);
         }
 
         [HttpPost]
-        public JsonResult SaveItem(List<言葉Plus_Table> list)
+        public JsonResult SaveItem(List<言葉PlusTable> list)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
                 foreach (var item in list)
                 {
-                    db.言葉Plus_Table.Add(item);
+                    db.言葉PlusTable.Add(item);
                 }
                 db.SaveChanges();
                 status = true;
@@ -52,11 +52,11 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(言葉Plus_Table model)
+        public ActionResult Insert(言葉PlusTable model)
         {
             try
             {
-                db.言葉Plus_Table.Add(model);
+                db.言葉PlusTable.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -71,7 +71,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(言葉Plus_Table model)
+        public ActionResult Update(言葉PlusTable model)
         {
             try
             {
@@ -92,8 +92,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.言葉Plus_Table.Find(Id);
-                db.言葉Plus_Table.Remove(model);
+                var model = db.言葉PlusTable.Find(Id);
+                db.言葉PlusTable.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");

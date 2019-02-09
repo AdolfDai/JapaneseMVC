@@ -12,7 +12,5 @@ namespace Model.EF
 
         [StringLength(50)]
         public string Group形容詞Name { get; set; }
-
-        public virtual 形容詞 形容詞 { get; set; }
     }
 }

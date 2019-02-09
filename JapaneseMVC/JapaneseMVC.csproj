@@ -170,7 +170,9 @@
     <Compile Include="Areas\Admin\Controllers\例文Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\動詞Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\問題AudioController.cs" />
+    <Compile Include="Areas\Admin\Controllers\問題Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\問題NoAudioController.cs" />
+    <Compile Include="Areas\Admin\Controllers\問題の答えController.cs" />
     <Compile Include="Areas\Admin\Controllers\文型Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\漢字Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\練習AController.cs" />
@@ -2346,6 +2348,10 @@
     <Content Include="Assets\lib\video-js\video-js.less" />
     <Content Include="Areas\Admin\Views\Group動詞\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\AdmLogin.cshtml" />
+    <Content Include="Areas\Admin\Views\問題\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\問題\_List問題.cshtml" />
+    <Content Include="Areas\Admin\Views\問題の答え\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\問題の答え\_List問題の答え.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shared\Home\_HomeLayout.cshtml" />
     <Content Include="Views\動詞\Index.cshtml" />

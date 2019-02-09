@@ -1,57 +1,64 @@
 ﻿@using Model.EF
 
 <table class="table table-bordered table-hover table-responsive display">
-    <thead>
-        <tr>
-            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-            <th>練習Ｂ</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (練習B Item in Model)
-        {
+	<thead>
+		<tr>
+			<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+			<th>練習Ｂ</th>
+			<th><span class="glyphicon glyphicon-list">　第？課</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (練習B Item in Model)
+		{
 
-            <tr>
-                <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習BID })">
-                        <span class="glyphicon glyphicon-edit"></span> @Item.練習BID
-                    </a>
-                </td>
-                <td>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <span style="color:#ff0000;">Title: @Html.Raw(Item.第課.第課Subject)</span>
-                            <br />
-                            <img class="img-thumbnail img-responsive" src="~/img/練習BImg/@Item.練習Bの写真"
-                                 height="150" width="300" />
-                            <br />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 formatFont12px">
-                            <br />
-                            @Html.Raw(Item.練習Bの本)
-                            <br />
-                            @Html.Raw(Item.練習BAnswer)
-                            <br />
-                            <div class="bg-success">@Html.Raw(Item.練習BVietnamese)</div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-
-        }
-    </tbody>
+			<tr>
+				<td>
+					<a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.練習BID })">
+						<span class="glyphicon glyphicon-edit"></span> @Item.練習BID
+					</a>
+				</td>
+				<td>
+					<img style="margin-left:20px;" class="img-thumbnail img-responsive" src="~/img/練習BImg/@Item.練習Bの写真"
+						 height="150" width="300" />
+					<br />
+					<div class="formatFont12px">
+						<br />
+						@Html.Raw(Item.練習Bの本)
+					</div>
+				</td>
+				<td>
+					<span class="text-danger">@Html.Raw(Item.第課.第課Subject)</span>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div class="formatFont12px">
+						@Html.Raw(Item.練習BAnswer)
+					</div>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div class="bg-success formatFont12px">@Html.Raw(Item.練習BVietnamese)</div>
+				</td>
+				<td></td>
+			</tr>
+		}
+	</tbody>
 </table>
 <script>
-    $(document).ready(function () {
-        $('table.display').dataTable({
-            responsive: true,
-            "bAutoWidth": false,
-            'bProcessing': true,
-            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
-            "iDisplayLength": 1,
-            "ordering": false
-        });
-    });
+	$(document).ready(function () {
+		$('table.display').dataTable({
+			responsive: true,
+			"bAutoWidth": false,
+			'bProcessing': true,
+			"aLengthMenu": [[3, 6, 12, -1], [3, 6, 12, "All"]],
+			"iDisplayLength": 3,
+			"ordering": false
+		});
+	});
 </script>

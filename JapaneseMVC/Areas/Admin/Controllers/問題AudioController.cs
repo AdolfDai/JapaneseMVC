@@ -11,6 +11,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/問題/
+		//
         public ActionResult Index()
         {
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", selectedValue: true);

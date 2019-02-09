@@ -12,9 +12,9 @@ namespace Model.EF
 
         public string 例文の本 { get; set; }
 
-        public string ベトナム語 { get; set; }
+        public int? 第課ID { get; set; }
 
-        public int 第課ID { get; set; }
+        public string ベトナム語 { get; set; }
 
         public virtual 第課 第課 { get; set; }
     }

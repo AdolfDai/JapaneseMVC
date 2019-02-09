@@ -21,25 +21,25 @@ namespace JapaneseMVC.Areas.Admin.Controllers
 
         public ActionResult Get(int? 第課ID)
         {
-            var model = db.言葉_Table.Where(p => p.第課ID == 第課ID).ToList();
+            var model = db.言葉Table.Where(p => p.第課ID == 第課ID).ToList();
             return PartialView("_List", model);
         }
 
         public ActionResult Edit(int Id)
         {
-            var model = db.言葉_Table.Find(Id);
+            var model = db.言葉Table.Find(Id);
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名", model.第課ID);
 
             return View("Index", model);
         }
 
         [ValidateInput(false)]
-        public ActionResult Insert(言葉_Table model)
+        public ActionResult Insert(言葉Table model)
         {
             try
             {
                 //model.第課ID = int.Parse(Request.Form["第課List"]);
-                db.言葉_Table.Add(model);
+                db.言葉Table.Add(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Thêm thành công!");
@@ -49,20 +49,20 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Thêm thất bại!");
             }
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
-            ViewBag.Items = db.言葉_Table.ToList();
+            ViewBag.Items = db.言葉Table.ToList();
 
             return View("Index");
         }
 
         [HttpPost]
-        public JsonResult SaveItem(List<言葉_Table> list)
+        public JsonResult SaveItem(List<言葉Table> list)
         {
             bool status = false;
             if (ModelState.IsValid)
             {
                 foreach (var item in list)
                 {
-                    db.言葉_Table.Add(item);
+                    db.言葉Table.Add(item);
                 }
                 db.SaveChanges();
                 status = true;
@@ -75,7 +75,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult Update(言葉_Table model)
+        public ActionResult Update(言葉Table model)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Update thất bại!");
             }
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
-            ViewBag.Items = db.言葉_Table.ToList();
+            ViewBag.Items = db.言葉Table.ToList();
 
             return View("Index");
         }
@@ -99,8 +99,8 @@ namespace JapaneseMVC.Areas.Admin.Controllers
         {
             try
             {
-                var model = db.言葉_Table.Find(Id);
-                db.言葉_Table.Remove(model);
+                var model = db.言葉Table.Find(Id);
+                db.言葉Table.Remove(model);
                 db.SaveChanges();
                 ModelState.Clear();
                 ModelState.AddModelError("", "Deleted successfull!");
@@ -110,7 +110,7 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Deleting Failed!");
             }
             ViewBag.第課List = new SelectList(db.第課, "第課ID", "第課の名");
-            ViewBag.Items = db.言葉_Table.ToList();
+            ViewBag.Items = db.言葉Table.ToList();
 
             return View("Index");
         }

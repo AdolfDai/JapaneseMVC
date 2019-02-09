@@ -90,6 +90,7 @@
     <Compile Include="EF\会話.cs" />
     <Compile Include="EF\例文.cs" />
     <Compile Include="EF\問題.cs" />
+    <Compile Include="EF\問題の答えTable.cs" />
     <Compile Include="EF\形容詞.cs" />
     <Compile Include="EF\文型.cs" />
     <Compile Include="EF\漢字.cs" />
@@ -97,8 +98,8 @@
     <Compile Include="EF\練習A.cs" />
     <Compile Include="EF\練習B.cs" />
     <Compile Include="EF\練習C.cs" />
-    <Compile Include="EF\言葉Plus_Table.cs" />
-    <Compile Include="EF\言葉_Table.cs" />
+    <Compile Include="EF\言葉PlusTable.cs" />
+    <Compile Include="EF\言葉Table.cs" />
     <Compile Include="Enum\Status.cs" />
     <Compile Include="Interfaces\IDateTracking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,51 @@
+﻿@using Model.EF
+
+<table class="table table-bordered table-hover table-responsive display">
+	<thead>
+		<tr style="color:black; font-weight:bold;">
+			<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+			<th>問題の答え</th>
+			<th>ベトナム語</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (問題の答えTable item in Model)
+		{
+
+			<tr>
+
+				<td>
+					<a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { 問題の答えId = item.Id })">
+						<span class="glyphicon glyphicon-edit"></span> @item.Id  Edit
+					</a>
+				</td>
+				<td>
+					<div class="row">
+						<div class="col-md-6 formatFont12px">
+							@Html.Raw(item.問題の答え)
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="row">
+						<div class="col-md-6 formatFont12px">
+							@Html.Raw(item.ベトナム語)
+						</div>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<script>
+		$(function () {
+            $('table.display').DataTable({
+                responsive: true,
+                "bAutoWidth": false,
+                "aLengthMenu": [[5, 10,20, -1], [1, 5, 10,20, "All"]],
+                "iDisplayLength": 5,
+                "ordering": false
+            });
+		});
+</script>

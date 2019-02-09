@@ -6,16 +6,17 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class 文型
+    public partial class 問題の答えTable
     {
-        public int 文型ID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
 
-        public string 文型の本 { get; set; }
+        public string 問題の答え { get; set; }
 
-        public int 第課ID { get; set; }
+        public int? 問題Id { get; set; }
 
         public string ベトナム語 { get; set; }
 
-        public virtual 第課 第課 { get; set; }
+        public virtual 問題 問題 { get; set; }
     }
 }

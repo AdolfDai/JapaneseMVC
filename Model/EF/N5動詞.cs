@@ -40,6 +40,9 @@ namespace Model.EF
         [StringLength(50)]
         public string て形 { get; set; }
 
+        [StringLength(50)]
+        public string 可能形 { get; set; }
+
         public int? グループID { get; set; }
 
         [StringLength(50)]

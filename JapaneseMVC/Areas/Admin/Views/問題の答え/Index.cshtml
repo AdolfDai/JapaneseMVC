@@ -1,0 +1,111 @@
+﻿@using Model.EF
+@model 問題の答えTable
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<br />
+
+<ul class="nav nav-tabs formatFont12px">
+	<li class="active">
+		<a href="#edit" data-toggle="tab">編集</a>
+	</li>
+	<li>
+		<a href="#list" data-toggle="tab">リストを　見る</a>
+	</li>
+</ul>
+<div class="tab-content">
+	<div class="tab-pane fade in active formatFont12px" id="edit">
+		<br />
+		@using (Html.BeginForm("Index", "問題の答え", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			@Html.AntiForgeryToken()
+			@Html.ValidationSummary(true, "", new { @class = "error" })
+			<div class="row">
+				<div class="form-group col-md-3">
+					@Html.LabelFor(model => model.Id, "　ID (Auto Increase)", new { @class = "control-label" })
+
+					@Html.TextBoxFor(model => model.Id, new { @class = "form-control", @readonly = true })
+					@Html.ValidationMessageFor(model => model.Id, "", new { @class = "error" })
+				</div>
+				<div class="form-group col-md-3">
+					@Html.LabelFor(model => model.問題Id, "　問題 ID (Auto Increase)", new { @class = "control-label" })
+
+					@Html.TextBoxFor(model => model.問題Id, new { @class = "form-control"})
+					@Html.ValidationMessageFor(model => model.問題Id, "", new { @class = "error" })
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-10">
+					@Html.LabelFor(model => model.問題の答え, "　問題１", new { @class = "control-label" })
+
+					@Html.TextAreaFor(model => model.問題の答え, new { @class = "form-control", id = "txt問題の答え" })
+					@Html.ValidationMessageFor(model => model.問題の答え, "", new { @class = "error" })
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-10">
+					@Html.LabelFor(model => model.ベトナム語, "　ベトナム語", new { @class = "control-label" })
+
+					@Html.TextAreaFor(model => model.ベトナム語, new { @class = "form-control", id = "txtベトナム語" })
+					@Html.ValidationMessageFor(model => model.ベトナム語, "", new { @class = "error" })
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					@Html.Partial("_ListButton")
+				</div>
+			</div>
+		}
+	</div>
+	<div class="tab-pane fade formatFont12px" id="list">
+		<div class="row">
+			<div class="form-group col-md-6">
+				<br />
+				<label class="control-label">問題ＩＤ: </label>
+				<input type="text" class="txtText form-control" />
+				<br />
+				<button class="btn btn-primary btnSort form-control">Sort</button>
+			</div>
+		</div>
+		<div class="row">
+			<div id="divPartialView" class="col-md-12">
+			</div>
+		</div>
+	</div>
+</div>
+
+@section scripts{
+	<script>
+		$(function () {
+			$(".btnSort").click(function () {
+				var 問題ID = $(".txtText").val();
+				$.ajax({
+					url: '/Admin/問題の答え/Get/',
+					type: "Get",
+					dataType: "html",
+					data: { 問題ID: 問題ID },
+					success: function (model) {
+						$("#divPartialView").html(model);
+					}
+				});
+			});
+			
+			
+			var editor = CKEDITOR.replace('txt問題の答え', {
+				customConfig: '/Assets/plug-in/ckeditor/config.js',
+				allowedContent: true
+			});
+			var editor1 = CKEDITOR.replace('txtベトナム語', {
+				customConfig: '/Assets/plug-in/ckeditor/config.js',
+				allowedContent: true
+			});
+		});
+	</script>
+}
+
+
+
+
+

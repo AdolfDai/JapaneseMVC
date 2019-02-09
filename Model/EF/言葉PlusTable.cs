@@ -6,12 +6,10 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("言葉-Table")]
-    public partial class 言葉_Table
+    public partial class 言葉PlusTable
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int 言葉ID { get; set; }
+        public int 言葉PlusID { get; set; }
 
         [StringLength(50)]
         public string ひらがな { get; set; }

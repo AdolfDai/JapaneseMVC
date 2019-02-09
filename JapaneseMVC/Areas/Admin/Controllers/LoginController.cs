@@ -58,15 +58,9 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Login Successed.");
                 //add session
                 Session["Administrator"] = admin;
-
-                //request url
-                var url = Session["RequestUrl"] as String;
-                if (url != null)
-                {
-                    return Redirect(url);
-                }
-                //Luu cookie
-                var cookie = new HttpCookie("Administrator");
+				
+				//Luu cookie
+				var cookie = new HttpCookie("Administrator");
                 if (Remember)
                 {
                     cookie.Values["userName"] = Id;
@@ -78,9 +72,19 @@ namespace JapaneseMVC.Areas.Admin.Controllers
                     cookie.Expires = DateTime.Now;
                 }
                 Response.Cookies.Add(cookie);
-            }
-            //}
-            return View();
+
+				//request url
+				var url = Session["RequestUrl"] as String;
+				if (url != null)
+				{
+					return Redirect(url);
+				}
+				else
+				{
+					return RedirectToAction("Index","Daika");
+				}
+			}
+			return View();
         }
 
         [AdminAuthenticate]

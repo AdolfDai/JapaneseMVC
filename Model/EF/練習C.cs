@@ -32,7 +32,7 @@ namespace Model.EF
 
         public string 練習C3AnsVNI { get; set; }
 
-        public int 第課ID { get; set; }
+        public int? 第課ID { get; set; }
 
         public virtual 第課 第課 { get; set; }
     }
