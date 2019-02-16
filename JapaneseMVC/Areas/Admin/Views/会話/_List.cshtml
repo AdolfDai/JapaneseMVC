@@ -3,55 +3,60 @@
 
 <br />
 <table class="table table-bordered table-hover table-responsive display">
-    <thead>
-        <tr style="color:black; font-weight:bold">
-            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-            <th>会話</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (会話 Item in Model)
-        {
-            <tr>
-                <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.会話ID })">
-                        <span class="glyphicon glyphicon-edit"></span> @Item.会話ID
-                    </a>
-                </td>
-                <td>
-                    <br />
-                    <span style="color:#ff0000;">Title:</span> @Html.Raw(Item.第課.第課Subject)
-                    <br />
-                    <br />
-                    <video style="border: 2px solid #0094ff;" id="example_video_1" class="video-js vjs-default-skin" poster='/img/会話/@Item.会話の写真' data-setup="{}"
-                           controls preload="none" height="250">
-                        <source src='~/audio/会話/@Item.会話Audio' type="audio/mpeg" />
-
-                        Your browser does not support HTML5 video.
-                    </video>
-                    <hr />
-                    <div class="formatFont12px">
-                        @Html.Raw(Item.会話の本)
-                    </div>
-                </td>
-            </tr>
-
-        }
-    </tbody>
+	<thead>
+		<tr style="color:black; font-weight:bold">
+			<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+			<th>会話</th>
+			<th><span class="glyphicon glyphicon-list">　ベトナム語</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (会話 Item in Model)
+		{
+			<tr>
+				<td>
+					<a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.会話ID })">
+						<span class="glyphicon glyphicon-edit"></span> @Item.会話ID
+					</a>
+				</td>
+				<td>
+					<video style="border: 2px solid #0094ff;" id="example_video_1" class="video-js vjs-default-skin" poster='/img/会話/@Item.会話の写真' data-setup="{}"
+						   controls preload="none" height="150">
+						<source src='~/audio/会話/@Item.会話Audio' type="audio/mpeg" />
+						Your browser does not support HTML5 video.
+					</video>
+				</td>
+				<td><span class="text-danger"></span> @Html.Raw(Item.第課.第課Subject)</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div class="formatFont12px">
+						@Html.Raw(Item.会話の本)
+					</div>
+				</td>
+				<td>
+					<div class="formatFont12px">
+						@Html.Raw(Item.ベトナム語)
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 
 <script src="~/Assets/lib/video-js/video.js"></script>
 <script>
-    $(function () {
-        $('table.display').dataTable({
-            responsive: true,
-            "bAutoWidth": false,
-            "ordering": false,
-            "aLengthMenu": [[1, 5, 10, -1], [1, 5, 10, "All"]],
-            "iDisplayLength": 1,
-        });
-        //
-        videojs.options.flash.swf = "video-js.swf";
-    });
-    
+	$(function () {
+		$('table.display').dataTable({
+			responsive: true,
+			"bAutoWidth": false,
+			"ordering": false,
+			"aLengthMenu": [[2, 4, 10, -1], [2, 4, 10, "All"]],
+			"iDisplayLength": 2,
+		});
+		//
+		videojs.options.flash.swf = "video-js.swf";
+	});
+
 </script>

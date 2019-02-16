@@ -328,7 +328,6 @@
 			</div>
 			<div class="tab-pane fade" id="renshuuC">
 				<br />
-				@{int c = 1;}
 				@foreach (練習C p in ViewBag.練習C)
 				{
 					<div id="練習Cdiv" class="well">
@@ -348,7 +347,7 @@
 									<li><button id="showHintRenshuuC" class="btn btn-sm btn-primary" data-id-show="@p.練習CID">ベトナム語</button></li>
 									<li>
 										<button class="btn btn-primary btn-sm detail-btn" data-toggle="modal" data-target="#myModalC" data-id-c="@p.練習CID">
-											@(c++)
+											見る
 										</button>
 									</li>
 								</ul>
@@ -370,14 +369,13 @@
 									<!-- /.modal-dialog -->
 								</div>
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6 formatFont12px">
 								<br />
 								@Html.Raw(@p.練習Cの本)
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-6 col-md-offset-5 bg-success showHintRenshuuC">
-								<br />
+							<div class="col-md-6 col-md-offset-5 bg-success showHintRenshuuC formatFont12px">
 								@Html.Raw(@p.ベトナム語)
 							</div>
 						</div>

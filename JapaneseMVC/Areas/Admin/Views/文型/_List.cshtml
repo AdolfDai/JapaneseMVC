@@ -1,46 +1,52 @@
 ﻿@using Model.EF
 
 <table class="table table-bordered table-hover table-responsive display">
-    <thead>
-        <tr>
-            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-            <th>文型</th>
-            <th>第課</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (文型 Item in Model)
-        {
+	<thead>
+		<tr>
+			<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+			<th>文型</th>
+			<th>第課</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (文型 Item in Model)
+		{
 
-            <tr>
+			<tr>
 
-                <td>
-                    <a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.文型ID })">
-                        <span class="glyphicon glyphicon-edit"></span> @Item.文型ID
-                    </a>
-                </td>
-                <td>
-                    @Html.Raw(Item.文型の本)
-                    @Html.Raw(Item.ベトナム語)
-                </td>
-                <td>
-                    @Item.第課.第課の名
-                    @Html.Raw(Item.第課.第課Subject)
-                </td>
-            </tr>
-
-        }
-    </tbody>
+				<td>
+					<a class="btn btn-sm btn-success" href="@Url.Action("Edit", new { Id = Item.文型ID })">
+						<span class="glyphicon glyphicon-edit"></span> @Item.文型ID
+					</a>
+				</td>
+				<td>
+					<div class="formatFont12px">
+						@Html.Raw(Item.文型の本)
+					</div>
+				</td>
+				<td>
+					@Html.Raw(Item.第課.第課Subject)
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					@Html.Raw(Item.ベトナム語)
+				</td>
+				<td></td>
+			</tr>
+		}
+	</tbody>
 </table>
 
 <script>
-    $(function () {
-        $('table.display').DataTable({
-            responsive: true,
-            "bAutoWidth": false,
-            "aLengthMenu": [[5, 10, 20, -1], [1, 5, 10, "All"]],
-            "iDisplayLength": 5,
-            "ordering": false
-        });
-    });
+	$(function () {
+		$('table.display').DataTable({
+			responsive: true,
+			"bAutoWidth": false,
+			"aLengthMenu": [[6, 12, 24, -1], [6, 12, 24, "All"]],
+			"iDisplayLength": 6,
+			"ordering": false
+		});
+	});
 </script>

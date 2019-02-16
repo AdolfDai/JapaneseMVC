@@ -32,16 +32,21 @@
 			@Html.Raw(Item.練習C2AnsVNI)
 		</div>
 	</div>
-	<br />
-	<div class="row">
-		<div class="col-md-6 changePx formatFont12px">
-			@Html.Raw(@Item.練習C3Ans)
+
+	if (Item.練習C3Ans != null && Item.練習C3AnsVNI != null)
+	{
+		<br />
+		<div class="row">
+			<div class="col-md-6 changePx formatFont12px">
+				@Html.Raw(@Item.練習C3Ans)
+			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6  col-md-offset-1 showHint bg-success formatFont12px">
-			@Html.Raw(Item.練習C3AnsVNI)
+		<div class="row">
+			<div class="col-md-6  col-md-offset-1 showHint bg-success formatFont12px">
+				@Html.Raw(Item.練習C3AnsVNI)
+			</div>
 		</div>
-	</div>
+	}
+
 }
 <script src="~/Assets/Client/MinnanoNihongoPage/ChangePxTool.js"></script>
