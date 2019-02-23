@@ -2,17 +2,18 @@
 
 <table class="table table-bordered table-hover table-responsive display">
     <thead>
-        <tr>
-            <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-            <th>漢字</th>
-            <th>ます形／辞書形</th>
-            <th>ません形／ない形</th>
-            <th>ました形／た形</th>
-            <th>ませんでした形／なかった形</th>
-            <th>て形</th>
-            <th>Group</th>
-            <th>ベトナム語</th>
-        </tr>
+		<tr>
+			<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+			<th>漢字</th>
+			<th>ます形／辞書形</th>
+			<th>ません形／ない形</th>
+			<th>ました形／た形</th>
+			<th>ませんでした形／なかった形</th>
+			<th>て形</th>
+			<th>可能形</th>
+			<th>Group</th>
+			<th>ベトナム語</th>
+		</tr>
     </thead>
     <tbody>
 
@@ -49,6 +50,7 @@
             <td>
                 @Item.て形
             </td>
+			<td>@Item.可能形</td>
             <td>@Item.Group動詞.GroupName</td>
             <td>@Item.ベトナム語</td>
         </tr>

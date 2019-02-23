@@ -18,195 +18,233 @@
         <li>
             <a href="#なかった形" data-toggle="tab">なかった形</a>
         </li>
+		<li>
+			<a href="#可能形" data-toggle="tab">可能形</a>
+		</li>
     </ul>
 
-    <div class="tab-content">
-        <div class="tab-pane fade active in" id="辞書形">
-            <br />
-            <table class="table table-bordered table-hover table-responsive display tblDoushi">
-                <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-                        <th>ます形</th>
-                        <th>辞書形</th>
-                        <th>漢字</th>
-                        <th>ベトナム語</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{int a = 1;}
-                    @foreach (N5動詞 Item in Model)
-                    {
+	<div class="tab-content">
+		<div class="tab-pane fade active in" id="辞書形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>辞書形</th>
+						<th>漢字</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{int a = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
 
-                        <tr>
+						<tr>
 
-                            <td>@(a++)</td>
-                            <td>
-                                @Item.ます形
-                            </td>
-                            <td style="color:#ff0000">
-                                @Item.辞書形
-                            </td>
-                            <td>@Item.漢字</td>
+							<td>@(a++)</td>
+							<td>
+								@Item.ます形
+							</td>
+							<td style="color:#ff0000">
+								@Item.辞書形
+							</td>
+							<td>@Item.漢字</td>
 
-                            <td>@Item.ベトナム語</td>
-                        </tr>
+							<td>@Item.ベトナム語</td>
+						</tr>
 
-                    }
-                </tbody>
-            </table>
-        </div>
+					}
+				</tbody>
+			</table>
+		</div>
 
-        <div class="tab-pane fade" id="て形">
-            <br />
-            <table class="table table-bordered table-hover table-responsive display tblDoushi">
-                <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-                        <th>ます形</th>
-                        <th>漢字</th>
-                        <th>て形</th>
-                        <th>ベトナム語</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{int b = 1;}
-                    @foreach (N5動詞 Item in Model)
-                    {
+		<div class="tab-pane fade" id="て形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>漢字</th>
+						<th>て形</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{int b = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
 
-                        <tr>
-                            <td>@(b++)</td>
-                            <td>
-                                @Item.ます形
-                            </td>
-                            <td>@Item.漢字</td>
+						<tr>
+							<td>@(b++)</td>
+							<td>
+								@Item.ます形
+							</td>
+							<td>@Item.漢字</td>
 
-                            <td style="color:red;">
-                                @Item.て形
-                            </td>
-                            <td>@Item.ベトナム語</td>
-                        </tr>
+							<td style="color:red;">
+								@Item.て形
+							</td>
+							<td>@Item.ベトナム語</td>
+						</tr>
 
-                    }
-                </tbody>
-            </table>
-        </div>
+					}
+				</tbody>
+			</table>
+		</div>
 
-        <div class="tab-pane fade formatFont12px" id="MASEN辞書形">
-            <br />
-            <table class="table table-bordered table-hover table-responsive display tblDoushi">
-                <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-                        <th>ます形</th>
-                        <th>ません形</th>
-                        <th>ない辞書形</th>
-                        <th>漢字</th>
-                        <th>ベトナム語</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int c = 1;}
-                    @foreach (N5動詞 Item in Model)
-                    {
+		<div class="tab-pane fade formatFont12px" id="MASEN辞書形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>ません形</th>
+						<th>ない辞書形</th>
+						<th>漢字</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{ int c = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
 
-                        <tr>
+						<tr>
 
-                            <td>@(c++)</td>
-                            <td>
-                                @Item.ます形
-                            </td>
+							<td>@(c++)</td>
+							<td>
+								@Item.ます形
+							</td>
 
-                            <td style="color:red;">
-                                @Item.ません形
-                            </td>
-                            <td style="color:blue;">
-                                @Item.ない形
-                            </td>
-                            <td>@Item.漢字</td>
-                            <td>@Item.ベトナム語</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+							<td style="color:red;">
+								@Item.ません形
+							</td>
+							<td style="color:blue;">
+								@Item.ない形
+							</td>
+							<td>@Item.漢字</td>
+							<td>@Item.ベトナム語</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
 
-        <div class="tab-pane fade" id="た形">
-            <br />
-            <table class="table table-bordered table-hover table-responsive display tblDoushi">
-                <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-                        <th>ます形</th>
-                        <th>た形</th>
-                        <th>た辞書形</th>
-                        <th>漢字</th>
-                        <th>ベトナム語</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int d = 1;}
-                    @foreach (N5動詞 Item in Model)
-                    {
+		<div class="tab-pane fade" id="た形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>た形</th>
+						<th>た辞書形</th>
+						<th>漢字</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{ int d = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
 
-                        <tr>
+						<tr>
 
-                            <td>@(d++)</td>
-                            <td>
-                                @Item.ます形
-                            </td>
-                            <td style="color:red;">
-                                @Item.ました形
-                            </td>
-                            <td style="color:blue;">
-                                @Item.た形
-                            </td>
-                            <td>@Item.漢字</td>
-                            <td>@Item.ベトナム語</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+							<td>@(d++)</td>
+							<td>
+								@Item.ます形
+							</td>
+							<td style="color:red;">
+								@Item.ました形
+							</td>
+							<td style="color:blue;">
+								@Item.た形
+							</td>
+							<td>@Item.漢字</td>
+							<td>@Item.ベトナム語</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
 
-        <div class="tab-pane fade" id="なかった形">
-            <br />
-            <table class="table table-bordered table-hover table-responsive display tblDoushi">
-                <thead>
-                    <tr>
-                        <th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
-                        <th>ます形</th>
-                        <th>ませんでした</th>
-                        <th>なかった辞書形</th>
-                        <th>漢字</th>
-                        <th>ベトナム語</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int e = 1;}
-                    @foreach (N5動詞 Item in Model)
-                    {
+		<div class="tab-pane fade" id="なかった形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>ませんでした</th>
+						<th>なかった辞書形</th>
+						<th>漢字</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{ int e = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
 
-                        <tr>
+						<tr>
 
-                            <td>@(e++)</td>
-                            <td>
-                                @Item.ます形
-                            </td>
-                            <td style="color:red;">
-                                @Item.ませんでした形
-                            </td>
-                            <td style="color:blue;">
-                                @Item.なかった形
-                            </td>
-                            <td>@Item.漢字</td>
-                            <td>@Item.ベトナム語</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+							<td>@(e++)</td>
+							<td>
+								@Item.ます形
+							</td>
+							<td style="color:red;">
+								@Item.ませんでした形
+							</td>
+							<td style="color:blue;">
+								@Item.なかった形
+							</td>
+							<td>@Item.漢字</td>
+							<td>@Item.ベトナム語</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+
+		<div class="tab-pane fade" id="可能形">
+			<br />
+			<table class="table table-bordered table-hover table-responsive display tblDoushi">
+				<thead>
+					<tr>
+						<th><span class="glyphicon glyphicon-sort-by-attributes"></span></th>
+						<th>ます形</th>
+						<th>漢字</th>
+						<th>可能形</th>
+						<th>ベトナム語</th>
+					</tr>
+				</thead>
+				<tbody>
+					@{int f = 1;}
+					@foreach (N5動詞 Item in Model)
+					{
+
+						<tr>
+							<td>@(f++)</td>
+							<td>
+								@Item.ます形
+							</td>
+							<td>@Item.漢字</td>
+
+							<td style="color:red;">
+								@Item.可能形
+							</td>
+							<td>@Item.ベトナム語</td>
+						</tr>
+
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
 <script>

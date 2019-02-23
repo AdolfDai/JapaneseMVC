@@ -102,21 +102,27 @@
                     @Html.ValidationMessageFor(model => model.なかった形, "", new { @class = "error" })
                 </div>
             </div>
-            <div class="row">
+			<div class="row">
 
-                <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.て形, "　て形", new { @class = "control-label" })
+				<div class="form-group col-md-3">
+					@Html.LabelFor(model => model.て形, "　て形", new { @class = "control-label" })
 
-                    @Html.TextBoxFor(model => model.て形, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.て形, "", new { @class = "error" })
-                </div>
-                <div class="form-group col-md-3">
-                    @Html.LabelFor(model => model.漢字, "　漢字", new { @class = "control-label" })
+					@Html.TextBoxFor(model => model.て形, new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.て形, "", new { @class = "error" })
+				</div>
+				<div class="form-group col-md-3">
+					@Html.LabelFor(model => model.可能形, "　可能形", new { @class = "control-label" })
 
-                    @Html.TextBoxFor(model => model.漢字, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.漢字, "", new { @class = "error" })
-                </div>
-            </div>
+					@Html.TextBoxFor(model => model.可能形, new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.可能形, "", new { @class = "error" })
+				</div>
+				<div class="form-group col-md-3">
+					@Html.LabelFor(model => model.漢字, "　漢字", new { @class = "control-label" })
+
+					@Html.TextBoxFor(model => model.漢字, new { @class = "form-control" })
+					@Html.ValidationMessageFor(model => model.漢字, "", new { @class = "error" })
+				</div>
+			</div>
             <div class="row">
             </div>
             <div class="row">

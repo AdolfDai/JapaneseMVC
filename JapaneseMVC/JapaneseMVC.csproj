@@ -152,6 +152,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Assets\Admin\js\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
